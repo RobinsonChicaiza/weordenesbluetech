@@ -48,7 +48,7 @@ class LoginController extends Controller
    
     public function handleProviderCallback($provider)
     {
-        $user = Socialite::driver($provider)->user();
+        $user = Socialite::driver('google')->user();
 
         $authUser = $this->findOrCreateUser($user, $provider);
         Auth::login($authUser, true);
@@ -61,10 +61,11 @@ class LoginController extends Controller
         if ($authUser) {
             return $authUser;
         }
+        
         return Perfil_login::create([
             'Nombres'     => $user->name,
             'Correo'    => $user->email,
-            'Url_Foto'    => $user->getAvatar,
+            'Url_Foto'    => $user->avatar,
             'provider' => $provider,
             'Id_Perfil' => $user->id
         ]);
