@@ -4,10 +4,10 @@
 <div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<form class="form-horizontal" method="POST" action="{{ url('/edit',array($cooperativas->Id)) }}">
+				<form class="form-horizontal" method="POST" action="{{ url('/editC',array($cooperativas->Id)) }}">
 					{{csrf_field()}}
 				  <fieldset>
-				    <legend>Laravel CRUD Application</legend>
+				    <legend>Actualizar Cooperativan</legend>
 				    @if(count($errors) >0 )
 				    	@foreach($errors->all() as $error)
 				    		<div class="alert alert-danger">
@@ -34,7 +34,6 @@
 				 	<div class="form-group">
 				 		<div class="col-lg-10 col-lg-offset-2">
 				 			<button type="submit" class="btn btn-primary">Update</button>
-
 
 				 			<a href="{{ url('/cooperativas')}}" class="btn btn-primary">Back</a>
 				 		</div>

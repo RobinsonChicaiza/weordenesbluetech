@@ -17,18 +17,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//Ruta para ir al perfil
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Rutas para el CRUD  de la tabla Cooperativas
 Route::get('/cooperativas','CooperativasController@index');
-
-Route::get('/agregarCooperativa', function(){
+Route::get('/agregarC', function(){
 	return view('cooperativas.agregar');
 });
-
-Route::post('/insert','CooperativasController@add');
-Route::get('/actualizar/{id}','CooperativasController@update');
-Route::post('/edit/{id}','CooperativasController@edit');
-Route::get('/borrar/{id}','CooperativasController@delete');
+Route::post('/insertC','CooperativasController@add');
+Route::get('/actualizarC/{id}','CooperativasController@update');
+Route::post('/editC/{id}','CooperativasController@edit');
+Route::get('/borrarC/{id}','CooperativasController@delete');
 
 
 Route::get('/departamentos','DepartamentosController@index');

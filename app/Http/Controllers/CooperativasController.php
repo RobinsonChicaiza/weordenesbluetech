@@ -23,7 +23,7 @@ class CooperativasController extends Controller
     	$articles->Nombre = $request->input('Nombre');
     	$articles->Ruc = $request->input('Ruc');
     	$articles->save();
-    	return redirect('/cooperativas')->with('info','Article Saved Successfully!');
+    	return redirect('/cooperativas')->with('info','El dato fue agregado correctamente!');
     } 
 
     public function update($id){
@@ -42,13 +42,13 @@ class CooperativasController extends Controller
     	);
     	Cooperativa::where('Id',$id)
     	->update($data);
-    	return redirect('/cooperativas')->with('info','Article Updated Successfully!');
+    	return redirect('/cooperativas')->with('info','El dato fue actualizado correctamente!');
     } 
 
 
     public function delete($id){
 		Cooperativa::where('Id',$id)
 		->delete();
-		return redirect('/cooperativas')->with('info','Article Deleted Successfully!');
+		return redirect('/cooperativas')->with('info','El dato fue eliminado correctamente!');
     } 
 }
