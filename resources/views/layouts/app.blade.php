@@ -41,6 +41,9 @@
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ url('/cooperativas')}}">Cooperativas</a>
                                     <a class="dropdown-item" href="{{ url('/departamentos')}}">Departamentos</a>
+                                    <a class="dropdown-item" href="{{ url('/tiposmarcas')}}">Tipos marcas</a>
+                                    <a class="dropdown-item" href="{{ url('/roles')}}">Roles</a>
+                                    <a class="dropdown-item" href="{{ url('/buses')}}">Buses</a>
                                     <a class="dropdown-item" href="#">Proveedores</a>
                     
                                     </div>

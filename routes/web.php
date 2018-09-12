@@ -48,3 +48,15 @@ Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallb
 
 
 Route::get('/marcas','MarcaController@todoDepartamentos');
+
+//Rutas para el CRUD  de la tabla Tipos Marcas
+Route::get('/tiposmarcas','TiposmarcasController@index');
+
+Route::get('/agregarT', function(){
+	return view('tiposmarcas.agregar');
+});
+
+Route::post('/insertT','TiposmarcasController@add');
+Route::get('/actualizarT/{id}','TiposmarcasController@update');
+Route::post('/editT/{id}','TiposmarcasController@edit');
+Route::get('/borrarT/{id}','TiposmarcasController@delete');
