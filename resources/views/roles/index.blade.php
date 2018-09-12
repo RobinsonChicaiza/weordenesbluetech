@@ -38,8 +38,8 @@
 							<td>{{ $article->Nombre }}</td>
                             <td>{{ $article->Sueldo }}</td>
 							<td class="text-center">
-								<a href='{{ url("actualizar/{$article->Id}") }}' ><img src="imagenes/actu.png"></a> |
-								<a href='{{ url("borrar/{$article->Id}") }}' onclick="return confirm('Esta seguro que desea eliminar el dato?');"><img src="imagenes/elim.png"></a> 
+								<a href='{{ url("actualizarR/{$article->Id}") }}' ><img src="imagenes/actu.png"></a> |
+								<a href='{{ url("borrarR/{$article->Id}") }}' onclick="return confirm('Esta seguro que desea eliminar el dato?');"><img src="imagenes/elim.png"></a> 
 							</td>
 						</tr>
 						

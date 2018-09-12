@@ -80,7 +80,7 @@ Route::get('/agregarR', 'RolesController@agregar');
 Route::post('/insertR','RolesController@add');
 
 
-
+Route::get('/borrarR/{id}','RolesController@delete');
 
 
 

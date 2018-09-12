@@ -49,4 +49,30 @@ class RolesController extends Controller
     	return redirect('/roles')->with('info','Article Saved Successfully!');
     } 
 
+    public function update($id){
+    	$roles = Rol::find($id);
+    	return view('roles.actualizar')->with(['roles' => $roles]);    	
+    } 
+
+    public function edit(Request $request, $id){
+    	$this->validate($request,[
+            'Id_Departamento' => 'required',
+    		'Nombre' => 'required',
+    		'Sueldo' => 'required'
+    	]);
+    	$data = array(
+            'Id_Departamento' => $request->input('Id_Departamento'),
+			'Nombre' => $request->input('Nombre'),
+    		'Sueldo' => $request->input('Sueldo')
+    	);
+    	Rol::where('Id',$id)->update($data);
+    	return redirect('/roles')->with('info','El dato fue actualizado correctamente!');
+    } 
+
+    public function delete($id){
+		Rol::where('Id',$id)
+		->delete();
+		return redirect('/roles')->with('info','Article Deleted Successfully!');
+    } 
+
 }
