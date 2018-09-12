@@ -33,4 +33,20 @@ class RolesController extends Controller
         return view('roles.agregar')->with(['departament' => $departamentos]);
     }
 
+
+    public function add(Request $request){
+    	$this->validate($request,[
+            'Id_Departamento' => 'required',
+            'Nombre' => 'required',
+            'Sueldo' => 'required'
+    	]);
+
+        $articles = new Rol;
+        $articles->Id_Departamento = $request->input('Id_Departamento');
+        $articles->Nombre = $request->input('Nombre');
+        $articles->Sueldo = $request->input('Sueldo');
+    	$articles->save();
+    	return redirect('/roles')->with('info','Article Saved Successfully!');
+    } 
+
 }
