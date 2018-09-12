@@ -21,6 +21,16 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/perfil/{id}', 'PerfilController@index');
 
+//Espacio LIBRE. ROBIN
+
+
+
+
+
+
+
+
+
 //Rutas para el CRUD  de la tabla Cooperativas
 Route::get('/cooperativas','CooperativasController@index');
 Route::get('/agregarC', function(){
