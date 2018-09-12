@@ -31,17 +31,17 @@ Route::get('/actualizarC/{id}','CooperativasController@update');
 Route::post('/editC/{id}','CooperativasController@edit');
 Route::get('/borrarC/{id}','CooperativasController@delete');
 
-
+//Rutas para el CRUD  de la tabla Departamentos
 Route::get('/departamentos','DepartamentosController@index');
 
-Route::get('/agregar', function(){
+Route::get('/agregarD', function(){
 	return view('departamentos.agregar');
 });
 
-Route::post('/insert','DepartamentosController@add');
-Route::get('/actualizar/{id}','DepartamentosController@update');
-Route::post('/edit/{id}','DepartamentosController@edit');
-Route::get('/borrar/{id}','DepartamentosController@delete');
+Route::post('/insertD','DepartamentosController@add');
+Route::get('/actualizarD/{id}','DepartamentosController@update');
+Route::post('/editD/{id}','DepartamentosController@edit');
+Route::get('/borrarD/{id}','DepartamentosController@delete');
 
 //Social
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
@@ -49,3 +49,30 @@ Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallb
 
 
 Route::get('/marcas','MarcaController@todoDepartamentos');
+
+//Rutas para el CRUD  de la tabla Tipos Marcas
+Route::get('/tiposmarcas','TiposmarcasController@index');
+
+Route::get('/agregarT', function(){
+	return view('tiposmarcas.agregar');
+});
+
+Route::post('/insertT','TiposmarcasController@add');
+Route::get('/actualizarT/{id}','TiposmarcasController@update');
+Route::post('/editT/{id}','TiposmarcasController@edit');
+Route::get('/borrarT/{id}','TiposmarcasController@delete');
+
+
+//Rutas para el CRUD  de la tabla Roles
+Route::get('/roles','RolesController@index');
+
+Route::get('/agregarR', 'RolesController@agregar');
+
+
+
+
+
+
+
+//Rutas para el CRUD  de la tabla Buses
+Route::get('/buses','BusesController@index');

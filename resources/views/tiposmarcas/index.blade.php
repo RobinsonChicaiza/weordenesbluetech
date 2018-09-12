@@ -4,7 +4,7 @@
 
 <div class="container">
 		<div class="row">
-			<legend>Departamento</legend>
+			<legend>TipoMarca</legend>
 			<div class="row">
 				<div class="col-md-30 col-lg-30">
 					@if(session('info'))
@@ -18,23 +18,23 @@
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th>Nombre</th>
+						<th>Nomnre</th>
 						<th class="text-center" >
-						<a href='{{ url("agregarD") }}'>
+						<a href='{{ url("agregarT") }}'>
 						<img src="imagenes/add.png">
 						</a>
 						</th>
 					</tr>
 				</thead>
 				<tbody>
-					@if(count($departamentos) > 0)
-						@foreach($departamentos->all() as $article)
+					@if(count($tiposmarcas) > 0)
+						@foreach($tiposmarcas->all() as $article)
 						<tr>
 							<td>{{ $article->Id }}</td>
 							<td>{{ $article->Nombre }}</td>
 							<td class="text-center">
-								<a href='{{ url("actualizarD/{$article->Id}") }}'><img src="imagenes/actu.png"></a> |
-								<a href='{{ url("borrarD/{$article->Id}") }}' onclick="return confirm('Esta seguro que desea eliminar el dato?');"><img src="imagenes/elim.png"></a> 
+								<a href='{{ url("actualizarT/{$article->Id}") }}'><img src="imagenes/actu.png"></a> |
+								<a href='{{ url("borrarT/{$article->Id}") }}' onclick="return confirm('Esta seguro que desea eliminar el dato?');"><img src="imagenes/elim.png"></a> 
 							</td>
 						</tr>
 						@endforeach
