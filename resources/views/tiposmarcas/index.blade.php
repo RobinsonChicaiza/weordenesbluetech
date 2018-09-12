@@ -32,9 +32,9 @@
 						<tr>
 							<td>{{ $article->Id }}</td>
 							<td>{{ $article->Nombre }}</td>
-							<td>
+							<td class="text-center">
 								<a href='{{ url("actualizarT/{$article->Id}") }}'><img src="imagenes/actu.png"></a> |
-								<a href='{{ url("borrarT/{$article->Id}") }}' class="btn btn-danger"  onclick="return confirm('Esta seguro que desea eliminar el dato?');">Borrar</a> 
+								<a href='{{ url("borrarT/{$article->Id}") }}' onclick="return confirm('Esta seguro que desea eliminar el dato?');"><img src="imagenes/elim.png"></a> 
 							</td>
 						</tr>
 						@endforeach
