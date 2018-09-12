@@ -39,7 +39,7 @@
 							<td>{{ $article->Id }}</td>
 							<td>{{ $article->Id_Cooperativa }}</td>
 							<td>{{ $article->Placa }}</td>
-                            <td>{{ $article->Marca_Chasis }}</td>
+                            <td>{{ $article->Id_Marca }}</td>
                             <td>{{ $article->Serie_Chasis }}</td>
                             <td>{{ $article->Anio }}</td>
                             <td>{{ $article->N_Disco }}</td>
