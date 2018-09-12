@@ -60,3 +60,11 @@ Route::post('/insertT','TiposmarcasController@add');
 Route::get('/actualizarT/{id}','TiposmarcasController@update');
 Route::post('/editT/{id}','TiposmarcasController@edit');
 Route::get('/borrarT/{id}','TiposmarcasController@delete');
+
+
+//Rutas para el CRUD  de la tabla Roles
+Route::get('/roles','RolesController@index');
+
+Route::get('/agregarR', function(){
+	return view('roles.agregar');
+});
