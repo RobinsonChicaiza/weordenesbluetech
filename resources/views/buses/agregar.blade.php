@@ -86,7 +86,7 @@
 				 	<div class="form-group">
 				 		<div class="col-lg-10 col-lg-offset-2">
 				 			<button type="submit" class="btn btn-primary">Submit</button>
-				 			<a href="{{ url('/roles')}}" class="btn btn-primary">Back</a>
+				 			<a href="{{ url('/buses')}}" class="btn btn-primary">Back</a>
 				 		</div>
 				 	</div>
 				  </fieldset>
