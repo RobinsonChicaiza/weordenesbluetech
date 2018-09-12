@@ -67,7 +67,7 @@ Route::get('/borrarT/{id}','TiposmarcasController@delete');
 Route::get('/roles','RolesController@index');
 
 Route::get('/agregarR', 'RolesController@agregar');
-
+Route::post('/insertR','RolesController@add');
 
 
 

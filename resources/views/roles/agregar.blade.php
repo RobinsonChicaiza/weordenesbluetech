@@ -4,7 +4,7 @@
 <div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<form class="form-horizontal" method="post" action="{{ url('/insert')}}">
+				<form class="form-horizontal" method="post" action="{{ url('/insertR')}}">
 					{{csrf_field()}}
 				  <fieldset>
 				    <legend>Laravel CRUD Application</legend>
@@ -56,7 +56,7 @@
 				 	<div class="form-group">
 				 		<div class="col-lg-10 col-lg-offset-2">
 				 			<button type="submit" class="btn btn-primary">Submit</button>
-				 			<a href="{{ url('/')}}" class="btn btn-primary">Back</a>
+				 			<a href="{{ url('/roles')}}" class="btn btn-primary">Back</a>
 				 		</div>
 				 	</div>
 				  </fieldset>
