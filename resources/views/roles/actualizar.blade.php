@@ -4,10 +4,10 @@
 <div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<form class="form-horizontal" method="POST" action="{{ url('/editC',array($cooperativas->Id)) }}">
+				<form class="form-horizontal" method="POST" action="{{ url('/editR',array($roles->Id)) }}">
 					{{csrf_field()}}
 				  <fieldset>
-				    <legend>Actualizar Roles</legend>
+				    <legend>Actualizar Cooperativan</legend>
 				    @if(count($errors) >0 )
 				    	@foreach($errors->all() as $error)
 				    		<div class="alert alert-danger">
@@ -15,16 +15,32 @@
 				    		</div>
 				    	@endforeach
 				    @endif
+					<div class="form-group">
+				      <label for="exampleInputEmail1" class="col-lg-2 control-label">Departamento</label>
+				      <div class="col-lg-10">
+				      	
+					  <select class="form-control" name="Id_Departamento" class="form-group">
+                            @foreach($departament as $departamento)
+                                <option value="{{$departamento->Id}}">
+                                    {{$departamento->Nombre}}
+                                </option>
+				    		  
+				    	    @endforeach
+                        </select>
+
+				      </div>
+				 	</div>
+
 				    <div class="form-group">
 				      <label for="exampleInputEmail1" class="col-lg-2 control-label">Nombre</label>
 				      <div class="col-lg-10">
-				      	<input type="text" name="Nombre" class="form-control" id="Nombre" placeholder="Cooperativa" value="<?php echo $cooperativas->Nombre; ?>">
+				      	<input type="text" name="Nombre" class="form-control" id="Nombre" placeholder="Rol" value="<?php echo $roles->Nombre; ?>">
 				      </div>
 				 	</div>
 				 	<div class="form-group">
-				      <label for="exampleInputEmail1" class="col-lg-2 control-label">Ruc</label>
+				      <label for="exampleInputEmail1" class="col-lg-2 control-label">Sueldo</label>
 				      <div class="col-lg-10">
-					  <input type="text" name="Ruc" class="form-control" id="Ruc" placeholder="Ruc" value="<?php echo $cooperativas->Ruc; ?>">
+					  <input type="text" name="Sueldo" class="form-control" id="Sueldo" placeholder="Sueldo" value="<?php echo $roles->Sueldo; ?>">
 				      	
 				      		
 				      	</textarea>
