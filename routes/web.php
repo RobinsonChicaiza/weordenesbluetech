@@ -86,3 +86,6 @@ Route::get('/borrarR/{id}','RolesController@delete');
 
 //Rutas para el CRUD  de la tabla Buses
 Route::get('/buses','BusesController@index');
+Route::get('/agregarB', 'BusesController@agregar');
+Route::post('/insertB','BusesController@add');
+Route::get('/borrarB/{id}','BusesController@delete');

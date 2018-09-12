@@ -41,4 +41,40 @@ class BusesController extends Controller
         
     }
 
+    public function agregar(){
+        $cooperativas = Cooperativa::all();
+        $marcas = Marca::all();
+
+        return view('buses.agregar')->with(['cooperativ' => $cooperativas, 'marc' => $marcas]);
+    }
+
+
+    public function add(Request $request){
+    	$this->validate($request,[
+            'Id_Cooperativa' => 'required',
+            'Placa' => 'required',
+            'Serie_Chasis' => 'required',
+            'Anio' => 'required',
+            'N_Disco' => 'required',
+            'Id_Marca' => 'required'
+    	]);
+
+        $articles = new Bus;
+        $articles->Id_Cooperativa = $request->input('Id_Cooperativa');
+        $articles->Placa = $request->input('Placa');
+        $articles->Serie_Chasis = $request->input('Serie_Chasis');
+        $articles->Anio = $request->input('Anio');
+        $articles->N_Disco = $request->input('N_Disco');
+        $articles->Id_Marca = $request->input('Id_Marca');
+    	$articles->save();
+    	return redirect('/buses')->with('info','Article Saved Successfully!');
+    } 
+
+
+    public function delete($id){
+		Bus::where('Id',$id)
+		->delete();
+		return redirect('/buses')->with('info','Article Deleted Successfully!');
+    } 
+
 }
