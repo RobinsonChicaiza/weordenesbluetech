@@ -68,3 +68,12 @@ Route::get('/roles','RolesController@index');
 Route::get('/agregarR', function(){
 	return view('roles.agregar');
 });
+
+
+
+
+
+
+
+//Rutas para el CRUD  de la tabla Buses
+Route::get('/buses','BusesController@index');
