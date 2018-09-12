@@ -6,15 +6,15 @@ use Illuminate\Http\Request;
 use App\Bus;
 use App\Cooperativa;
 use App\Marca;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class BusesController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
-    }
+        $this->middleware('auth');
+	}
 
     public function index(){
         $buses = Bus::all();
