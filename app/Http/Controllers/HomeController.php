@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Persona;
@@ -25,7 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $persona = Persona::find(1);
+        $correo = \Session::pull('correo');       
+        $persona = Persona::where('Correo', $correo)->first();
 
         return view('home')->with(['persona' => $persona]);
     }

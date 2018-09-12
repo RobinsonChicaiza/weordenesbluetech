@@ -43,7 +43,7 @@
                         <!-- Authentication Links -->
                             <li class="nav-item">
                             @auth
-                            <a class="nav-link" href="{{ url('/home') }}">Inicio</a>
+                             <a class="nav-link" href="{{ url('/home') }}">Inicio</a>
                             @else
                             </li>
                             <li class="nav-item">

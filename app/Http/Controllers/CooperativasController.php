@@ -1,12 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Cooperativa;
 
 class CooperativasController extends Controller
 {
+	public function __construct()
+    {
+        $this->middleware('auth');
+	}
+	
     public function index(){
     	$cooperativas = Cooperativa::all();
 		return view('cooperativas.index')->with(['cooperativas' => $cooperativas]);
@@ -40,8 +46,7 @@ class CooperativasController extends Controller
 			'Nombre' => $request->input('Nombre'),
     		'Ruc' => $request->input('Ruc')
     	);
-    	Cooperativa::where('Id',$id)
-    	->update($data);
+    	Cooperativa::where('Id',$id)->update($data);
     	return redirect('/cooperativas')->with('info','El dato fue actualizado correctamente!');
     } 
 

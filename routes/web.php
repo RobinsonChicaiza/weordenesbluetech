@@ -19,6 +19,7 @@ Auth::routes();
 
 //Ruta para ir al perfil
 Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/perfil/{id}', 'PerfilController@index');
 
 //Rutas para el CRUD  de la tabla Cooperativas
 Route::get('/cooperativas','CooperativasController@index');
