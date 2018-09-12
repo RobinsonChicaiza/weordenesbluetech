@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Persona;
+use Cookie;
 
 
 class HomeController extends Controller
@@ -26,9 +27,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $correo = \Session::pull('correo');       
+        
+        $correo = Cookie::get('Cookie1');
+   
         $persona = Persona::where('Correo', $correo)->first();
 
         return view('home')->with(['persona' => $persona]);
+        //return $correo2;
     }
 }

@@ -9,9 +9,9 @@
                 <div class="card-header">Perfil de usuario</div>
 
                 <div class="card-body">
-                    @if (session('status'))
+                    @if (session('info'))
                         <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                            {{ session('info') }}
                         </div>
                     @endif
                     <div class="container">
