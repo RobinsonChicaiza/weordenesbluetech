@@ -30,17 +30,17 @@ Route::get('/actualizarC/{id}','CooperativasController@update');
 Route::post('/editC/{id}','CooperativasController@edit');
 Route::get('/borrarC/{id}','CooperativasController@delete');
 
-
+//Rutas para el CRUD  de la tabla Departamentos
 Route::get('/departamentos','DepartamentosController@index');
 
-Route::get('/agregar', function(){
+Route::get('/agregarD', function(){
 	return view('departamentos.agregar');
 });
 
-Route::post('/insert','DepartamentosController@add');
-Route::get('/actualizar/{id}','DepartamentosController@update');
-Route::post('/edit/{id}','DepartamentosController@edit');
-Route::get('/borrar/{id}','DepartamentosController@delete');
+Route::post('/insertD','DepartamentosController@add');
+Route::get('/actualizarD/{id}','DepartamentosController@update');
+Route::post('/editD/{id}','DepartamentosController@edit');
+Route::get('/borrarD/{id}','DepartamentosController@delete');
 
 //Social
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');

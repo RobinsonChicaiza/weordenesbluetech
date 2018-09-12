@@ -18,8 +18,12 @@
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th>Nomnre</th>
-						<th>Action</th>
+						<th>Nombre</th>
+						<th class="text-center" >
+						<a href='{{ url("agregarD") }}'>
+						<img src="imagenes/add.png">
+						</a>
+						</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -28,10 +32,9 @@
 						<tr>
 							<td>{{ $article->Id }}</td>
 							<td>{{ $article->Nombre }}</td>
-							<td>
-								<a href='{{ url("agregar") }}' class="btn btn-primary">Agregar</a> |
-								<a href='{{ url("actualizar/{$article->Id}") }}' class="btn btn-success">Actualizar</a> |
-								<a href='{{ url("borrar/{$article->Id}") }}' class="btn btn-danger"  onclick="return confirm('Are you sure you want to delete this item?');">Borrar</a> 
+							<td class="text-center">
+								<a href='{{ url("actualizarD/{$article->Id}") }}'><img src="imagenes/actu.png"></a> |
+								<a href='{{ url("borrarD/{$article->Id}") }}' onclick="return confirm('Esta seguro que desea eliminar el dato?');"><img src="imagenes/elim.png"></a> 
 							</td>
 						</tr>
 						@endforeach

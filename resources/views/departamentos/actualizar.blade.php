@@ -4,7 +4,7 @@
 <div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<form class="form-horizontal" method="POST" action="{{ url('/edit',array($departamentos->Id)) }}">
+				<form class="form-horizontal" method="POST" action="{{ url('/editD',array($departamentos->Id)) }}">
 					{{csrf_field()}}
 				  <fieldset>
 				    <legend>Laravel CRUD Application</legend>
