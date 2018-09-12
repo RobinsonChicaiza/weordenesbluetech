@@ -27,4 +27,10 @@ class RolesController extends Controller
         
     }
 
+    public function agregar(){
+        $departamentos = Departamento::all();
+
+        return view('roles.agregar')->with(['departament' => $departamentos]);
+    }
+
 }

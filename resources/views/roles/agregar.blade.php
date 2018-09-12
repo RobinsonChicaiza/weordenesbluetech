@@ -26,7 +26,7 @@
 				      <div class="col-lg-10">
 				      	
 					  <select class="form-control" name="Id_Departamento" class="form-group">
-                            @foreach($departamentos as $departamento)
+                            @foreach($departament as $departamento)
                                 <option value="{{$departamento->Id}}">
                                     {{$departamento->Nombre}}
                                 </option>
@@ -45,7 +45,12 @@
 				      </div>
 				 	</div>
 
-					 
+					 <div class="form-group">
+				      <label for="exampleInputEmail1" class="col-lg-2 control-label">Sueldo</label>
+				      <div class="col-lg-10">
+				      	<input type="text" name="Sueldo" class="form-control" id="Sueldo" placeholder="Sueldo..">
+				      </div>
+				 	</div>
                      
 				 	
 				 	<div class="form-group">

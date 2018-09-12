@@ -65,9 +65,7 @@ Route::get('/borrarT/{id}','TiposmarcasController@delete');
 //Rutas para el CRUD  de la tabla Roles
 Route::get('/roles','RolesController@index');
 
-Route::get('/agregarR', function(){
-	return view('roles.agregar');
-});
+Route::get('/agregarR', 'RolesController@agregar');
 
 
 
