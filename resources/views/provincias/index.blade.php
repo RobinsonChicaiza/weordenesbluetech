@@ -4,7 +4,7 @@
 
 <div class="container">
 		<div class="row">
-			<legend>Regiones</legend>
+			<legend>Provincias</legend>
 			<div class="row">
 				<div class="col-md-30 col-lg-30">
 					@if(session('info'))
@@ -18,25 +18,29 @@
 				<thead>
 					<tr>
 						<th>ID</th>
+                        <th>Region</th>
 						<th>Nombre</th>
 						<th class="text-center" >
-						<a href='{{ url("agregarRe") }}'>
+						<a href='{{ url("agregarPr") }}'>
 						<img src="imagenes/add.png">
 						</a>
 						</th>
 					</tr>
 				</thead>
 				<tbody>
-					@if(count($regiones) > 0)
-						@foreach($regiones->all() as $article)
+					@if(count($provincias) > 0)
+						@foreach($provincias as $article)
+						
 						<tr>
 							<td>{{ $article->Id }}</td>
+							<td>{{ $article->Id_Region }}</td>
 							<td>{{ $article->Nombre }}</td>
 							<td class="text-center">
-								<a href='{{ url("actualizarRe/{$article->Id}") }}'><img src="imagenes/actu.png"></a> |
-								<a href='{{ url("borrarRe/{$article->Id}") }}' onclick="return confirm('Esta seguro que desea eliminar el dato?');"><img src="imagenes/elim.png"></a> 
+								<a href='{{ url("actualizarPr/{$article->Id}") }}' ><img src="imagenes/actu.png"></a> |
+								<a href='{{ url("borrarPr/{$article->Id}") }}' onclick="return confirm('Esta seguro que desea eliminar el dato?');"><img src="imagenes/elim.png"></a> 
 							</td>
 						</tr>
+						
 						@endforeach
 					@endif
 				</tbody>

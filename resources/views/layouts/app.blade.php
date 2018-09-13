@@ -44,8 +44,10 @@
                                     <a class="dropdown-item" href="{{ url('/tiposmarcas')}}">Tipos marcas</a>
                                     <a class="dropdown-item" href="{{ url('/roles')}}">Roles</a>
                                     <a class="dropdown-item" href="{{ url('/buses')}}">Buses</a>
+                                    <a class="dropdown-item" href="{{ url('/regiones')}}">Regiones</a>
+                                    <a class="dropdown-item" href="{{ url('/provincias')}}">Provincias</a>
                                     <a class="dropdown-item" href="#">Proveedores</a>
-                    
+
                                     </div>
                                 </li>
                         

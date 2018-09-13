@@ -89,3 +89,27 @@ Route::get('/buses','BusesController@index');
 Route::get('/agregarB', 'BusesController@agregar');
 Route::post('/insertB','BusesController@add');
 Route::get('/borrarB/{id}','BusesController@delete');
+
+
+
+//Rutas para el CRUD  de la tabla Regiones
+Route::get('/regiones','RegionesController@index');
+
+Route::get('/agregarRe', function(){
+	return view('regiones.agregar');
+});
+
+Route::post('/insertRe','RegionesController@add');
+Route::get('/actualizarRe/{id}','RegionesController@update');
+Route::post('/editRe/{id}','RegionesController@edit');
+Route::get('/borrarRe/{id}','RegionesController@delete');
+
+
+//Rutas para el CRUD  de la tabla Provincias
+Route::get('/provincias','ProvinciasController@index');
+
+Route::get('/agregarPr', 'ProvinciasController@agregar');
+Route::post('/insertPr','ProvinciasController@add');
+Route::get('/actualizarPr/{id}','ProvinciasController@update');
+Route::post('/editPr/{id}','ProvinciasController@edit');
+Route::get('/borrarPr/{id}','ProvinciasController@delete');

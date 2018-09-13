@@ -10,8 +10,8 @@ class RegionesController extends Controller
 {
  
     public function index(){
-    	$Regiones = Region::all();
-        return view('Regiones.index')->with(['Regiones' => $Regiones]);
+    	$regiones = Region::all();
+        return view('regiones.index')->with(['regiones' => $regiones]);
     	
     }
 
@@ -23,12 +23,12 @@ class RegionesController extends Controller
     	$articles = new Region;
     	$articles->Nombre = $request->input('Nombre');
     	$articles->save();
-    	return redirect('/Regiones')->with('info','Article Saved Successfully!');
+    	return redirect('/regiones')->with('info','Article Saved Successfully!');
     } 
 
     public function update($id){
-    	$Regiones = Region::find($id);
-    	return view('Regiones.actualizar')->with(['Regiones' => $Regiones]);    	
+    	$regiones = Region::find($id);
+    	return view('regiones.actualizar')->with(['regiones' => $regiones]);    	
     } 
 
     public function edit(Request $request, $id){
@@ -40,13 +40,13 @@ class RegionesController extends Controller
     	);
     	Region::where('Id',$id)
     	->update($data);
-    	return redirect('/Regiones')->with('info','Article Updated Successfully!');
+    	return redirect('/regiones')->with('info','Article Updated Successfully!');
     } 
 
 
     public function delete($id){
 		Region::where('Id',$id)
 		->delete();
-		return redirect('/Regiones')->with('info','Article Deleted Successfully!');
+		return redirect('/regiones')->with('info','Article Deleted Successfully!');
     } 
 }

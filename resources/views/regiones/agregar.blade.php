@@ -4,7 +4,7 @@
 <div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<form class="form-horizontal" method="post" action="{{ url('/insertD')}}">
+				<form class="form-horizontal" method="post" action="{{ url('/insertRe')}}">
 					{{csrf_field()}}
 				  <fieldset>
 				    <legend>Laravel CRUD Application</legend>
@@ -18,14 +18,14 @@
 				    <div class="form-group">
 				      <label for="exampleInputEmail1" class="col-lg-2 control-label">Nombre</label>
 				      <div class="col-lg-10">
-				      	<input type="text" name="Nombre" class="form-control" id="Nombre" placeholder="Departamento..">
+				      	<input type="text" name="Nombre" class="form-control" id="Nombre" placeholder="Regiones..">
 				      </div>
 				 	</div>
 				 	
 				 	<div class="form-group">
 				 		<div class="col-lg-10 col-lg-offset-2">
 				 			<button type="submit" class="btn btn-primary">Submit</button>
-				 			<a href="{{ url('/departamentos')}}" class="btn btn-primary">Back</a>
+				 			<a href="{{ url('/regiones')}}" class="btn btn-primary">Back</a>
 				 		</div>
 				 	</div>
 				  </fieldset>
