@@ -9,6 +9,6 @@ class Marca extends Model
     protected $table = 'marcas';
 
     protected $fillable = [
-        'Id_Tipo', 'Nombre',
+        'Id','Id_Tipo', 'Nombre',
     ];
 }

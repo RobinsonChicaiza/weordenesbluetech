@@ -123,3 +123,12 @@ Route::post('/insertCa','CantonesController@add');
 Route::get('/actualizarCa/{id}','CantonesController@update');
 Route::post('/editCa/{id}','CantonesController@edit');
 Route::get('/borrarCa/{id}','CantonesController@delete');
+
+//Rutas para el CRUD  de la tabla Marcas
+Route::get('/marcas','MarcasController@index');
+
+Route::get('/agregarMa', 'MarcasController@agregar');
+Route::post('/insertMa','MarcasController@add');
+Route::get('/actualizarMa/{id}','MarcasController@update');
+Route::post('/editMa/{id}','MarcasController@edit');
+Route::get('/borrarMa/{id}','MarcasController@delete');
