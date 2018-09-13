@@ -46,6 +46,7 @@
                                     <a class="dropdown-item" href="{{ url('/buses')}}">Buses</a>
                                     <a class="dropdown-item" href="{{ url('/regiones')}}">Regiones</a>
                                     <a class="dropdown-item" href="{{ url('/provincias')}}">Provincias</a>
+                                    <a class="dropdown-item" href="{{ url('/cantones')}}">Cantones</a>
                                     <a class="dropdown-item" href="#">Proveedores</a>
 
                                     </div>

@@ -113,3 +113,13 @@ Route::post('/insertPr','ProvinciasController@add');
 Route::get('/actualizarPr/{id}','ProvinciasController@update');
 Route::post('/editPr/{id}','ProvinciasController@edit');
 Route::get('/borrarPr/{id}','ProvinciasController@delete');
+
+
+//Rutas para el CRUD  de la tabla Cantones
+Route::get('/cantones','CantonesController@index');
+
+Route::get('/agregarCa', 'CantonesController@agregar');
+Route::post('/insertCa','CantonesController@add');
+Route::get('/actualizarCa/{id}','CantonesController@update');
+Route::post('/editCa/{id}','CantonesController@edit');
+Route::get('/borrarCa/{id}','CantonesController@delete');

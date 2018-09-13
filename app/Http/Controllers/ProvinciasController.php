@@ -46,4 +46,11 @@ class ProvinciasController extends Controller
     	return redirect('/provincias')->with('info','Article Saved Successfully!');
     } 
 
+
+    public function delete($id){
+		Provincia::where('Id',$id)
+		->delete();
+		return redirect('/provincias')->with('info','Article Deleted Successfully!');
+    } 
+
 }
