@@ -132,3 +132,15 @@ Route::post('/insertMa','MarcasController@add');
 Route::get('/actualizarMa/{id}','MarcasController@update');
 Route::post('/editMa/{id}','MarcasController@edit');
 Route::get('/borrarMa/{id}','MarcasController@delete');
+
+//Rutas para el CRUD  de la tabla Impuestos
+Route::get('/impuestos','ImpuestosController@index');
+
+Route::get('/agregarIm', function(){
+	return view('impuestos.agregar');
+});
+
+Route::post('/insertIm','ImpuestosController@add');
+Route::get('/actualizarIm/{id}','ImpuestosController@update');
+Route::post('/editIm/{id}','ImpuestosController@edit');
+Route::get('/borrarIm/{id}','ImpuestosController@delete');
