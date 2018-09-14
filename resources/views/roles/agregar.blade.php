@@ -7,18 +7,14 @@
 				<form class="form-horizontal" method="post" action="{{ url('/insertR')}}">
 					{{csrf_field()}}
 				  <fieldset>
-				    <legend>Laravel CRUD Application</legend>
+				    <legend>Agrer Rol</legend>
 				    @if(count($errors) >0 )
 				    	@foreach($errors->all() as $error)
 				    		<div class="alert alert-danger">
 				    			{{$error}}
 				    		</div>
 				    	@endforeach
-				    @endif
-
-
-
-                   
+				    @endif                   
 
 
 					<div class="form-group">
@@ -26,8 +22,9 @@
 				      <div class="col-lg-10">
 				      	
 					  <select class="form-control" name="Id_Departamento" class="form-group">
+					  <option selected="true" disabled="disabled">Seleccione el departamento</option>
                             @foreach($departament as $departamento)
-                                <option value="{{$departamento->Id}}">
+                                <option value="{{ $departamento->Id }}">
                                     {{$departamento->Nombre}}
                                 </option>
 				    		  
