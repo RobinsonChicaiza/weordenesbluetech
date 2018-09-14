@@ -49,7 +49,7 @@
                                     <a class="dropdown-item" href="{{ url('/provincias')}}">Provincias</a>
                                     <a class="dropdown-item" href="{{ url('/cantones')}}">Cantones</a>
                                     <a class="dropdown-item" href="{{ url('/impuestos')}}">Impuestos</a>
-                                    <a class="dropdown-item" href="#">Proveedores</a>
+                                    <a class="dropdown-item" href="{{ url('/registrobuses')}}">Registro Buses</a>                                
 
                                     </div>
                                 </li>

@@ -144,3 +144,10 @@ Route::post('/insertIm','ImpuestosController@add');
 Route::get('/actualizarIm/{id}','ImpuestosController@update');
 Route::post('/editIm/{id}','ImpuestosController@edit');
 Route::get('/borrarIm/{id}','ImpuestosController@delete');
+
+
+//Rutas para el CRUD  de la tabla RegistroBuses
+Route::get('/registrobuses','RegistroBusesController@index');
+Route::get('/agregarRb', 'RegistroBusesController@agregar');
+Route::post('/insertRb','RegistroBusesController@add');
+Route::get('/borrarRb/{id}','RegistroBusesController@delete');
