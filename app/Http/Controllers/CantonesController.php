@@ -44,7 +44,29 @@ class CantonesController extends Controller
         $articles->Nombre = $request->input('Nombre');
     	$articles->save();
     	return redirect('/cantones')->with('info','Article Saved Successfully!');
+    }
+    
+    public function update($id){
+        $cantones = Canton::find($id);
+        $provincia = Provincia::where('Id' , $cantones['Id_Provincia'])->first();
+        $provinciasAll = Provincia::all();
+        return view('cantones.actualizar')->with(['cantones' => $cantones , 'provincia' => $provincia , 'provinciasAll' => $provinciasAll]);   
+    }
+    
+    
+    public function edit(Request $request, $id){
+    	$this->validate($request,[
+            'Id_Provincia' => 'required',
+    		'Nombre' => 'required'
+    	]);
+    	$data = array(
+            'Id_Provincia' => $request->input('Id_Provincia'),
+			'Nombre' => $request->input('Nombre')
+    	);
+    	Canton::where('Id',$id)->update($data);
+    	return redirect('/cantones')->with('info','El dato fue actualizado correctamente!');
     } 
+
 
 
     public function delete($id){

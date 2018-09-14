@@ -47,6 +47,29 @@ class MarcasController extends Controller
     } 
 
 
+    public function update($id){
+        $marcas = Marca::find($id);
+        $tiposmarcas = TipoMarca::where('Id' , $marcas['Id_Tipo'])->first();
+        $tiposmarcasAll = TipoMarca::all();
+        return view('marcas.actualizar')->with(['marcas' => $marcas , 'tiposmarcas' => $tiposmarcas , 'tiposmarcasAll' => $tiposmarcasAll]);   
+        //return  $departamentos;
+    }
+
+
+    public function edit(Request $request, $id){
+    	$this->validate($request,[
+            'Id_Tipo' => 'required',
+    		'Nombre' => 'required'
+    	]);
+    	$data = array(
+            'Id_Tipo' => $request->input('Id_Tipo'),
+			'Nombre' => $request->input('Nombre')
+    	);
+    	Marca::where('Id',$id)->update($data);
+    	return redirect('/marcas')->with('info','El dato fue actualizado correctamente!');
+    } 
+
+
     public function delete($id){
 		Marca::where('Id',$id)
 		->delete();

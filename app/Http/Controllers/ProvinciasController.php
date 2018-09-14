@@ -46,6 +46,27 @@ class ProvinciasController extends Controller
     	return redirect('/provincias')->with('info','Article Saved Successfully!');
     } 
 
+    public function update($id){
+        $provincias = Provincia::find($id);
+        $region = Region::where('Id' , $provincias['Id_Region'])->first();
+        $regionesAll = Region::all();
+        return view('provincias.actualizar')->with(['provincias' => $provincias , 'region' => $region , 'regionesAll' => $regionesAll]);   
+        //return  $departamentos;
+    } 
+
+    public function edit(Request $request, $id){
+    	$this->validate($request,[
+            'Id_Region' => 'required',
+    		'Nombre' => 'required'
+    	]);
+    	$data = array(
+            'Id_Region' => $request->input('Id_Region'),
+			'Nombre' => $request->input('Nombre')
+    	);
+    	Provincia::where('Id',$id)->update($data);
+    	return redirect('/provincias')->with('info','El dato fue actualizado correctamente!');
+    } 
+
 
     public function delete($id){
 		Provincia::where('Id',$id)
