@@ -80,7 +80,7 @@
                                                     {{ __('Cerrar sesión') }}
                                                 </a>
 
-                                                 <a class="dropdown-item" href="{{ url('/home/0') }}">
+                                                 <a class="dropdown-item" href="{{ url('/home') }}">
                                                      {{ __('Perfil') }}
                                                 </a>
 

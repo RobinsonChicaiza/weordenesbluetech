@@ -11,8 +11,7 @@ class RolesController extends Controller
     public function index(){
         $roles = Rol::all();
         $departamentos = Departamento::all();
-        $array1 = null;  
-     
+       
         for($i = 0 ; $i < sizeof($roles); $i++)
         {
           for($j = 0 ; $j < sizeof($departamentos); $j++){
@@ -50,8 +49,11 @@ class RolesController extends Controller
     } 
 
     public function update($id){
-    	$roles = Rol::find($id);
-    	return view('roles.actualizar')->with(['roles' => $roles]);    	
+        $roles = Rol::find($id);
+        $departamento = Departamento::where('Id' , $roles['Id_Departamento'])->first();
+        $departamentosAll = Departamento::all();
+        return view('roles.actualizar')->with(['roles' => $roles , 'departamento' => $departamento , 'departamentosAll' => $departamentosAll]);   
+        //return  $departamentos;
     } 
 
     public function edit(Request $request, $id){
