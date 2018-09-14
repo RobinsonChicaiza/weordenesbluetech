@@ -70,6 +70,37 @@ class BusesController extends Controller
     	return redirect('/buses')->with('info','Article Saved Successfully!');
     } 
 
+    public function update($id){
+        $buses = Bus::find($id);
+        $cooperativa = Cooperativa::where('Id' , $buses['Id_Cooperativa'])->first();
+        $cooperativasAll = Cooperativa::all();
+        $marca = Marca::where('Id' , $buses['Id_Marca'])->first();
+        $marcasAll = Marca::all();
+        return view('buses.actualizar')->with(['buses' => $buses , 'cooperativa' => $cooperativa , 'cooperativasAll' => $cooperativasAll, 'marca' => $marca , 'marcasAll' => $marcasAll]);   
+        
+    }
+
+    public function edit(Request $request, $id){
+    	$this->validate($request,[
+            'Id_Cooperativa' => 'required',
+            'Placa' => 'required',
+            'Serie_Chasis' => 'required',
+            'Anio' => 'required',
+            'N_Disco' => 'required',
+            'Id_Marca' => 'required'
+    	]);
+    	$data = array(
+            'Id_Cooperativa' => $request->input('Id_Cooperativa'),
+			'Placa' => $request->input('Placa'),
+            'Serie_Chasis' => $request->input('Serie_Chasis'),
+            'Anio' => $request->input('Anio'),
+            'N_Disco' => $request->input('N_Disco'),
+            'Id_Marca' => $request->input('Id_Marca')
+    	);
+    	Bus::where('Id',$id)->update($data);
+    	return redirect('/buses')->with('info','El dato fue actualizado correctamente!');
+    } 
+
 
     public function delete($id){
 		Bus::where('Id',$id)

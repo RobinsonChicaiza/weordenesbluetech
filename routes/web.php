@@ -88,6 +88,8 @@ Route::get('/borrarR/{id}','RolesController@delete');
 Route::get('/buses','BusesController@index');
 Route::get('/agregarB', 'BusesController@agregar');
 Route::post('/insertB','BusesController@add');
+Route::get('/actualizarB/{id}','BusesController@update');
+Route::post('/editB/{id}','BusesController@edit');
 Route::get('/borrarB/{id}','BusesController@delete');
 
 
