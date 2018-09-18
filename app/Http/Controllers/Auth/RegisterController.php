@@ -78,6 +78,7 @@ class RegisterController extends Controller
             'Correo' => $data['Correo'],
             'Id_Persona' => $idPersona,
             'password' => Hash::make($data['password']),
+            //'password' => md5(sha1($data['password'])),
         ]);
     }
 
