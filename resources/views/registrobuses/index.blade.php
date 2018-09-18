@@ -38,7 +38,7 @@
 							<td>{{ $article->Id_Bus }}</td>
                             <td>{{ $article->Fecha_Servidor }}</td>
 							<td class="text-center">
-								<a href='{{ url("actualizar/{$article->Id}") }}' ><img src="imagenes/actu.png"></a> |
+								<a href='{{ url("actualizarRb/{$article->Id}") }}' ><img src="imagenes/actu.png"></a> |
 								<a href='{{ url("borrarRb/{$article->Id}") }}'  onclick="return confirm('Esta seguro que desea eliminar el dato?');"><img src="imagenes/elim.png"></a> 
 							</td>
 						</tr>

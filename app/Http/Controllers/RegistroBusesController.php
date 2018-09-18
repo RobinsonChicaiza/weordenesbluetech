@@ -66,6 +66,30 @@ class RegistroBusesController extends Controller
     	return redirect('/registrobuses')->with('info','Article Saved Successfully!');
     } 
 
+    public function update($id){
+        $registrobuses = RegistroBus::find($id);
+        $persona = Persona::where('Id' , $registrobuses['Id_Persona'])->first();
+        $personasAll = Persona::all();
+        $bus = Bus::where('Id' , $registrobuses['Id_Bus'])->first();
+        $busesAll = Bus::all();
+        return view('registrobuses.actualizar')->with(['registrobuses' => $registrobuses , 'persona' => $persona , 'personasAll' => $personasAll, 'bus' => $bus , 'busesAll' => $busesAll]);   
+        
+    }
+
+    public function edit(Request $request, $id){
+    	$this->validate($request,[
+            'Id_Persona' => 'required',
+            'Id_Bus' => 'required',
+            'Fecha_Servidor' => 'required'
+    	]);
+    	$data = array(
+            'Id_Persona' => $request->input('Id_Persona'),
+			'Id_Bus' => $request->input('Id_Bus'),
+            'Fecha_Servidor' => $request->input('Fecha_Servidor')
+    	);
+    	RegistroBus::where('Id',$id)->update($data);
+    	return redirect('/registrobuses')->with('info','El dato fue actualizado correctamente!');
+    } 
 
     public function delete($id){
 		RegistroBus::where('Id',$id)

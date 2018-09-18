@@ -152,4 +152,6 @@ Route::get('/borrarIm/{id}','ImpuestosController@delete');
 Route::get('/registrobuses','RegistroBusesController@index');
 Route::get('/agregarRb', 'RegistroBusesController@agregar');
 Route::post('/insertRb','RegistroBusesController@add');
+Route::get('/actualizarRb/{id}','RegistroBusesController@update');
+Route::post('/editRb/{id}','RegistroBusesController@edit');
 Route::get('/borrarRb/{id}','RegistroBusesController@delete');
