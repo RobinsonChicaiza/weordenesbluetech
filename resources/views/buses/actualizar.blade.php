@@ -7,7 +7,7 @@
 				<form class="form-horizontal" method="POST" action="{{ url('/editB',array($buses->Id)) }}">
 					{{csrf_field()}}
 				  <fieldset>
-				    <legend>Actualizar Bus</legend>
+				    <legend class="text-center">Actualizar Buses</legend>
 				    @if(count($errors) >0 )
 				    	@foreach($errors->all() as $error)
 				    		<div class="alert alert-danger">
@@ -103,7 +103,7 @@
 				 		<div class="col-lg-10 col-lg-offset-2">
 				 			<button type="submit" class="btn btn-primary">Actualizar</button>
 
-				 			<a href="{{ url('/buses')}}" class="btn btn-primary">Atras</a>
+				 			<a href="{{ url('/buses')}}" class="btn btn-primary">Atrás</a>
 				 		</div>
 				 	</div>
 				  </fieldset>

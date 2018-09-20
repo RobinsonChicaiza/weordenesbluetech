@@ -7,7 +7,7 @@
 				<form class="form-horizontal" method="post" action="{{ url('/insertPr')}}">
 					{{csrf_field()}}
 				  <fieldset>
-				    <legend>Laravel CRUD Application</legend>
+				    <legend class="text-center">Agregar Provincias</legend>
 				    @if(count($errors) >0 )
 				    	@foreach($errors->all() as $error)
 				    		<div class="alert alert-danger">
@@ -15,10 +15,6 @@
 				    		</div>
 				    	@endforeach
 				    @endif
-
-
-
-                   
 
 
 					<div class="form-group">
@@ -48,8 +44,8 @@
 				 	
 				 	<div class="form-group">
 				 		<div class="col-lg-10 col-lg-offset-2">
-				 			<button type="submit" class="btn btn-primary">Submit</button>
-				 			<a href="{{ url('/provincias')}}" class="btn btn-primary">Back</a>
+				 			<button type="submit" class="btn btn-primary">Guardar</button>
+				 			<a href="{{ url('/provincias')}}" class="btn btn-primary">Atrás</a>
 				 		</div>
 				 	</div>
 				  </fieldset>

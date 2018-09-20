@@ -7,7 +7,7 @@
 				<form class="form-horizontal" method="POST" action="{{ url('/editRe',array($regiones->Id)) }}">
 					{{csrf_field()}}
 				  <fieldset>
-				    <legend>Laravel CRUD Application</legend>
+				    <legend class="text-center">Actualizar Regiones</legend>
 				    @if(count($errors) >0 )
 				    	@foreach($errors->all() as $error)
 				    		<div class="alert alert-danger">
@@ -24,9 +24,9 @@
 
 				 	<div class="form-group">
 				 		<div class="col-lg-10 col-lg-offset-2">
-				 			<button type="submit" class="btn btn-primary">Update</button>
+				 			<button type="submit" class="btn btn-primary">Actualizar</button>
 
-				 			<a href="{{ url('/regiones')}}" class="btn btn-primary">Back</a>
+				 			<a href="{{ url('/regiones')}}" class="btn btn-primary">Atrás</a>
 				 		</div>
 				 	</div>
 				  </fieldset>

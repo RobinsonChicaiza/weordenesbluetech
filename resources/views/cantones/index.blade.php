@@ -4,7 +4,7 @@
 
 <div class="container">
 		<div class="row">
-			<legend>Cantones</legend>
+			<legend class="text-center">Cantones</legend>
 			<div class="row">
 				<div class="col-md-30 col-lg-30">
 					@if(session('info'))

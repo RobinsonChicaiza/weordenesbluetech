@@ -4,7 +4,7 @@
 
 <div class="container">
 		<div class="row">
-			<legend>RegistroBuses</legend>
+			<legend class="text-center">Registro Buses</legend>
 			<div class="row">
 				<div class="col-md-30 col-lg-30">
 					@if(session('info'))
@@ -20,7 +20,7 @@
 						<th>ID</th>
                         <th>CI Persona</th>
 						<th>Placa Bus</th>
-                        <th>Fecha_Servidor</th>
+                        <th>Fecha Servidor</th>
 						<th class="text-center" >
 						<a href='{{ url("agregarRb") }}'>
 						<img src="imagenes/add.png">

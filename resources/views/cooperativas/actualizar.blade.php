@@ -7,7 +7,7 @@
 				<form class="form-horizontal" method="POST" action="{{ url('/editC',array($cooperativas->Id)) }}">
 					{{csrf_field()}}
 				  <fieldset>
-				    <legend>Actualizar Cooperativan</legend>
+				    <legend class="text-center">Actualizar Cooperativa</legend>
 				    @if(count($errors) >0 )
 				    	@foreach($errors->all() as $error)
 				    		<div class="alert alert-danger">
@@ -33,9 +33,9 @@
 
 				 	<div class="form-group">
 				 		<div class="col-lg-10 col-lg-offset-2">
-				 			<button type="submit" class="btn btn-primary">Update</button>
+				 			<button type="submit" class="btn btn-primary">Actualizar</button>
 
-				 			<a href="{{ url('/cooperativas')}}" class="btn btn-primary">Back</a>
+				 			<a href="{{ url('/cooperativas')}}" class="btn btn-primary">Atrás</a>
 				 		</div>
 				 	</div>
 				  </fieldset>

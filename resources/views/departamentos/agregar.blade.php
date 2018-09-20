@@ -7,7 +7,7 @@
 				<form class="form-horizontal" method="post" action="{{ url('/insertD')}}">
 					{{csrf_field()}}
 				  <fieldset>
-				    <legend>Laravel CRUD Application</legend>
+				    <legend class="text-center">Agregar Departamento</legend>
 				    @if(count($errors) >0 )
 				    	@foreach($errors->all() as $error)
 				    		<div class="alert alert-danger">
@@ -24,8 +24,8 @@
 				 	
 				 	<div class="form-group">
 				 		<div class="col-lg-10 col-lg-offset-2">
-				 			<button type="submit" class="btn btn-primary">Submit</button>
-				 			<a href="{{ url('/departamentos')}}" class="btn btn-primary">Back</a>
+				 			<button type="submit" class="btn btn-primary">Guardar</button>
+				 			<a href="{{ url('/departamentos')}}" class="btn btn-primary">Atrás</a>
 				 		</div>
 				 	</div>
 				  </fieldset>

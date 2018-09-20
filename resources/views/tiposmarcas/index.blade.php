@@ -4,7 +4,7 @@
 
 <div class="container">
 		<div class="row">
-			<legend>TipoMarca</legend>
+			<legend class="text-center">Tipo Marca</legend>
 			<div class="row">
 				<div class="col-md-30 col-lg-30">
 					@if(session('info'))
@@ -18,7 +18,7 @@
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th>Nomnre</th>
+						<th>Nombre</th>
 						<th class="text-center" >
 						<a href='{{ url("agregarT") }}'>
 						<img src="imagenes/add.png">

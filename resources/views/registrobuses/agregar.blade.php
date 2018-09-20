@@ -7,7 +7,7 @@
 				<form class="form-horizontal" method="post" action="{{ url('/insertRb')}}">
 					{{csrf_field()}}
 				  <fieldset>
-				    <legend>Laravel CRUD Application</legend>
+				    <legend class="text-center">Agregar Registro Buses</legend>
 				    @if(count($errors) >0 )
 				    	@foreach($errors->all() as $error)
 				    		<div class="alert alert-danger">
@@ -54,7 +54,7 @@
 
 
 					 <div class="form-group">
-				      <label for="exampleInputEmail1" class="col-lg-2 control-label">Fecha_Servidor</label>
+				      <label for="exampleInputEmail1" class="col-lg-2 control-label">Fecha Servidor</label>
 				      <div class="col-lg-10">
 				      	<input type="text" name="Fecha_Servidor" class="form-control" id="Fecha_Servidor" placeholder="Fecha_Servidor..">
 				      </div>
@@ -63,8 +63,8 @@
 				 	
 				 	<div class="form-group">
 				 		<div class="col-lg-10 col-lg-offset-2">
-				 			<button type="submit" class="btn btn-primary">Submit</button>
-				 			<a href="{{ url('/registrobuses')}}" class="btn btn-primary">Back</a>
+				 			<button type="submit" class="btn btn-primary">Guardar</button>
+				 			<a href="{{ url('/registrobuses')}}" class="btn btn-primary">Atrás</a>
 				 		</div>
 				 	</div>
 				  </fieldset>

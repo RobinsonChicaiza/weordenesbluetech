@@ -4,7 +4,7 @@
 
 <div class="container">
 		<div class="row">
-			<legend>Cooperativa</legend>
+			<legend class="text-center">Cooperativa</legend>
 			<div class="row">
 				<div class="col-md-30 col-lg-30">
 					@if(session('info'))
@@ -18,7 +18,7 @@
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th>Nomnre</th>
+						<th>Nombre</th>
 						<th>Ruc</th>
 						<th class="text-center" >
 						<a href='{{ url("agregarC") }}'>
