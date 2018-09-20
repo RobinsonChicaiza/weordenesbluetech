@@ -5,9 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Canton;
 use App\Provincia;
+use Illuminate\Support\Facades\Auth;
 
 class CantonesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+	}
  
     public function index(){
         $cantones = Canton::all();

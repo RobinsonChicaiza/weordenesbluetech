@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tipomarca;
+use Illuminate\Support\Facades\Auth;
 
 
 class TiposmarcasController extends Controller
 {
-    //
+    public function __construct()
+    {
+        $this->middleware('auth');
+	}
+
     public function index(){
     	$tiposmarcas = Tipomarca::all();
         return view('tiposmarcas.index')->with(['tiposmarcas' => $tiposmarcas]);
