@@ -15,6 +15,7 @@
 				    		</div>
 				    	@endforeach
 				    @endif
+					<script type="text/javascript" src="{{url('js/validaciones.js')}}"></script>
 					<div class="form-group">
 				      <label for="exampleInputEmail1" class="col-lg-2 control-label">Coopetiva</label>
 				      <div class="col-lg-10">
@@ -50,7 +51,7 @@
 				 	<div class="form-group">
 				      <label for="exampleInputEmail1" class="col-lg-2 control-label">Serie_Chasis</label>
 				      <div class="col-lg-10">
-					  <input type="text" name="Serie_Chasis" class="form-control" id="Serie_Chasis" placeholder="Serie_Chasis" value="<?php echo $buses->Serie_Chasis; ?>">
+					  <input type="text" onkeypress="return soloNumeros(event)" name="Serie_Chasis" class="form-control" id="Serie_Chasis" placeholder="Serie_Chasis" value="<?php echo $buses->Serie_Chasis; ?>">
 	
 				      	</textarea>
 				      </div>
@@ -59,14 +60,14 @@
 					<div class="form-group">
 				      <label for="exampleInputEmail1" class="col-lg-2 control-label">Anio</label>
 				      <div class="col-lg-10">
-				      	<input type="text" name="Anio" class="form-control" id="Anio" placeholder="Anio" value="<?php echo $buses->Anio; ?>">
+				      	<input type="text" onkeypress="return soloNumeros(event)" name="Anio" class="form-control" id="Anio" placeholder="Anio" value="<?php echo $buses->Anio; ?>">
 				      </div>
 				 	</div>
 
 					<div class="form-group">
 				      <label for="exampleInputEmail1" class="col-lg-2 control-label">N_Disco</label>
 				      <div class="col-lg-10">
-				      	<input type="text" name="N_Disco" class="form-control" id="N_Disco" placeholder="N_Disco" value="<?php echo $buses->N_Disco; ?>">
+				      	<input type="text" onkeypress="return soloNumeros(event)" name="N_Disco" class="form-control" id="N_Disco" placeholder="N_Disco" value="<?php echo $buses->N_Disco; ?>">
 				      </div>
 				 	</div>
 

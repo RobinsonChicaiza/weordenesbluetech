@@ -15,10 +15,11 @@
 				    		</div>
 				    	@endforeach
 				    @endif
+						<script type="text/javascript" src="{{url('js/validaciones.js')}}"></script>
 				    <div class="form-group">
 				      <label for="exampleInputEmail1" class="col-lg-2 control-label">Nombre</label>
 				      <div class="col-lg-10">
-				      	<input type="text" name="Nombre" class="form-control" id="Nombre" placeholder="Departamentos" value="<?php echo $departamentos->Nombre; ?>">
+				      	<input type="text" onkeypress="return soloLetras(event)" name="Nombre" class="form-control" id="Nombre" placeholder="Departamentos" value="<?php echo $departamentos->Nombre; ?>">
 				      </div>
 				 	</div>
 

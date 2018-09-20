@@ -15,10 +15,11 @@
 				    		</div>
 				    	@endforeach
 				    @endif
+						<script type="text/javascript" src="{{url('js/validaciones.js')}}"></script>
 				    <div class="form-group">
 				      <label for="exampleInputEmail1" class="col-lg-2 control-label">IVA</label>
 				      <div class="col-lg-10">
-				      	<input type="text" name="IVA" class="form-control" id="IVA" placeholder="Impuestos" value="<?php echo $impuestos->IVA; ?>">
+				      	<input type="text" onkeypress="return numeros(event)" name="IVA" class="form-control" id="IVA" placeholder="Impuestos" value="<?php echo $impuestos->IVA; ?>">
 				      </div>
 				 	</div>
 

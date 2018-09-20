@@ -15,17 +15,17 @@
 				    		</div>
 				    	@endforeach
 				    @endif
+					<script type="text/javascript" src="{{url('js/validaciones.js')}}"></script>
 				    <div class="form-group">
 				      <label for="exampleInputEmail1" class="col-lg-2 control-label">Nombre</label>
 				      <div class="col-lg-10">
-				      	<input type="text" name="Nombre" class="form-control" id="Nombre" placeholder="Cooperativa..">
+				      	<input type="text" onkeypress="return soloLetras(event)" name="Nombre" class="form-control" id="Nombre" placeholder="Cooperativa..">
 				      </div>
 				 	</div>
 				 	<div class="form-group">
 				      <label for="exampleInputEmail1" class="col-lg-2 control-label">Ruc</label>
-				      <div class="col-lg-10">
-				      	
-                      <input type="text" name="Ruc" class="form-control" id="Ruc" maxlength="13" placeholder="012588..">
+				      <div class="col-lg-10">	
+                      <input type="text" onkeypress="return soloNumeros(event)" name="Ruc" class="form-control" id="Ruc" maxlength="13" placeholder="012588..">
 				      		
 				      	</textarea>
 				      </div>
