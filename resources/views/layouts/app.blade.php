@@ -68,9 +68,11 @@
                                             <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
                                         </li>
                                     @else
+                                
                                         <li class="nav-item dropdown">
+                                       
                                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                                {{ Auth::user()->Nombres }} <span class="caret"></span>
+                                            <img src="{{ Auth::user()->Url_Foto }}" width="30" height="30"> {{ Auth::user()->Nombres }} <span class="caret"></span>
                                             </a>
 
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

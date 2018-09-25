@@ -40,6 +40,35 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="Ruc" class="col-md-4 col-form-label text-md-right">{{ __('Ruc') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="Ruc" type="text" class="form-control{{ $errors->has('Ruc') ? ' is-invalid' : '' }}" name="Ruc" value="{{ old('Ruc') }}" required autofocus>
+
+                                @if ($errors->has('Ruc'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('Ruc') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="Telefono" class="col-md-4 col-form-label text-md-right">{{ __('Teléfono') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="Telefono" type="text" class="form-control{{ $errors->has('Telefono') ? ' is-invalid' : '' }}" name="Telefono" value="{{ old('Telefono') }}" required autofocus>
+
+                                @if ($errors->has('Telefono'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('Telefono') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
 
                             <div class="col-md-6">
@@ -85,14 +114,17 @@
 
                         <hr>
                         
-                        <div class="row justify-content-center">
-                        <div class="form-group row">
-                           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">                                    
-                                   <a href="{{ url('/auth/google') }}"  class="btn btn-google"><i class="fa fa-google"></i> Google</a>
-                                   <a href="{{ url('/auth/facebook') }}" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
-                               </div>
-                               </div>
-                               </div>
+                        <div class="container">
+                         <div class="panel-footer">
+                         <a href="{{ url('/auth/facebook') }}" class="btn btn-block btn-social btn-facebook">
+                                <span class="fa fa-facebook"></span> {{ __('Iniciar con facebook') }}
+                            </a>
+                        <a href="{{ url('/auth/google') }}" class="btn btn-block btn-social btn-google">
+                                <span class="fa fa-google"></span> {{ __('Iniciar con google') }}
+                            </a>
+                         
+                        </div>
+                        </div>
                     </form>
                 </div>
             </div>
