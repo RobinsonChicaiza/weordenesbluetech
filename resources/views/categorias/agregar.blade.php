@@ -38,7 +38,7 @@
 					  <select class="form-control" name="Id_Proveedor" class="form-group">
                             @foreach($person as $persona)
                                 <option value="{{$persona->Id}}">
-                                    {{$persona->Nombres}}  {{$persona->Apellidos}}
+                                    {{$persona->Nombres}} {{$persona->Apellidos}}
                                 </option>
 				    		  
 				    	    @endforeach

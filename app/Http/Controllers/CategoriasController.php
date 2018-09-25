@@ -69,6 +69,8 @@ class CategoriasController extends Controller
     } 
 
     public function update($id){
+        
+
         $categorias = Categoria::find($id);
         $persona = Persona::where('Id' , $categorias['Id_Proveedor'])->first();
         $personasAll = Persona::all();

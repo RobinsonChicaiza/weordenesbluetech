@@ -42,13 +42,13 @@
                             
 					  @foreach($personasAll as $personaAll)
 
-					   @if( $personaAll -> Id == $categorias -> Id )
+					   @if( $personaAll -> Id == $categorias -> Id_Proveedor )
 					   <option selected="true" value="{{ $personaAll->Id }}">
-                                    {{$personaAll->Nombre}}
+					   {{$personaAll->Apellidos}}{{$personaAll->Nombres}}
                                 </option>
 				    	@else
                                 <option value="{{ $personaAll->Id }}">
-                                    {{$personaAll->Nombres}}
+								{{$personaAll->Apellidos}}{{$personaAll->Nombres}}
                                 </option>
 								@endif		
 				    		  
@@ -67,15 +67,15 @@
 				      	
 					  <select class="form-control" name="Id_Estado" class="form-group">
                             
-					  @foreach($marcasAll as $marcaAll)
+					  @foreach($estadosAll as $estadoAll)
 
-					   @if( $marcaAll -> Id == $marca -> Id )
-					   <option selected="true" value="{{ $marcaAll->Id }}">
-                                    {{$marcaAll->Nombre}}
+					   @if( $estadoAll -> Id == $estado -> Id )
+					   <option selected="true" value="{{ $estadoAll->Id }}">
+                                    {{$estadoAll->Nombre}}
                                 </option>
 				    	@else
-                                <option value="{{ $marcaAll->Id }}">
-                                    {{$marcaAll->Nombre}}
+                                <option value="{{ $estadoAll->Id }}">
+                                    {{$estadoAll->Nombre}}
                                 </option>
 								@endif		
 				    		  
@@ -93,7 +93,7 @@
 				 		<div class="col-lg-10 col-lg-offset-2">
 				 			<button type="submit" class="btn btn-primary">Actualizar</button>
 
-				 			<a href="{{ url('/buses')}}" class="btn btn-primary">Atrás</a>
+				 			<a href="{{ url('/categorias')}}" class="btn btn-primary">Atrás</a>
 				 		</div>
 				 	</div>
 				  </fieldset>
