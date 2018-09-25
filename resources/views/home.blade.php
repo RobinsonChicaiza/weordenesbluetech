@@ -37,7 +37,7 @@
                     Email:{{ Auth::user()->Correo }}
                     </p>
                     <p>                    
-                    CI: {{ $persona->Ci }}
+                    
                     </p>
                     </div>
                     </article>

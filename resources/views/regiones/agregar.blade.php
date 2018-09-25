@@ -18,7 +18,8 @@
 				    <div class="form-group">
 				      <label for="exampleInputEmail1" class="col-lg-2 control-label">Nombre</label>
 				      <div class="col-lg-10">
-				      	<input type="text" name="Nombre" class="form-control" id="Nombre" placeholder="Regiones..">
+							<script type="text/javascript" src="{{url('js/validaciones.js')}}"></script>
+				      	<input type="text" onkeypress="return soloLetras(event)"  name="Nombre" class="form-control" id="Nombre" placeholder="Regiones..">
 				      </div>
 				 	</div>
 				 	
