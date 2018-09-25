@@ -25,7 +25,7 @@
 				 	</div>
 
 					<div class="form-group">
-				      <label for="exampleInputEmail1" class="col-lg-2 control-label">Descripcion</label>
+				      <label for="exampleInputEmail1" class="col-lg-2 control-label">Descripción</label>
 				      <div class="col-lg-10">
 				      	<input type="text" name="Descripcion" class="form-control" id="Descripcion" placeholder="Descripcion..">
 				      </div>
