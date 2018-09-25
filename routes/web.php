@@ -155,3 +155,12 @@ Route::post('/insertRb','RegistroBusesController@add');
 Route::get('/actualizarRb/{id}','RegistroBusesController@update');
 Route::post('/editRb/{id}','RegistroBusesController@edit');
 Route::get('/borrarRb/{id}','RegistroBusesController@delete');
+
+
+//Rutas para el CRUD  de la tabla RegistroCategorias
+Route::get('/categorias','CategoriasController@index');
+Route::get('/agregarCat', 'CategoriasController@agregar');
+Route::post('/insertCat','CategoriasController@add');
+Route::get('/actualizarCat/{id}','CategoriasController@update');
+Route::post('/editCat/{id}','CategoriasController@edit');
+Route::get('/borrarCat/{id}','CategoriasController@delete');
