@@ -22,7 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/perfil/{id}', 'PerfilController@index');
 
 //Espacio LIBRE. ROBIN
-
+Route::get('/passEnc/{id}','EncripPassController@encripPass');
+Route::get('/passVer/{pas}/{id}','Auth\LoginController@validacionPas');
 
 
 

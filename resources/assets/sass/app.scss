@@ -5,10 +5,24 @@
 // Variables
 @import 'variables';
 
+// Iconos
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+$facebook-color: #3b5998;
+
+.btn-facebook {
+ background-color: $facebook-color;
+ border-color: darken($color: $facebook-color, $amount: 3%);
+ color: white;
+ &:hover, &:active, &:focus{
+   color: white;
+ }
 }

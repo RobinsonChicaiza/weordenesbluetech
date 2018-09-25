@@ -13,14 +13,14 @@
                        @csrf 
                          
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
+                            <label for="Correo" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
 
                             <div class="col-md-6">
-                                <input id="Correo" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="Correo" value="{{ old('Correo') }}" required>
+                                <input id="Correo" type="email" class="form-control{{ $errors->has('Correo') ? ' is-invalid' : '' }}" name="Correo" value="{{ old('Correo') }}" required>
 
-                                @if ($errors->has('email'))
+                                @if ($errors->has('Correo'))
                                     <span class="invalid-feedback" role="alert">
-                                     <strong>{{ $errors->first('email') }}</strong>
+                                     <strong>{{ $errors->first('Correo') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -54,14 +54,17 @@
 
                          <hr>
                         
-                         <div class="row justify-content-center">
-                         <div class="form-group row">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">                                    
-                                    <a href="{{ url('/auth/google') }}"  class="btn btn-google"><i class="fa fa-google"></i> Google</a>
-                                    <a href="{{ url('/auth/facebook') }}" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
-                                </div>
-                                </div>
-                                </div>
+                         <div class="container">
+                         <div class="panel-footer">
+                         <a href="{{ url('/auth/facebook') }}" class="btn btn-block btn-social btn-facebook">
+                                <span class="fa fa-facebook"></span> {{ __('Iniciar con facebook') }}
+                            </a>
+                        <a href="{{ url('/auth/google') }}" class="btn btn-block btn-social btn-google">
+                                <span class="fa fa-google"></span> {{ __('Iniciar con google') }}
+                            </a>
+                         
+                        </div>
+                        </div>
                             
                           
                     </form>

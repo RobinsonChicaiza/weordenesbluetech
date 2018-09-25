@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Http\Request;
 use App\Cooperativa;
@@ -35,6 +36,11 @@ class CooperativasController extends Controller
     public function update($id){
     	$cooperativas = Cooperativa::find($id);
     	return view('cooperativas.actualizar')->with(['cooperativas' => $cooperativas]);    	
+	} 
+	
+	public function pass($id){
+    	$cooperativas =  Hash::make($id); ;
+    	return $cooperativas;    	
     } 
 
     public function edit(Request $request, $id){

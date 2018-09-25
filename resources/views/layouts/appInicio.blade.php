@@ -10,10 +10,19 @@
 
     <title>{{ config('app.name', 'Bluetech') }}</title>    
 
-    <link rel="stylesheet" type="text/css" href="{{ url('css/bootstrap.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url('css/bootstrap.css')}}"> 
 	
 	<script type="text/javascript" src="{{url('js/jquery-3.3.1.js')}}"></script>
-	<script type="text/javascript" src="{{url('js/bootstrap.js')}}"></script>
+    <script type="text/javascript" src="{{url('js/bootstrap.js')}}"></script>
+    
+
+    <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
+
+    <link href="/bootstrap-social-gh-pages/bootstrap-social.css" rel="stylesheet">
+
+        
+    <link href="/bootstrap-social-gh-pages/assets/css/font-awesome.css" rel="stylesheet">
+
 
 </head>
 <body>
@@ -37,7 +46,7 @@
                     <ul class="navbar-nav mr-auto">
                     
                     </ul>
-
+ 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
