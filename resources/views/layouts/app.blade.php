@@ -11,6 +11,7 @@
     <title>{{ config('app.name', 'Bluetech') }}</title>    
 
     <link rel="stylesheet" type="text/css" href="{{ url('css/bootstrap.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url('css/style.css')}}">
 
 	<script type="text/javascript" src="{{url('js/jquery-3.3.1.js')}}"></script>
 	<script type="text/javascript" src="{{url('js/bootstrap.js')}}"></script>
@@ -72,7 +73,7 @@
                                         <li class="nav-item dropdown">
                                        
                                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            <img src="{{ Auth::user()->Url_Foto }}" width="30" height="30"> {{ Auth::user()->Nombres }} <span class="caret"></span>
+                                            <img src="imagenes/robin.jpg" width="30" height="30"> {{ Auth::user()->Nombres }} <span class="caret"></span>
                                             </a>
 
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

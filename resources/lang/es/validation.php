@@ -175,5 +175,6 @@ return [
         'subject'               => 'asunto',
         'message'               => 'mensaje',
         'Ci'                    => 'Cédula',
+        'Id_Canton'             => 'Ciudad',
     ],
 ];

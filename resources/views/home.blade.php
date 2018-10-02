@@ -18,13 +18,15 @@
                     <section class="main row">
                     
                     <aside class="col-xs-12 col-sm-8 col-md-9 col-lg-7">
-                    <div class="container">
                     <p >
                     <h1>{{ Auth::user()->Nombres }}</h1>
                     </p>
+                    
                  <p>
-                 <img src="{{ Auth::user()->Url_Foto }}" width="300" height="300">
+                 <img src="imagenes/robin.jpg">
+                 
                  </p>
+                 
                  </aside>
                  <article class="col-xs-12 col-sm-4 col-md-3 col-lg-5">
                  <br />
@@ -48,13 +50,13 @@
                     <p>                    
                     Teléfono: {{ $persona['Telefono'] }}.
                     </p>
-                    </div>
+                    
                     </article>
                     </section>
 
                     <!-- otra seccion -->
 
-                    <section class="main row">
+                <section class="main row">
                     
                 
                  <article class="col-xs-12 col-sm-4 col-md-3 col-lg-5">

@@ -33,6 +33,6 @@ class HomeController extends Controller
         $persona = Persona::where('Correo', $correo)->first();
 
         return view('home')->with(['persona' => $persona]);
-        //return $correo2;
+        //return $persona;
     }
 }

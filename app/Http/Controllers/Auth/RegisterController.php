@@ -55,6 +55,7 @@ class RegisterController extends Controller
             'Ci' => 'required|string|max:10',
             'Ruc' => 'required|string|max:13',
             'Telefono' => 'required|string|max:10',
+            'Id_Canton' => 'required|string|max:255',
             'Correo' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -73,6 +74,8 @@ class RegisterController extends Controller
             'Ci' => $data['Ci'],
             'Ruc' => $data['Ruc'],
             'Telefono' => $data['Telefono'],
+            'Id_Canton' => $data['Id_Canton'],
+            'Id_Estado' => 1,
             'Correo' => $data['Correo'],
         ]);
 
@@ -83,8 +86,7 @@ class RegisterController extends Controller
             'Nombres' => $data['Nombres'],
             'Correo' => $data['Correo'],
             'Id_Persona' => $idPersona,
-            'password' => Hash::make($data['password']),
-            //'password' => md5(sha1($data['password'])),
+            'password' => Hash::make($data['password']),            
         ]);
     }  
 

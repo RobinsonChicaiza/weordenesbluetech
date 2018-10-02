@@ -11,6 +11,14 @@
                     <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
                         @csrf
 
+                         @if(count($errors) >0 )
+				    	@foreach($errors->all() as $error)
+				    		<div class="alert alert-danger">
+				    			{{$error}}
+				    		</div>
+				    	@endforeach
+				    @endif             
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
 
@@ -66,6 +74,24 @@
                                 @endif
                             </div>
                         </div>
+
+                    <div class="form-group row">
+				      <label for="Id_Canton" class="col-md-4 col-form-label text-md-right">{{ __('Ciudad') }}</label>
+				      <div class="col-md-6">
+				      	
+					  <select class="form-control" name="Id_Canton" class="form-group">
+					  <option selected="true" disabled="disabled">Seleccione el departamento</option>
+                            @foreach($canton as $datoCanton)
+                                <option value="{{ $datoCanton->Id }}">
+                                    {{$datoCanton->Nombre}}
+                                </option>
+				    		  
+				    	    @endforeach
+				    		  
+                        </select>
+                 
+				      </div>
+				 	</div>
 
 
                         <div class="form-group row">
