@@ -165,3 +165,15 @@ Route::post('/insertCat','CategoriasController@add');
 Route::get('/actualizarCat/{id}','CategoriasController@update');
 Route::post('/editCat/{id}','CategoriasController@edit');
 Route::get('/borrarCat/{id}','CategoriasController@delete');
+
+//Rutas para el CRUD  de la tabla Estados
+Route::get('/estados','EstadosController@index');
+
+Route::get('/agregarEst', function(){
+	return view('estados.agregar');
+});
+
+Route::post('/insertEst','EstadosController@add');
+Route::get('/actualizarEst/{id}','EstadosController@update');
+Route::post('/editEst/{id}','EstadosController@edit');
+Route::get('/borrarEst/{id}','EstadosController@delete');
