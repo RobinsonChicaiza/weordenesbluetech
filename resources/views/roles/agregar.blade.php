@@ -30,11 +30,75 @@
 				    		  
 				    	    @endforeach
                         </select>
+												<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  +
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<legend class="text-center" id="myModalLabel">Agregar Departamento</legend>
+      </div>
+      <div class="modal-body">
+        
+	  <div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<form class="form-horizontal" method="post" action="{{ url('/insertD')}}">
+					{{csrf_field()}}
+				  <fieldset>
+				    
+				    @if(count($errors) >0 )
+				    	@foreach($errors->all() as $error)
+				    		<div class="alert alert-danger">
+				    			{{$error}}
+				    		</div>
+				    	@endforeach
+				    @endif
+						<script type="text/javascript" src="{{url('js/validaciones.js')}}"></script>
+				    <div class="form-group">
+				      <label for="exampleInputEmail1" class="col-lg-2 control-label">Nombre</label>
+				      <div class="col-lg-10">
+				      	<input type="text" onkeypress="return soloLetras(event)" name="Nombre" class="form-control" id="Nombre" placeholder="Departamento..">
+				      </div>
+				 	</div>
+				 	
+				 	
+				  </fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+		
+      </div>
+      <div class="text-center" id="myModalLabel" class="form-group" class="col-lg-10 col-lg-offset-2">
+        <div class="modal-footer">
+            <button class="btn btn-warning" type="submit" id="add">
+              <span class="glyphicon glyphicon-plus"></span>Save Post
+            </button>
+            <button class="btn btn-warning" type="button" data-dismiss="modal">
+              <span class="glyphicon glyphicon-remobe"></span>Close
+            </button>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 				      </div>
 				 	</div>
 
-                   
+
 				    <div class="form-group">
 				      <label for="exampleInputEmail1" class="col-lg-2 control-label">Nombre</label>
 				      <div class="col-lg-10">
