@@ -1,13 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-		<div class="row">
+<div class="container" >
+		<div class="row" style="float:center;">
 			<div class="col-md-6">
 				<form class="form-horizontal" method="POST" action="{{ url('/editC',array($cooperativas->Id)) }}">
 					{{csrf_field()}}
-				  <fieldset>
-				    <legend class="text-center">Actualizar Cooperativa</legend>
+				  <fieldset>				    
+					<h1>Actualizar Cooperativa</h1>
+					<br />
 				    @if(count($errors) >0 )
 				    	@foreach($errors->all() as $error)
 				    		<div class="alert alert-danger">

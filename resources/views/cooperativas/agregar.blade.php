@@ -1,13 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
-		<div class="row">
-			<div class="col-md-6">
+
+
+		<div class="row" >
+		
+			<div class="col-md-6" >
 				<form class="form-horizontal" method="post" action="{{ url('/insertC')}}">
 					{{csrf_field()}}
 				  <fieldset>
-				    <legend class="text-center">Agregar Cooperativa</legend>
+				    <h1>Agregar Cooperativa</h1>
+					<br />
 				    @if(count($errors) >0 )
 				    	@foreach($errors->all() as $error)
 				    		<div class="alert alert-danger">
@@ -42,6 +47,9 @@
 				  </fieldset>
 				</form>
 			</div>
+			
 		</div>
+		
 	</div>
+	
     @endsection

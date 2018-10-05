@@ -12,26 +12,28 @@ class EncripPassController extends Controller
   
     protected function encripPass($id)
     {    
-        $pass = Hash::make($id);      
+       $datos["clave"]  = Hash::make($id);      
         
-        return $pass;
+        return json_encode($datos);
     }
 
-    protected function validaPass($id)
-    {    
-        //$pasEncr='$2y$10$aqO3b5Jh4VGWqcs64lc2XuYUpToy8IqNtxaCge2rLisY3uiWoe6fy';
+    protected function validaPass($pas,$id)
+    {
         $correo='robinsonstalin94@gmail.com';
-        $persona = Perfil_login::where('Correo', $correo)->first();
+        $persona = Perfil_login::where('id', $id)->first();
 
-        $res=false;
-        if(Hash::check($id,$persona['password'])){
-            $res=true;
+        $datos["estado"] = false;
+        //if(Hash::check($pas, $persona['password'])){
+        if (Hash::check($pas, $persona['password'])) {
+            $datos["estado"] = true;
         }else{
-            $res=false;
-        }
-                
-        return $res;
+            $datos["estado"] = false;
+        }   
+	    return json_encode($datos);
+        
+        //return $res;
     }
+
 
 
 }

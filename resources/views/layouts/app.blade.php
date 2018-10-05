@@ -74,7 +74,7 @@
                                         <li class="nav-item dropdown">
                                        
                                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            <img src="imagenes/robin.jpg" width="30" height="30"> {{ Auth::user()->Nombres }} <span class="caret"></span>
+                                            <img src="{{ asset('imagenes/user.png') }}" width="30" height="30"> &nbsp; {{ Auth::user()->Nombres }} <span class="caret"></span>
                                             </a>
 
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

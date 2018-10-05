@@ -2,3 +2,8 @@
     width: 85%;
     height: auto;
 }
+
+.row{
+    display: flex;
+    justify-content: center;
+  }

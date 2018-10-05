@@ -23,14 +23,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Espacio LIBRE. ROBIN
 Route::get('/passEnc/{id}','EncripPassController@encripPass');
-Route::get('/passVer/{pas}/{id}','Auth\LoginController@validacionPas');
-
-
-
-
-
-
-
+Route::get('/passVer/{pas}/{id}','EncripPassController@validaPass');
+Route::get('/actualizarUsuario/{id}','ActualizacionRegistroController@update');
+Route::post('/editUsu/{id}','ActualizacionRegistroController@edit');
+Route::get('/vistaReferencia/{id}','ReferenciaController@vistaAgregar');
+Route::post('/agregarReferencia/{id}','ReferenciaController@add');
+Route::get('/delereReferencia/{id}','ReferenciaController@delete');
+Route::get('/updateReferencia/{id}','ReferenciaController@update');
 
 //Rutas para el CRUD  de la tabla Cooperativas
 Route::get('/cooperativas','CooperativasController@index');

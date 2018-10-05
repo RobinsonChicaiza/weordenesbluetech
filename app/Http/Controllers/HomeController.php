@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Persona;
+use App\Perfil_login;
 use Cookie;
 
 
@@ -31,8 +32,14 @@ class HomeController extends Controller
         $correo = Cookie::get('Cookie1');
    
         $persona = Persona::where('Correo', $correo)->first();
+        $imagen = Perfil_login::where('Id_Persona', $persona['Id'])->first();
 
-        return view('home')->with(['persona' => $persona]);
-        //return $persona;
+        $referencia1 = Persona::where('Id', $persona['Id_Referencia1'])->first();
+        $referencia2 = Persona::where('Id', $persona['Id_Referencia2'])->first();
+        
+        $image = $imagen['imagen'];
+      
+        return view('home')->with(['persona' => $persona, 'image'=>$image, 'referencia1' => $referencia1, 'referencia2' => $referencia2]);
+        //return $correo;
     }
 }
