@@ -57,7 +57,7 @@ class RolesController extends Controller
     	$articles = new Departamento;
     	$articles->Nombre = $request->input('Nombre');
     	$articles->save();
-    	return redirect('/departamentos')->with('info','Article Saved Successfully!');
+    	return redirect('/agregarR')->with('info','Article Saved Successfully!');
     } 
 
     public function update($id){

@@ -32,6 +32,8 @@
                         </select>
 												<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
+				</form>
+
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
   +
@@ -50,7 +52,7 @@
 	  <div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<form class="form-horizontal" method="post" action="{{ url('/insertD')}}">
+				<form class="form-horizontal" method="post" action="{{ url('/insertarRD')}}">
 					{{csrf_field()}}
 				  <fieldset>
 				    
@@ -68,6 +70,17 @@
 				      	<input type="text" onkeypress="return soloLetras(event)" name="Nombre" class="form-control" id="Nombre" placeholder="Departamento..">
 				      </div>
 				 	</div>
+
+					 <div class="text-center" id="myModalLabel" class="form-group" class="col-lg-10 col-lg-offset-2">
+       	 <div class="modal-footer">
+            <button  class="btn btn-warning" type="submit" id="add">
+              <span  class="glyphicon glyphicon-plus">Guardar Post</span>
+            </button>
+            <button class="btn btn-warning" type="button" data-dismiss="modal">
+              <span class="glyphicon glyphicon-remobe">Salir</span>
+            </button>
+          </div>
+     		 </div>
 				 	
 				 	
 				  </fieldset>
@@ -79,16 +92,7 @@
 
 		
       </div>
-      <div class="text-center" id="myModalLabel" class="form-group" class="col-lg-10 col-lg-offset-2">
-        <div class="modal-footer">
-            <button class="btn btn-warning" type="submit" id="add">
-              <span class="glyphicon glyphicon-plus"></span>Save Post
-            </button>
-            <button class="btn btn-warning" type="button" data-dismiss="modal">
-              <span class="glyphicon glyphicon-remobe"></span>Close
-            </button>
-          </div>
-      </div>
+      
     </div>
   </div>
 </div>
@@ -121,7 +125,7 @@
 				 		</div>
 				 	</div>
 				  </fieldset>
-				</form>
+				
 			</div>
 		</div>
 	</div>
