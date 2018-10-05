@@ -49,6 +49,17 @@ class RolesController extends Controller
     	return redirect('/roles')->with('info','Article Saved Successfully!');
     } 
 
+    public function addD(Request $request){
+    	$this->validate($request,[
+    		'Nombre' => 'required'
+    	]);
+
+    	$articles = new Departamento;
+    	$articles->Nombre = $request->input('Nombre');
+    	$articles->save();
+    	return redirect('/agregarR')->with('info','Article Saved Successfully!');
+    } 
+
     public function update($id){
         $roles = Rol::find($id);
         $departamento = Departamento::where('Id' , $roles['Id_Departamento'])->first();
