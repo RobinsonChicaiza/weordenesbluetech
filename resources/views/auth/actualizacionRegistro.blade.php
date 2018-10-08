@@ -121,7 +121,7 @@
                             <label for="Imagen" class="col-md-4 col-form-label text-md-right">{{ __('Imagen') }}</label>
 
                             <div class="col-md-6">
-                                <input id="imagen" type="file"  name="imagen">
+                                <input id="imagen" type="file"  name="imagen" class="form-control">
                         
                             </div>
                         </div>
@@ -140,7 +140,7 @@
                </td> 
             </tr>
         <tr>
-            <th>Id</th>
+            <th>N°</th>
             <th>Nombre</th>
             <th>Cédula</th>
             <th>RUC</th>
@@ -164,15 +164,20 @@
     <tbody>
     @if( !empty($referencia1) )
     <tr>
-            <td>{{ $referencia1->Id }}</td>
+            @if( $auxT == 2)     
+           
+            <td>1</td>
+            @else
+            <td>{{ $auxT }}</td>
+            @endif
             <td>{{ $referencia1->Nombres }}</td>
             <td>{{ $referencia1->Ci }}</td>
             <td>{{ $referencia1->Ruc }}</td>
             <td>{{ $referencia1->Telefono }}</td>
             <td>{{ $referencia1->Correo }}</td>
             <td class="text-center">
-			<a href='{{ url("updateReferencia/{$referencia1->Id}") }}' ><img src="{{ asset('Imagenes/actu.png') }}" width="30" height="30"></a>
-			<a href='{{ url("delereReferencia/{$referencia1->Id}") }}' onclick="return confirm('Esta seguro que desea eliminar el dato?');"><img src="{{ asset('imagenes/elim.png') }}"></a> 
+			<a href='{{ url("updateReferencia/{$referencia1->Id}") }}' ><img src="{{ asset('Imagenes/actu.png') }}" ></a>
+			<a href='{{ url("delereReferencia/{$persona->Id}/{$referencia1->Id}/1") }}' onclick="return confirm('Esta seguro que desea eliminar el dato?');"><img src="{{ asset('imagenes/elim.png') }}"></a> 
 			</td>
             
         </tr>
@@ -181,7 +186,7 @@
 
        @if( !empty($referencia2) )
     <tr>
-            <td>{{ $referencia2->Id }}</td>
+            <td>{{ $auxT }}</td>
             <td>{{ $referencia2->Nombres }}</td>
             <td>{{ $referencia2->Ci }}</td>
             <td>{{ $referencia2->Ruc }}</td>
@@ -189,7 +194,7 @@
             <td>{{ $referencia2->Correo }}</td>
             <td class="text-center">
 			<a href='{{ url("updateReferencia/{$referencia2->Id}") }}' ><img src="{{ asset('Imagenes/actu.png') }}" width="30" height="30"></a>
-			<a href='{{ url("delereReferencia/{$referencia2->Id}") }}' onclick="return confirm('Esta seguro que desea eliminar el dato?');"><img src="{{ asset('imagenes/elim.png') }}"></a> 
+			<a href='{{ url("delereReferencia/{$persona->Id}/{$referencia2->Id}/2") }}' onclick="return confirm('Esta seguro que desea eliminar el dato?');"><img src="{{ asset('imagenes/elim.png') }}"></a> 
 			</td>
             
         </tr>

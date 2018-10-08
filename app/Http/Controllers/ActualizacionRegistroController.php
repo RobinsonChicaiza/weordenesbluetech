@@ -77,10 +77,4 @@ class ActualizacionRegistroController extends Controller
     } 
 
 
-    public function delete($id){
-		Bus::where('Id',$id)
-		->delete();
-		return redirect('/buses')->with('info','Article Deleted Successfully!');
-    } 
-
 }

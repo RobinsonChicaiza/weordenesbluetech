@@ -19,7 +19,21 @@
 				    			{{$error}}
 				    		</div>
 				    	@endforeach
-				    @endif             
+				    @endif     
+                     
+                    <div class="form-group row">
+                            <label for="Ci" class="col-md-4 col-form-label text-md-right">{{ __('Cédula') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="Ci" type="text" class="form-control{{ $errors->has('Ci') ? ' is-invalid' : '' }}" name="Ci" value="<?php echo $persona->Ci; ?>" required autofocus>
+
+                                @if ($errors->has('Ci'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('Ci') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>       
 
                                  <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
@@ -35,19 +49,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="Ci" class="col-md-4 col-form-label text-md-right">{{ __('Cédula') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="Ci" type="text" class="form-control{{ $errors->has('Ci') ? ' is-invalid' : '' }}" name="Ci" value="<?php echo $persona->Ci; ?>" required autofocus>
-
-                                @if ($errors->has('Ci'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('Ci') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                    
 
                         <div class="form-group row">
                             <label for="Ruc" class="col-md-4 col-form-label text-md-right">{{ __('Ruc') }}</label>

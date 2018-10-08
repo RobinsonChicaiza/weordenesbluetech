@@ -15,7 +15,7 @@ class CooperativasController extends Controller
 	}
 	
     public function index(){
-    	$cooperativas = Cooperativa::all();
+    	$cooperativas = Cooperativa::paginate(5);
 		return view('cooperativas.index')->with(['cooperativas' => $cooperativas]);
     	
     }
@@ -61,5 +61,6 @@ class CooperativasController extends Controller
 		Cooperativa::where('Id',$id)
 		->delete();
 		return redirect('/cooperativas')->with('info','El dato fue eliminado correctamente!');
+		
     } 
 }

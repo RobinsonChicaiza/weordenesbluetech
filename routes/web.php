@@ -28,8 +28,18 @@ Route::get('/actualizarUsuario/{id}','ActualizacionRegistroController@update');
 Route::post('/editUsu/{id}','ActualizacionRegistroController@edit');
 Route::get('/vistaReferencia/{id}','ReferenciaController@vistaAgregar');
 Route::post('/agregarReferencia/{id}','ReferenciaController@add');
-Route::get('/delereReferencia/{id}','ReferenciaController@delete');
+Route::get('/delereReferencia/{id_persona}/{id_referencia}/{aux}','ReferenciaController@delete');
 Route::get('/updateReferencia/{id}','ReferenciaController@update');
+Route::post('/buscarPersona/{id}','ReferenciaController@buscarCedula');
+
+
+
+
+
+
+
+
+
 
 //Rutas para el CRUD  de la tabla Cooperativas
 Route::get('/cooperativas','CooperativasController@index');

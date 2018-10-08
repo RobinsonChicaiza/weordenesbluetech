@@ -67,7 +67,7 @@
 				    <div class="form-group">
 				      <label for="exampleInputEmail1" class="col-lg-2 control-label">Nombre</label>
 				      <div class="col-lg-10">
-				      	<input type="text" onkeypress="return soloLetras(event)" name="Nombre" class="form-control" id="Nombre" placeholder="Departamento..">
+				      	<input type="text" onkeypress="return soloLetras(event)" name="Nombre" class="form-control" id="Nombre" value="{{ old('Nombre') }}" placeholder="Departamento..">
 				      </div>
 				 	</div>
 

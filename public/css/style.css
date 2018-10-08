@@ -3,7 +3,9 @@
     height: auto;
 }
 
-.row{
-    display: flex;
-    justify-content: center;
-  }
+  .right{
+    float: right;
+}
+  
+  
+  

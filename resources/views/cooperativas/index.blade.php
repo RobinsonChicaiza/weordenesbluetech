@@ -16,8 +16,9 @@
 			</div>
 			<table class="table table-striped table-hover">
 				<thead>
+				
 					<tr>
-						<th>ID</th>
+						<th>N°</th>
 						<th>Nombre</th>
 						<th>Ruc</th>
 						<th class="text-center" >
@@ -29,9 +30,11 @@
 				</thead>
 				<tbody>
 					@if(count($cooperativas) > 0)
+					<?php $a = 0; ?>
 						@foreach($cooperativas->all() as $article)
+						<?php $a++; ?>                  
 						<tr>
-							<td>{{ $article->Id }}</td>
+							<td>{{ $a }}</td>
 							<td>{{ $article->Nombre }}</td>
 							<td>{{ $article->Ruc }}</td>
 							<td class="text-center">
@@ -43,8 +46,12 @@
 						@endforeach
 					@endif
 				</tbody>
+
 			</table>
+
+			{!! $cooperativas->render() !!}
 		</div>
+		<strong>{{ $cooperativas->total() }} registros | páginas {{ $cooperativas->currentPage() }} de {{ $cooperativas->lastPage() }}</strong>
 	</div>
 
 @endsection

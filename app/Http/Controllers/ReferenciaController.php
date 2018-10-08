@@ -18,10 +18,21 @@ class ReferenciaController extends Controller
 
     public function vistaAgregar($id){
         $persona=$id;
-    return view('referencias.agregarReferencia')->with(['persona' => $persona]);   
+        
+    	$personaReferencua = null;
+        return view('referencias.agregarReferencia')->with(['persona' => $persona, 'personaReferencua' => $personaReferencua]);   
         
     }
 
+    public function buscarCedula(Request $request, $id){
+
+        $personaReferencua=Persona::where('Ci',$request->input('Buscar'))->first();
+        //return $request->input('Buscar');
+        $persona=$id;
+        return view('referencias.agregarReferencia')->with(['persona' => $persona, 'personaReferencua' => $personaReferencua]);   
+        
+    }
+    
     protected function add(Request $request, $id)
     {
         $this->validate($request,[
@@ -94,10 +105,26 @@ class ReferenciaController extends Controller
     } 
 
 
-    public function delete($id){
-		Persona::where('Id',$id)
-		->delete();
-		return redirect('/home')->with('info','Referencia eliminada correctamente!');
+    public function delete($id_person, $id_referencia, $aux){
+
+        
+        $data1 = array();
+
+        if($aux==1){
+            $data1 = array(
+                'Id_Referencia1' => null                  
+            );
+        }else{
+            $data1 = array(
+                'Id_Referencia2' =>  null         
+            );
+        }  
+        Persona::where('Id',$id_person)->update($data1);
+         
+        //Persona::where('Id',$id)->delete();
+         
+        return redirect('/home')->with('info','Referencia eliminada correctamente!');
+        //return $id_referencia.' '.$id_person;
     } 
 
 }

@@ -14,7 +14,9 @@
     <link rel="stylesheet" type="text/css" href="{{ url('css/style.css')}}">
 
 	<script type="text/javascript" src="{{url('js/jquery-3.3.1.js')}}"></script>
-	<script type="text/javascript" src="{{url('js/bootstrap.js')}}"></script>
+    <script type="text/javascript" src="{{url('js/bootstrap.js')}}"></script>
+    
+    <script  src="{{ asset('js/validaciones.js') }}"></script>
 
 </head>
 <body>
@@ -108,7 +110,7 @@
             <p>© Bluetech 2018</p>
         </footer>
         </div>
-
+ 
        
 </div>
 
