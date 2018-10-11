@@ -6,8 +6,7 @@
 <div class="card-header">
 <h1 >Roles</h1>
 </div>
-<div class="card-body">
-			
+<div class="card-body">			
 				
 					@if(session('info'))
 						<div class="alert alert-success">

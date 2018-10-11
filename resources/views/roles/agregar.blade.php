@@ -43,7 +43,7 @@
 							<div class="right">
                              
                              <a href="#" data-toggle="modal" data-target="#myModal" style="float:right;">
-                             <img src="{{ asset('imagenes/busc.png') }}">
+                             <img src="{{ asset('imagenes/add.png') }}">
                              </a>
 	      			</div>
 				 	</div>
@@ -52,14 +52,16 @@
 				    <div class="form-group row">
 				      <label for="exampleInputEmail1" class="col-md-4 col-form-label text-md-right">Nombre</label>
 				      <div class="col-md-6">
-				      	<input type="text" name="Nombre" class="form-control" id="Nombre" placeholder="Nombre..">
+								<input type="text" name="Nombre" class="form-control" id="Nombre" placeholder="Departamento financiero.."
+								onkeypress="return soloLetras(event)">
 				      </div>
 				 	</div>
 
 					<div class="form-group row">
 				      <label for="exampleInputEmail1" class="col-md-4 col-form-label text-md-right">Sueldo</label>
 							<div class="col-md-6">
-				      	<input type="text" name="Sueldo" class="form-control" id="Sueldo" placeholder="Sueldo..">
+								<input type="text" name="Sueldo" class="form-control" id="Sueldo" placeholder="400.00"
+								onkeypress="return Decimales(event)" maxlength="6">
 				      </div>
 				 	</div>
                      
@@ -81,7 +83,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">       
-        <h4 id="myModalLabel">Buscar persona por cédula</h4>
+        <h4 id="myModalLabel">Agregar departamento</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <form action="{{ url('/insertarRolDepartamento') }}" method="post">
@@ -91,7 +93,7 @@
 				
 	      <div class="modal-footer">
 	        <button type="button"  class="btn btn-default" data-dismiss="modal">Cerrar</button>
-	        <button type="submit" class="btn btn-primary">Buscar</button>
+	        <button type="submit" class="btn btn-primary">Guardar</button>
 	      </div>
       </form>
     </div>
