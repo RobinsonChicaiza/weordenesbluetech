@@ -5,8 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card" width="100%">
-                <div class="card-header">{{ __('Agregar Referencia') }}
-                
+                <div class="card-header">
+                    <h3>{{ __('Agregar Referencia') }}</h3>                
                 </div>       
                 
 
@@ -39,8 +39,7 @@
                                 <input id="Ci" type="text" class="form-control{{ $errors->has('Ci') ? ' is-invalid' : '' }}" name="Ci" value="<?php echo $personaReferencua->Ci; ?>" required autofocus>
                                 @else
                                 <input id="Ci" type="text" class="form-control{{ $errors->has('Ci') ? ' is-invalid' : '' }}" name="Ci"  required autofocus
-                                maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                onkeypress="return soloNumeros(event)">
+                                maxlength="10"  onkeypress="return soloNumeros(event)">
                                 @endif
                                 @if ($errors->has('Ci'))
                                     <span class="invalid-feedback" role="alert">

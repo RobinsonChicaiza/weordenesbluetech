@@ -8,6 +8,11 @@
                 <div class="card-header">{{ __('Crear cuenta de usuario') }}</div>
 
                 <div class="card-body">
+                @if (!empty($info))
+                        <div class="alert alert-danger" role="alert">
+                        {{ $info }} 
+                        </div>
+                    @endif
                     <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
                         @csrf
 
@@ -18,12 +23,13 @@
 				    		</div>
 				    	@endforeach
 				    @endif             
-
+ 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
 
                             <div class="col-md-6">
-                                <input id="Nombres" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="Nombres" value="{{ old('Nombres') }}" required autofocus>
+                                <input id="Nombres" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="Nombres" value="{{ old('Nombres') }}" required autofocus
+                                onkeypress="return soloLetras(event)">
 
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback" role="alert">
@@ -37,7 +43,8 @@
                             <label for="Ci" class="col-md-4 col-form-label text-md-right">{{ __('Cédula') }}</label>
 
                             <div class="col-md-6">
-                                <input id="Ci" type="text" class="form-control{{ $errors->has('Ci') ? ' is-invalid' : '' }}" name="Ci" value="{{ old('Ci') }}" required autofocus>
+                                <input id="Ci" type="text" class="form-control{{ $errors->has('Ci') ? ' is-invalid' : '' }}" name="Ci" value="{{ old('Ci') }}" required autofocus
+                                onkeypress="return soloNumeros(event)" maxlength="10">
 
                                 @if ($errors->has('Ci'))
                                     <span class="invalid-feedback" role="alert">
@@ -51,7 +58,8 @@
                             <label for="Ruc" class="col-md-4 col-form-label text-md-right">{{ __('Ruc') }}</label>
 
                             <div class="col-md-6">
-                                <input id="Ruc" type="text" class="form-control{{ $errors->has('Ruc') ? ' is-invalid' : '' }}" name="Ruc" value="{{ old('Ruc') }}" required autofocus>
+                                <input id="Ruc" type="text" class="form-control{{ $errors->has('Ruc') ? ' is-invalid' : '' }}" name="Ruc" value="{{ old('Ruc') }}" required autofocus
+                                onkeypress="return soloNumeros(event)" maxlength="13">
 
                                 @if ($errors->has('Ruc'))
                                     <span class="invalid-feedback" role="alert">
@@ -65,7 +73,8 @@
                             <label for="Telefono" class="col-md-4 col-form-label text-md-right">{{ __('Teléfono') }}</label>
 
                             <div class="col-md-6">
-                                <input id="Telefono" type="text" class="form-control{{ $errors->has('Telefono') ? ' is-invalid' : '' }}" name="Telefono" value="{{ old('Telefono') }}" required autofocus>
+                                <input id="Telefono" type="text" class="form-control{{ $errors->has('Telefono') ? ' is-invalid' : '' }}" name="Telefono" value="{{ old('Telefono') }}" required autofocus
+                                onkeypress="return soloNumeros(event)" maxlength="10">
 
                                 @if ($errors->has('Telefono'))
                                     <span class="invalid-feedback" role="alert">

@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
 use Socialite;
 use App\Perfil_login;
+use App\Persona;
 
 class LoginController extends Controller
 {
@@ -61,11 +62,20 @@ class LoginController extends Controller
         if ($authUser) {
             return $authUser;
         }
-        
+
+        $persona = Persona::create([
+            'Nombres' => $user->name,            
+            'Correo' => $user->email,
+        ]);
+
+        $arrayPersona = Persona::select('Id')->orderby('created_at','DESC')->first();
+        $idPersona=$arrayPersona['Id'];
+
         return Perfil_login::create([
             'Nombres'     => $user->name,
             'Correo'    => $user->email,
             'Url_Foto'    => $user->avatar,
+            'Id_Persona' => $idPersona,
             'provider' => $provider,
             'Id_Perfil' => $user->id
         ]);

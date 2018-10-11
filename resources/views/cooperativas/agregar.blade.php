@@ -5,14 +5,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card" width="100%">
-                <div class="card-header">{{ __('Agregar Cooperativa') }}
+                <div class="card-header">
+					<h3>{{ __('Agregar Cooperativa') }}</h3>
                 
                 </div>
 
                 <div class="card-body">
 				<form class="form-horizontal" method="post" action="{{ url('/insertC')}}">
                         @csrf
-
+ 
                          @if(count($errors) >0 )
 				    	@foreach($errors->all() as $error)
 				    		<div class="alert alert-danger">

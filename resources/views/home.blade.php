@@ -39,9 +39,7 @@
                     <p>
                     <strong>Datos Personales</strong>                   
                     </p>
-                    <p>
-                    Rol: Cliente.                   
-                    </p>
+                    
                     <p>                    
                     Email: {{ $persona['Correo'] }}
                     </p>

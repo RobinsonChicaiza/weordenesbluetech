@@ -6,7 +6,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card" width="100%">
-                <div class="card-header">{{ __('Actializar Cooperativa') }}
+                <div class="card-header">
+					<h3>{{ __('Actializar Cooperativa') }}<h3>
                 
                 </div>
 
@@ -22,9 +23,9 @@
 				    	@endforeach
                     @endif      
 
-					<script type="text/javascript" src="{{url('js/validaciones.js')}}"></script>
+					
 				    <div class="form-group row">
-				      <label for="exampleInputEmail1"        class="col-md-4 col-form-label text-md-right">Nombre</label>
+				      <label for="exampleInputEmail1" class="col-md-4 col-form-label text-md-right">Nombre</label>
 					  <div class="col-md-6">
 				      	<input type="text" onkeypress="return soloLetras(event)" name="Nombre" class="form-control" id="Nombre" placeholder="Cooperativa" value="<?php echo $cooperativas->Nombre; ?>">
 				      </div>
