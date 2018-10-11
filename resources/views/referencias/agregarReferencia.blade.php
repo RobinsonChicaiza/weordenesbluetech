@@ -92,7 +92,7 @@
                                 @else
                                 <input id="Ruc" type="text" class="form-control{{ $errors->has('Ruc') ? ' is-invalid' : '' }}" name="Ruc" required autofocus
                                 onkeypress="return soloNumeros(event)"
-                                maxlength="13" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                                maxlength="13">
                                 @endif
                                 @if ($errors->has('Ruc'))
                                     <span class="invalid-feedback" role="alert">

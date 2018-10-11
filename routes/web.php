@@ -90,7 +90,7 @@ Route::get('/agregarR', 'RolesController@agregar');
 Route::post('/insertR','RolesController@add');
 Route::get('/actualizarR/{id}','RolesController@update');
 Route::post('/editR/{id}','RolesController@edit');
-Route::post('/insertarRD','RolesController@addD');
+Route::post('/insertarRolDepartamento','RolesController@addDepartamento');
 
 
 

@@ -19,11 +19,7 @@
 				    			{{$error}}
 				    		</div>
 				    	@endforeach
-                    @endif                   
-
-
-
-					<script type="text/javascript" src="{{url('js/validaciones.js')}}"></script>
+                    @endif             
 
 				    <div class="form-group row">
 				      <label for="exampleInputEmail1"  class="col-md-4 col-form-label text-md-right">Nombre</label>

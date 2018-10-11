@@ -9,13 +9,15 @@
 
 </div>
 <div class="card-body">
-		<div class="row">	
-			
+			<div class="row">
+				<div class="col-md-30 col-lg-30">
 					@if(session('info'))
 						<div class="alert alert-success">
 							{{session('info')}}
 						</div>	
 					@endif
+				</div>
+			</div>
 			
 				<div class="table-responsive">
 
@@ -54,10 +56,11 @@
 
 			</table>
 		</div>
-
+ 
 			{!! $cooperativas->render() !!}
+			<strong>{{ $cooperativas->total() }} registros | páginas {{ $cooperativas->currentPage() }} de {{ $cooperativas->lastPage() }}</strong>
 		</div>
-		<strong>{{ $cooperativas->total() }} registros | páginas {{ $cooperativas->currentPage() }} de {{ $cooperativas->lastPage() }}</strong>
+	
 	</div>
 	</div>
 	</div>

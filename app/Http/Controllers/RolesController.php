@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class RolesController extends Controller
 {
     public function index(){
-        $roles = Rol::all();
+        $roles = Rol::paginate(5);
         $departamentos = Departamento::all();
        
         for($i = 0 ; $i < sizeof($roles); $i++)
@@ -46,10 +46,10 @@ class RolesController extends Controller
         $articles->Nombre = $request->input('Nombre');
         $articles->Sueldo = $request->input('Sueldo');
     	$articles->save();
-    	return redirect('/roles')->with('info','Article Saved Successfully!');
+    	return redirect('/roles')->with('info','Departamento agregado correctamente!');
     } 
 
-    public function addD(Request $request){
+    public function addDepartamento(Request $request){
     	$this->validate($request,[
     		'Nombre' => 'required'
     	]);
@@ -57,7 +57,7 @@ class RolesController extends Controller
     	$articles = new Departamento;
     	$articles->Nombre = $request->input('Nombre');
     	$articles->save();
-    	return redirect('/agregarR')->with('info','Article Saved Successfully!');
+    	return redirect('/agregarR')->with('info','Departamento agregado correctamente!');
     } 
 
     public function update($id){
