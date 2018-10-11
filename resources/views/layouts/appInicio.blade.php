@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
     <link href="/bootstrap-social-gh-pages/bootstrap-social.css" rel="stylesheet">        
     <link href="/bootstrap-social-gh-pages/assets/css/font-awesome.css" rel="stylesheet">
+    
     <script  src="{{ asset('js/validaciones.js') }}"></script>
 
 </head>
