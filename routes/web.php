@@ -35,9 +35,9 @@ Route::get('/factura', function(){
 	return view('invoices.Cedula');
 });
 
-
-
-
+// Ruta para agregar usuario por google
+//Route::get('/registroUsuarioSocial', 'LoginController@mostrarRegistro');
+//Route::get('/registroUsuarioSocial','LoginController@encripPass');
 
 
 

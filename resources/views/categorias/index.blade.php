@@ -2,16 +2,18 @@
 
 @section('content')
 
-<div class="container">
-		<div class="row">
-			<legend class="text-center"><h1>Categorias</h1></legend>
+<div class="card">
+<div class="card-header">
+<h3>Categorias</h3>
+
+</div>
+<div class="card-body">			
 			
 					@if(session('info'))
 						<div class="alert alert-success">
 							{{session('info')}}
 						</div>	
-					@endif
-		
+					@endif		
 			
             <div class="table-responsive">
 			<table class="table table-striped table-hover">
@@ -50,10 +52,11 @@
 				</tbody>
 			</table>
 		</div>
-
-			{!! $categorias->render() !!}
-		</div>
+ 
+		{!! $categorias->render() !!}
+	
 		<strong>{{ $categorias->total() }} registros | páginas {{ $categorias->currentPage() }} de {{ $categorias->lastPage() }}</strong>
-			</div>
+	</div>
+	</div>
 
 @endsection

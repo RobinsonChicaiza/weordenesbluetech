@@ -5,19 +5,17 @@
 
 <div class="card">
 <div class="card-header">
-<h1>Cooperativas</h1>
+<h3>Cooperativas</h3>
 
 </div>
 <div class="card-body">
-			<div class="row">
-				<div class="col-md-30 col-lg-30">
+			
 					@if(session('info'))
 						<div class="alert alert-success">
 							{{session('info')}}
 						</div>	
 					@endif
-				</div>
-			</div>
+			
 			
 				<div class="table-responsive">
 
@@ -59,9 +57,7 @@
  
 			{!! $cooperativas->render() !!}
 			<strong>{{ $cooperativas->total() }} registros | páginas {{ $cooperativas->currentPage() }} de {{ $cooperativas->lastPage() }}</strong>
-		</div>
-	
-	</div>
+
 	</div>
 	</div>
 

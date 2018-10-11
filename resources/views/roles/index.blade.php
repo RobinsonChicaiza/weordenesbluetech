@@ -52,8 +52,7 @@
 			</div>
 			{!! $roles->render() !!}
 			<strong>{{ $roles->total() }} registros | páginas {{ $roles->currentPage() }} de {{ $roles->lastPage() }}</strong>
-		</div>
-		
+		</div>		
 		</div>
 	
 
