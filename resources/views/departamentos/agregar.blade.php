@@ -15,7 +15,7 @@
 				<form class="form-horizontal" method="post" action="{{ url('/insertD')}}">
 					{{csrf_field()}}
 				  <fieldset>
-				    <legend class="text-center">Agregar Departamento</legend>
+				    
 				    @if(count($errors) >0 )
 				    	@foreach($errors->all() as $error)
 				    		<div class="alert alert-danger">

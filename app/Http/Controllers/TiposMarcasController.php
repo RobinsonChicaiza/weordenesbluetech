@@ -15,7 +15,7 @@ class TiposmarcasController extends Controller
 	}
 
     public function index(){
-    	$tiposmarcas = Tipomarca::all();
+    	$tiposmarcas = Tipomarca::paginate(5);
         return view('tiposmarcas.index')->with(['tiposmarcas' => $tiposmarcas]);
     	
     }
