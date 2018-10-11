@@ -2,9 +2,12 @@
 
 @section('content')
 
-<div class="container">
-		<div class="row">
-			<legend class="text-center">Departamento</legend>
+<div class="card">
+<div class="card-header">
+<h1>Departamentos</h1>
+
+</div>
+<div class="card-body">
 			<div class="row">
 				<div class="col-md-30 col-lg-30">
 					@if(session('info'))
@@ -14,7 +17,8 @@
 					@endif
 				</div>
 			</div>
-			<table class="table table-striped table-hover">
+			<div class="table-responsive">
+				<table class="table table-striped table-hover">
 				<thead>
 					<tr>
 						<th>ID</th>
@@ -42,6 +46,12 @@
 				</tbody>
 			</table>
 		</div>
+		{!! $departamentos->render() !!}
+			<strong>{{ $departamentos->total() }} registros | páginas {{ $departamentos->currentPage() }} de {{ $departamentos->lastPage() }}</strong>
+		</div>
+
+	</div>
+	</div>
 	</div>
 
 @endsection

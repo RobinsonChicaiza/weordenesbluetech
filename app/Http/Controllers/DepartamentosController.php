@@ -15,10 +15,10 @@ class DepartamentosController extends Controller
 	}
  
     public function index(){
-    	$departamentos = Departamento::all();
+    	$departamentos = Departamento::paginate(5);
         return view('departamentos.index')->with(['departamentos' => $departamentos]);
     	
-    }
+	}
 
     public function add(Request $request){
     	$this->validate($request,[

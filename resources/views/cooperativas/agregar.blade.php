@@ -41,7 +41,7 @@
                             <div class="col-md-6 offset-md-4">
 				 			<button type="submit" class="btn btn-primary">Guardar</button>
 
-
+							 
 				 			<a href="{{ url('/cooperativas')}}" class="btn btn-primary">Atrás</a>
 				 		</div>
 				 	</div>
