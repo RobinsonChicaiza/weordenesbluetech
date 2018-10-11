@@ -2,18 +2,20 @@
 
 @section('content')
 
-<div class="container">
-		<div class="row">
-			<legend class="text-center">Regiones</legend>
-			<div class="row">
-				<div class="col-md-30 col-lg-30">
+<div class="card">
+<div class="card-header">
+<h3>Regiones</h3>
+
+</div>
+<div class="card-body">			
+			
 					@if(session('info'))
 						<div class="alert alert-success">
 							{{session('info')}}
 						</div>	
-					@endif
-				</div>
-			</div>
+					@endif		
+			
+            <div class="table-responsive">
 			<table class="table table-striped table-hover">
 				<thead>
 					<tr>
@@ -41,7 +43,12 @@
 					@endif
 				</tbody>
 			</table>
-		</div>
+			</div>
+ 
+		{!! $regiones->render() !!}
+	
+		<strong>{{ $regiones->total() }} registros | páginas {{ $regiones->currentPage() }} de {{ $regiones->lastPage() }}</strong>
+	</div>
 	</div>
 
 @endsection
