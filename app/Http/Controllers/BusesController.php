@@ -17,7 +17,7 @@ class BusesController extends Controller
 	}
 
     public function index(){
-        $buses = Bus::all();
+        $buses = Bus::paginate(5);
         $cooperativas = Cooperativa::all();
         $marcas = Marca::all();
         $array1 = null;  

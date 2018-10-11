@@ -16,7 +16,7 @@ class ImpuestosController extends Controller
 	}
  
     public function index(){
-    	$impuestos = Impuesto::all();
+    	$impuestos = Impuesto::paginate(5);
         return view('impuestos.index')->with(['impuestos' => $impuestos]);
     	
     }

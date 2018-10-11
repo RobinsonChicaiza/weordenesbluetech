@@ -16,7 +16,7 @@ class RegionesController extends Controller
 	}
  
     public function index(){
-    	$regiones = Region::all();
+    	$regiones = Region::paginate(5);
         return view('regiones.index')->with(['regiones' => $regiones]);
     	
     }

@@ -15,7 +15,7 @@ class ProvinciasController extends Controller
 	}
     
     public function index(){
-        $provincias = Provincia::all();
+        $provincias = Provincia::paginate(5);
         $regiones = Region::all();
         $array1 = null;  
      

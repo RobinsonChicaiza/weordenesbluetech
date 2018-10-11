@@ -16,7 +16,7 @@ class CantonesController extends Controller
 	}
  
     public function index(){
-        $cantones = Canton::all();
+        $cantones = Canton::paginate(5);
         $provincias = Provincia::all();
         $array1 = null;  
      
