@@ -4,16 +4,16 @@
 
 <div class="container">
 		<div class="row">
-			<legend class="text-center">Categorias</legend>
-			<div class="row">
-				<div class="col-md-30 col-lg-30">
+			<legend class="text-center"><h1>Categorias</h1></legend>
+			
 					@if(session('info'))
 						<div class="alert alert-success">
 							{{session('info')}}
 						</div>	
 					@endif
-				</div>
-			</div>
+		
+			
+            <div class="table-responsive">
 			<table class="table table-striped table-hover">
 				<thead>
 					<tr>
@@ -50,6 +50,10 @@
 				</tbody>
 			</table>
 		</div>
-	</div>
+
+			{!! $categorias->render() !!}
+		</div>
+		<strong>{{ $categorias->total() }} registros | páginas {{ $categorias->currentPage() }} de {{ $categorias->lastPage() }}</strong>
+			</div>
 
 @endsection

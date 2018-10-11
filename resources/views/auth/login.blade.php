@@ -56,9 +56,9 @@
                         
                          <div class="container">
                          <div class="panel-footer">
-                         <a href="{{ url('/auth/facebook') }}" class="btn btn-block btn-social btn-facebook">
+                         <!-- <a href="{{ url('/auth/facebook') }}" class="btn btn-block btn-social btn-facebook" visible="false">
                                 <span class="fa fa-facebook"></span> {{ __('Iniciar con facebook') }}
-                            </a>
+                            </a> -->
                         <a href="{{ url('/auth/google') }}" class="btn btn-block btn-social btn-google">
                                 <span class="fa fa-google"></span> {{ __('Iniciar con google') }}
                             </a>

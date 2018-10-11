@@ -31,9 +31,9 @@ Route::post('/agregarReferencia/{id}','ReferenciaController@add');
 Route::get('/delereReferencia/{id_persona}/{id_referencia}/{aux}','ReferenciaController@delete');
 Route::get('/updateReferencia/{id}','ReferenciaController@update');
 Route::post('/buscarPersona/{id}','ReferenciaController@buscarCedula');
-
-
-
+Route::get('/factura', function(){
+	return view('invoices.Cedula');
+});
 
 
 

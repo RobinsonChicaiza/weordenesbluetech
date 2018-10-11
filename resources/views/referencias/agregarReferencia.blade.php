@@ -7,12 +7,18 @@
             <div class="card" width="100%">
                 <div class="card-header">{{ __('Agregar Referencia') }}
                 
-                </div>
+                </div>       
+                
 
                 <div class="card-body">
+                    @if (!empty($info))
+                        <div class="alert alert-danger" role="alert">
+                        {{ $info }} 
+                        </div>
+                    @endif
                     <form method="POST" 
                     action="{{ url('/agregarReferencia',array($persona)) }}"
-                    enctype="multipart/form-data">
+                    enctype="multipart/form-data ">
                         @csrf
 
                          @if(count($errors) >0 )
@@ -32,7 +38,9 @@
                                 @if(!empty($personaReferencua))
                                 <input id="Ci" type="text" class="form-control{{ $errors->has('Ci') ? ' is-invalid' : '' }}" name="Ci" value="<?php echo $personaReferencua->Ci; ?>" required autofocus>
                                 @else
-                                <input id="Ci" type="text" class="form-control{{ $errors->has('Ci') ? ' is-invalid' : '' }}" name="Ci"  required autofocus>
+                                <input id="Ci" type="text" class="form-control{{ $errors->has('Ci') ? ' is-invalid' : '' }}" name="Ci"  required autofocus
+                                maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                onkeypress="return soloNumeros(event)">
                                 @endif
                                 @if ($errors->has('Ci'))
                                     <span class="invalid-feedback" role="alert">
@@ -56,9 +64,11 @@
                             <div class="col-md-6">
                             @if(!empty($personaReferencua))
 
-                                <input id="Nombres" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="Nombres"  value="<?php echo $personaReferencua->Nombres; ?>" required autofocus>
+                                <input id="Nombres" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="Nombres"  
+                                value="<?php echo $personaReferencua->Nombres; ?>" required autofocus onkeypress="return soloLetras(event)">
                                 @else
-                                <input id="Nombres" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="Nombres"   required autofocus>
+                                <input id="Nombres" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="Nombres"   required autofocus
+                                onkeypress="return soloLetras(event)">
 
                                 @endif
 
@@ -77,9 +87,12 @@
 
                             <div class="col-md-6">
                             @if(!empty($personaReferencua))
-                                <input id="Ruc" type="text" class="form-control{{ $errors->has('Ruc') ? ' is-invalid' : '' }}" name="Ruc" value="<?php echo $personaReferencua->Ruc; ?>" required autofocus>
+                                <input id="Ruc" type="text" class="form-control{{ $errors->has('Ruc') ? ' is-invalid' : '' }}" name="Ruc" 
+                                value="<?php echo $personaReferencua->Ruc; ?>" required autofocus onkeypress="return soloNumeros(event)">
                                 @else
-                                <input id="Ruc" type="text" class="form-control{{ $errors->has('Ruc') ? ' is-invalid' : '' }}" name="Ruc" required autofocus>
+                                <input id="Ruc" type="text" class="form-control{{ $errors->has('Ruc') ? ' is-invalid' : '' }}" name="Ruc" required autofocus
+                                onkeypress="return soloNumeros(event)"
+                                maxlength="13" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                                 @endif
                                 @if ($errors->has('Ruc'))
                                     <span class="invalid-feedback" role="alert">
@@ -95,9 +108,11 @@
                             <div class="col-md-6">
                             @if(!empty($personaReferencua))
 
-                                <input id="Telefono" type="text" class="form-control{{ $errors->has('Telefono') ? ' is-invalid' : '' }}" name="Telefono" value="<?php echo $personaReferencua->Telefono; ?>" required autofocus>
+                                <input id="Telefono" type="text" class="form-control{{ $errors->has('Telefono') ? ' is-invalid' : '' }}" name="Telefono" 
+                                value="<?php echo $personaReferencua->Telefono; ?>" required autofocus onkeypress="return soloNumeros(event)">
                                 @else 
-                                <input id="Telefono" type="text" class="form-control{{ $errors->has('Telefono') ? ' is-invalid' : '' }}" name="Telefono" required autofocus>
+                                <input id="Telefono" type="text" class="form-control{{ $errors->has('Telefono') ? ' is-invalid' : '' }}" name="Telefono" required autofocus
+                                onkeypress="return soloNumeros(event)">
   
                                 @endif
                                 @if ($errors->has('Telefono'))
@@ -132,7 +147,7 @@
                         <hr>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" id="g">
                                     {{ __('Agregar') }}
                                 </button>
 
@@ -166,11 +181,13 @@
 	
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+	        <button type="button"  class="btn btn-default" data-dismiss="modal">Cerrar</button>
 	        <button type="submit" class="btn btn-primary">Buscar</button>
 	      </div>
       </form>
     </div>
   </div>
 </div>
+
+
 @endsection

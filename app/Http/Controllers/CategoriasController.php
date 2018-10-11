@@ -17,7 +17,7 @@ class CategoriasController extends Controller
 	}
 
     public function index(){
-        $categorias = Categoria::all();
+        $categorias = Categoria::paginate(5);
         $personas = Persona::all();
         $estados = Estado::all();
         $array1 = null;  

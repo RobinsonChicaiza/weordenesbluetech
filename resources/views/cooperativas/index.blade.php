@@ -2,19 +2,24 @@
 
 @section('content')
 
-<div class="container">
-		<div class="row">
-			<legend class="text-center">Cooperativa</legend>
-			<div class="row">
-				<div class="col-md-30 col-lg-30">
+
+<div class="card">
+<div class="card-header">
+<h1>Cooperativas</h1>
+
+</div>
+<div class="card-body">
+		<div class="row">	
+			
 					@if(session('info'))
 						<div class="alert alert-success">
 							{{session('info')}}
 						</div>	
 					@endif
-				</div>
-			</div>
-			<table class="table table-striped table-hover">
+			
+				<div class="table-responsive">
+
+				<table class="table table-striped table-hover">
 				<thead>
 				
 					<tr>
@@ -48,10 +53,14 @@
 				</tbody>
 
 			</table>
+		</div>
 
 			{!! $cooperativas->render() !!}
 		</div>
 		<strong>{{ $cooperativas->total() }} registros | páginas {{ $cooperativas->currentPage() }} de {{ $cooperativas->lastPage() }}</strong>
 	</div>
+	</div>
+	</div>
+
 
 @endsection
