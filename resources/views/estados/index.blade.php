@@ -2,18 +2,20 @@
 
 @section('content')
 
-<div class="container">
-		<div class="row">
-			<legend class="text-center">Estados</legend>
-			<div class="row">
-				<div class="col-md-30 col-lg-30">
+<div class="card">
+<div class="card-header">
+<h3>Estados</h3>
+
+</div>
+<div class="card-body">			
+			
 					@if(session('info'))
 						<div class="alert alert-success">
 							{{session('info')}}
 						</div>	
-					@endif
-				</div>
-			</div>
+					@endif		
+			
+            <div class="table-responsive">
 			<table class="table table-striped table-hover">
 				<thead>
 					<tr>
@@ -40,8 +42,13 @@
 						@endforeach
 					@endif
 				</tbody>
-			</table>
+				</table>
 		</div>
+ 
+		{!! $estados->render() !!}
+	
+		<strong>{{ $estados->total() }} registros | páginas {{ $estados->currentPage() }} de {{ $estados->lastPage() }}</strong>
+	</div>
 	</div>
 
 @endsection

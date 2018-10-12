@@ -2,15 +2,15 @@
 
 @section('content')
 <div class="container">
-		<div class="row justify-content-center">
-			<div class="col-md-8">
-			<div class="card" width="100%">
-
-			<div class="card-header">{{ __('Agregar Departamento') }}
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card" width="100%">
+                <div class="card-header">
+					<h3>{{ __('Agregar categorias') }}</h3>
                 
-      </div>
+                </div>
 
-			<div class="card-body">
+                <div class="card-body">
 
 				<form class="form-horizontal" method="post" action="{{ url('/insertD')}}">
 					{{csrf_field()}}

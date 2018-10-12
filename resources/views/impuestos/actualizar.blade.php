@@ -24,7 +24,7 @@
 						<script type="text/javascript" src="{{url('js/validaciones.js')}}"></script>
 				    <div class="form-group row">
 				      <label for="exampleInputEmail1" class="col-md-4 col-form-label text-md-right">IVA</label>
-				      <div class="col-lg-10">
+				      <div class="col-md-6">
 				      	<input type="text" onkeypress="return numeros(event)" name="IVA" class="form-control" id="IVA" placeholder="Impuestos" value="<?php echo $impuestos->IVA; ?>">
 				      </div>
 				 	</div>
