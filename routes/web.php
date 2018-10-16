@@ -198,6 +198,7 @@ Route::get('/agregarProd', 'ProductosController@agregar');
 Route::post('/insertProd','ProductosController@add');
 Route::get('/actualizarProd/{id}','ProductosController@update');
 Route::post('/editProd/{id}','ProductosController@edit');
+Route::get('/borrarProd/{id}','ProductosController@delete');
 Route::post('/insertarProdImpuesto','ProductosController@addImpuestoProducto');
 Route::post('/insertarProdMarca','ProductosController@addMarcaProducto');
 Route::post('/insertarProdEstado','ProductosController@addEstadoProducto');
