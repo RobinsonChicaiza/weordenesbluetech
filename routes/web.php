@@ -189,3 +189,16 @@ Route::post('/insertEst','EstadosController@add');
 Route::get('/actualizarEst/{id}','EstadosController@update');
 Route::post('/editEst/{id}','EstadosController@edit');
 Route::get('/borrarEst/{id}','EstadosController@delete');
+
+
+//Rutas para el CRUD  de la tabla Productos
+Route::get('/productos','ProductosController@index');
+
+Route::get('/agregarProd', 'ProductosController@agregar');
+Route::post('/insertProd','ProductosController@add');
+Route::get('/actualizarProd/{id}','ProductosController@update');
+Route::post('/editProd/{id}','ProductosController@edit');
+Route::post('/insertarProdImpuesto','ProductosController@addImpuestoProducto');
+Route::post('/insertarProdMarca','ProductosController@addMarcaProducto');
+Route::post('/insertarProdEstado','ProductosController@addEstadoProducto');
+Route::post('/insertarProdCategoria','ProductosController@addCategoriaProducto');
