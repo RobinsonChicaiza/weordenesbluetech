@@ -51,6 +51,17 @@ class MarcasController extends Controller
     	return redirect('/marcas')->with('info','Article Saved Successfully!');
     } 
 
+    public function addTipoMarcas(Request $request){
+    	$this->validate($request,[
+    		'Nombre' => 'required'
+    	]);
+
+    	$articles = new Tipomarca;
+    	$articles->Nombre = $request->input('Nombre');
+    	$articles->save();
+    	return redirect('/agregarMa')->with('info','Article Saved Successfully!');
+    } 
+
 
     public function update($id){
         $marcas = Marca::find($id);

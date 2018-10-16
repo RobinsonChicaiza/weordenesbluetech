@@ -101,6 +101,8 @@ Route::post('/insertB','BusesController@add');
 Route::get('/actualizarB/{id}','BusesController@update');
 Route::post('/editB/{id}','BusesController@edit');
 Route::get('/borrarB/{id}','BusesController@delete');
+Route::post('/insertarCooperativaBus','BusesController@addCooperativaBus');
+Route::post('/insertarMarca','BusesController@addMarcaBus');
 
 
 
@@ -144,6 +146,7 @@ Route::post('/insertMa','MarcasController@add');
 Route::get('/actualizarMa/{id}','MarcasController@update');
 Route::post('/editMa/{id}','MarcasController@edit');
 Route::get('/borrarMa/{id}','MarcasController@delete');
+Route::post('/insertarTipoMarcas','MarcasController@addTipoMarcas');
 
 //Rutas para el CRUD  de la tabla Impuestos
 Route::get('/impuestos','ImpuestosController@index');

@@ -68,7 +68,34 @@ class BusesController extends Controller
         $articles->Id_Marca = $request->input('Id_Marca');
     	$articles->save();
     	return redirect('/buses')->with('info','Article Saved Successfully!');
+    }
+    
+    
+    public function addCooperativaBus(Request $request){
+    	$this->validate($request,[
+    		'Nombre' => 'required',
+    		'Ruc' => 'required'
+    	]);
+
+    	$articles = new Cooperativa;
+    	$articles->Nombre = $request->input('Nombre');
+    	$articles->Ruc = $request->input('Ruc');
+    	$articles->save();
+    	return redirect('/agregarB')->with('info','El dato fue agregado correctamente!');
     } 
+
+    public function addMarcaBus(Request $request){
+    	$this->validate($request,[
+            'Id_Tipo' => 'required',
+            'Nombre' => 'required'
+    	]);
+
+        $articles = new Marca;
+        $articles->Id_Tipo = $request->input('Id_Tipo');
+        $articles->Nombre = $request->input('Nombre');
+    	$articles->save();
+    	return redirect('/agregarB')->with('info','Article Saved Successfully!');
+    }
 
     public function update($id){
         $buses = Bus::find($id);

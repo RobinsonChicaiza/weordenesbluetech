@@ -42,6 +42,12 @@
                         </select>
 
 				      </div>
+					  <div class="right">
+                             
+                             <a href="#" data-toggle="modal" data-target="#myModal" style="float:right;">
+                             <img src="{{ asset('imagenes/add.png') }}">
+                             </a>
+	      			</div>
 				 	</div>
 
 					 <div class="form-group row">
@@ -103,4 +109,54 @@
 			</div>
 		</div>
 	</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">       
+        <h4 id="myModalLabel">Agregar tipo cooperativa</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <form action="{{ url('/insertarCooperativaBus') }}" method="post">
+      		{{csrf_field()}}
+	      <div class="modal-body">
+				<input type="text" onkeypress="return soloLetras(event)" name="Nombre" class="form-control" id="Nombre" value="{{ old('Nombre') }}" placeholder="Cooperativa.." required>
+				
+	      <div class="modal-footer">
+	        <button type="button"  class="btn btn-default" data-dismiss="modal">Cerrar</button>
+	        <button type="submit" class="btn btn-primary">Guardar</button>
+	      </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- fin modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">       
+        <h4 id="myModalLabel">Agregar tipo marca</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <form action="{{ url('/insertarMarca') }}" method="post">
+      		{{csrf_field()}}
+	      <div class="modal-body">
+				
+				
+
+
+				
+	      <div class="modal-footer">
+	        <button type="button"  class="btn btn-default" data-dismiss="modal">Cerrar</button>
+	        <button type="submit" class="btn btn-primary">Guardar</button>
+	      </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- fin modal -->
+
     @endsection
