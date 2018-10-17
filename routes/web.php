@@ -31,9 +31,9 @@ Route::post('/agregarReferencia/{id}','ReferenciaController@add');
 Route::get('/delereReferencia/{id_persona}/{id_referencia}/{aux}','ReferenciaController@delete');
 Route::get('/updateReferencia/{id}','ReferenciaController@update');
 Route::post('/buscarPersona/{id}','ReferenciaController@buscarCedula');
-Route::get('/factura', function(){
-	return view('invoices.Cedula');
-});
+Route::get('/factura', 'FacturaController@index')->name('factura');
+Route::get('/getProduct/{id}', 'FacturaController@getProducto')->name('getProducto');
+Route::post('/getProductAll', 'FacturaController@indexModalCoop')->name('indexModalCoop');
 
 // Ruta para agregar usuario por google
 //Route::get('/registroUsuarioSocial', 'LoginController@mostrarRegistro');

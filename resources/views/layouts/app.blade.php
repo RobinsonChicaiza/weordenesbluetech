@@ -17,6 +17,8 @@
     <script type="text/javascript" src="{{url('js/bootstrap.js')}}"></script>
     
     <script  src="{{ asset('js/validaciones.js') }}"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
+
 
 </head>
 <body>
@@ -57,7 +59,9 @@
                                     <a class="dropdown-item" href="{{ url('/estados')}}">Estados</a> 
                                     </div>
                                 </li>
-                        
+                                <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('factura') }}">{{ __('Factura') }}</a>
+                                        </li>
 
                                 </ul>
 
@@ -103,6 +107,7 @@
 
                 <main class="py-4">
                     @yield('content')
+                 
                 </main> 
                 <hr />
         <!-- Site footer -->
