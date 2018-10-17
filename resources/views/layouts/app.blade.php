@@ -68,11 +68,9 @@
                                 </li>
 
                                 </li>
-<<<<<<< HEAD
                                 <li class="nav-item">
                                             <a class="nav-link" href="{{ route('factura') }}">{{ __('Factura') }}</a>
                                         </li>
-=======
 
                                 <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -104,7 +102,6 @@
                                 </div>
                                 </li>
 
->>>>>>> 5c5e23202e693a855548fc32b7d1a2b89db0a9a5
 
                                 </ul>
 
