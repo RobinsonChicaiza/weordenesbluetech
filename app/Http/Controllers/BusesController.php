@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Bus;
 use App\Cooperativa;
 use App\Marca;
+use App\TipoMarca;
 use Illuminate\Support\Facades\Auth;
 
 class BusesController extends Controller
@@ -20,6 +21,7 @@ class BusesController extends Controller
         $buses = Bus::paginate(5);
         $cooperativas = Cooperativa::all();
         $marcas = Marca::all();
+        $tiposmarcas = TipoMarca::all();
         $array1 = null;  
      
         for($i = 0 ; $i < sizeof($buses); $i++)
@@ -36,6 +38,12 @@ class BusesController extends Controller
             }
           }
 
+          for($j = 0 ; $j < sizeof($tiposmarcas); $j++){
+            if( $marcas[$i]['Id_Tipo'] ==  $tiposmarcas[$j]['Id']){
+                $marcas[$i] ['Id_Tipo'] = $tiposmarcas [$j]['Nombre'];
+            }
+          }
+
         }
 		return view('buses.index')->with(['buses' => $buses]);
         
@@ -44,8 +52,9 @@ class BusesController extends Controller
     public function agregar(){
         $cooperativas = Cooperativa::all();
         $marcas = Marca::all();
+        $tiposmarcas = TipoMarca::all();
 
-        return view('buses.agregar')->with(['cooperativ' => $cooperativas, 'marc' => $marcas]);
+        return view('buses.agregar')->with(['cooperativ' => $cooperativas, 'marc' => $marcas, 'tipmar' => $tiposmarcas]);
     }
 
 

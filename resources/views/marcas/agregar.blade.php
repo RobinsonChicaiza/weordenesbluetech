@@ -12,6 +12,7 @@
                 </div>
 
                 <div class="card-body">
+				
 				<form class="form-horizontal" method="post" action="{{ url('/insertMa')}}">
 					{{csrf_field()}}
 				  
@@ -34,7 +35,7 @@
 				      <div class="col-md-6">
 				      	
 					  <select class="form-control" name="Id_Tipo" class="form-group">
-					  <option selected="true" disabled="disabled">Seleccione el departamento</option>
+					  <option selected="true" disabled="disabled">Seleccione el tipo de marca</option>
                             @foreach($tipmar as $tiposmarcas)
                                 <option value="{{$tiposmarcas->Id}}">
                                     {{$tiposmarcas->Nombre}}
@@ -70,6 +71,8 @@
 				 	</div>
 				  
 				</form>
+
+				
 				</div>
 				</div>
 			</div>
