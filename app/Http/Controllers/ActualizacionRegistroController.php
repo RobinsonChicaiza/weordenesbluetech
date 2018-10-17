@@ -43,8 +43,7 @@ class ActualizacionRegistroController extends Controller
 
     public function edit(Request $request, $id){
         
-        $image = $request->file('imagen');
-        $imgContenido = addslashes(file_get_contents($image));
+        
         // return $imgContenido;
         $this->validate($request,[
             'Nombres' => 'required|string|max:255',
@@ -53,8 +52,11 @@ class ActualizacionRegistroController extends Controller
             'Telefono' => 'required|string|max:10',
             'Id_Canton' => 'required|string|max:255',
             'Correo' => 'required|string|email|max:255',
+            'imagen' => 'required|mimes:jpeg,png',
            
         ]);
+        $image = $request->file('imagen');
+        $imgContenido = addslashes(file_get_contents($image));
         //$imgContenido = addslashes(file_get_contents($image));
     	$data = array(
             'Nombres' => $request->input('Nombres'),
