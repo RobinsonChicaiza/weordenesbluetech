@@ -41,27 +41,70 @@
 
                                 <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Configuraciones
+                                Lugares
                                 </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ url('/cooperativas')}}">Cooperativas</a>
-                                    <a class="dropdown-item" href="{{ url('/departamentos')}}">Departamentos</a>
-                                    <a class="dropdown-item" href="{{ url('/tiposmarcas')}}">Tipos marcas</a>
-                                    <a class="dropdown-item" href="{{ url('/marcas')}}">Marcas</a>
-                                    <a class="dropdown-item" href="{{ url('/roles')}}">Roles</a>
-                                    <a class="dropdown-item" href="{{ url('/buses')}}">Buses</a>
+                                    
                                     <a class="dropdown-item" href="{{ url('/regiones')}}">Regiones</a>
                                     <a class="dropdown-item" href="{{ url('/provincias')}}">Provincias</a>
                                     <a class="dropdown-item" href="{{ url('/cantones')}}">Cantones</a>
-                                    <a class="dropdown-item" href="{{ url('/impuestos')}}">Impuestos</a>
-                                    <a class="dropdown-item" href="{{ url('/registrobuses')}}">Registro Buses</a>                                
-                                    <a class="dropdown-item" href="{{ url('/categorias')}}">Categorias</a>
-                                    <a class="dropdown-item" href="{{ url('/estados')}}">Estados</a> 
                                     </div>
+
                                 </li>
+
+                                 <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                             Buses
+                                    </a>
+
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ url('/cooperativas')}}">Cooperativas</a>
+                                    <a class="dropdown-item" href="{{ url('/tiposmarcas')}}">Tipos marcas</a>
+                                    <a class="dropdown-item" href="{{ url('/marcas')}}">Marcas</a>
+                                    <a class="dropdown-item" href="{{ url('/buses')}}">Buses</a>
+                                    <a class="dropdown-item" href="{{ url('/registrobuses')}}">Registro Buses</a>                                
+                                    </div>
+
+                                </li>
+
+                                </li>
+<<<<<<< HEAD
                                 <li class="nav-item">
                                             <a class="nav-link" href="{{ route('factura') }}">{{ __('Factura') }}</a>
                                         </li>
+=======
+
+                                <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Varios
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ url('/departamentos')}}">Departamentos</a>
+                                <a class="dropdown-item" href="{{ url('/roles')}}">Roles</a>
+                                <a class="dropdown-item" href="{{ url('/impuestos')}}">Impuestos</a>
+                                <a class="dropdown-item" href="{{ url('/estados')}}">Estados</a>
+                                <a class="dropdown-item" href="{{ url('/categorias')}}">Categorias</a> 
+                                <a class="dropdown-item" href="{{ url('/productos')}}">Productos</a> 
+                                </div>
+
+                                </li>
+
+                                </li>
+
+                                <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Transacciones
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ url('/')}}">Ordenes</a>
+                                <a class="dropdown-item" href="{{ url('/')}}">Pedidos</a>
+
+                                </div>
+                                </li>
+
+>>>>>>> 5c5e23202e693a855548fc32b7d1a2b89db0a9a5
 
                                 </ul>
 

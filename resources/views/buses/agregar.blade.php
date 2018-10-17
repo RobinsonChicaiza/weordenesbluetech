@@ -33,6 +33,7 @@
 				      <div class="col-md-6">
 				      	
 					  <select class="form-control" name="Id_Cooperativa" class="form-group">
+						<option selected="true" disabled="disabled">Seleccione la cooperativa</option>
                             @foreach($cooperativ as $cooperativa)
                                 <option value="{{$cooperativa->Id}}">
                                     {{$cooperativa->Nombre}}
@@ -42,6 +43,12 @@
                         </select>
 
 				      </div>
+					  <div class="right">
+                             
+                             <a href="#" data-toggle="modal" data-target="#myModal" style="float:right;">
+                             <img src="{{ asset('imagenes/add.png') }}">
+                             </a>
+	      			</div>
 				 	</div>
 
 					 <div class="form-group row">
@@ -78,6 +85,7 @@
 				      <div class="col-md-6">
 				      	
 					  <select class="form-control" name="Id_Marca" class="form-group">
+						<option selected="true" disabled="disabled">Seleccione la marca</option>
                             @foreach($marc as $marca)
                                 <option value="{{$marca->Id}}">
                                     {{$marca->Nombre}}
@@ -87,6 +95,13 @@
                         </select>
 
 				      </div>
+							<div class="right">
+                             
+                             <a href="#" data-toggle="modal" data-target="#myModal1" style="float:right;">
+                             <img src="{{ asset('imagenes/add.png') }}">
+                             </a>
+	      			</div>
+
 				 	</div>
                      
 				 	
@@ -103,4 +118,79 @@
 			</div>
 		</div>
 	</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">       
+        <h4 id="myModalLabel">Agregar tipo cooperativa</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <form action="{{ url('/insertarCooperativaBus') }}" method="post">
+      		{{csrf_field()}}
+	      <div class="modal-body">
+				<input type="text" onkeypress="return soloLetras(event)" name="Nombre" class="form-control" id="Nombre" value="{{ old('Nombre') }}" placeholder="Cooperativa.." required>
+				</div>
+				<div class="modal-body">
+				<input type="text" onkeypress="return soloNumeros(event)" name="Ruc" class="form-control" id="Ruc" value="{{ old('Ruc') }}" placeholder="Ruc.." required>
+				</div>
+				
+				
+	      <div class="modal-footer">
+	        <button type="button"  class="btn btn-default" data-dismiss="modal">Cerrar</button>
+	        <button type="submit" class="btn btn-primary">Guardar</button>
+	      </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- fin modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal1Label">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">       
+        <h4 id="myModal1Label">Agregar marca</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+
+			<form action="{{ url('/insertarMarca') }}" method="post">
+      		{{csrf_field()}}
+				<div class="modal-body">
+				
+				<select class="form-control" name="Id_Tipo" class="form-group">
+					  <option selected="true" disabled="disabled">Seleccione el tipo de marca</option>
+                            @foreach($tipmar as $tiposmarcas)
+                                <option value="{{$tiposmarcas->Id}}">
+                                    {{$tiposmarcas->Nombre}}
+                                </option>
+				    		  
+				    	    @endforeach
+        </select>
+
+
+				</div>
+
+	      <div class="modal-body">
+				<input type="text" onkeypress="return soloLetras(event)" name="Nombre" class="form-control" id="Nombre" value="{{ old('Nombre') }}" placeholder="Cooperativa.." required>
+				</div>
+				
+				
+				
+	      <div class="modal-footer">
+	        <button type="button"  class="btn btn-default" data-dismiss="modal">Cerrar</button>
+	        <button type="submit" class="btn btn-primary">Guardar</button>
+	      </div>
+      </form>
+
+				
+
+    </div>
+  </div>
+</div>
+<!-- fin modal -->
+
     @endsection

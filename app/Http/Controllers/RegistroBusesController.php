@@ -19,7 +19,7 @@ class RegistroBusesController extends Controller
 	}
 
     public function index(){
-        $registrobuses = RegistroBus::all();
+        $registrobuses = RegistroBus::paginate(5);
         $personas = Persona::all();
         $buses = Bus::all();
         $array1 = null;  
