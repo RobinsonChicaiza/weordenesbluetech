@@ -159,7 +159,7 @@
                                 </div>
                                 <div class="right">
 
-                                    <a href="#" data-toggle="modal" data-target="#myModal1" style="float:right;">
+                                    <a href="#" data-toggle="modal" data-target="#myModal4" style="float:right;">
                                         <img src="{{ asset('imagenes/add.png') }}">
                                     </a>
                                 </div>
@@ -289,6 +289,65 @@
 </div>
 <!-- fin modal -->
 
+<!-- Modal -->
+<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModal4Label">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="myModal4Label">Agregar categoria</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
 
+
+            <form action="{{ url('/insertarProdCategoria') }}" method="post">
+                {{csrf_field()}}
+                
+                <div class="modal-body">
+                    <input type="text" onkeypress="return soloLetras(event)" name="Nombre" class="form-control" id="Nombre"
+                        value="{{ old('Nombre') }}" placeholder="Nombre.." required>
+                </div>
+
+                 <div class="modal-body">
+                    <input type="text" onkeypress="return soloLetras(event)" name="Descripcion" class="form-control" id="Descripcion"
+                        value="{{ old('Descripcion') }}" placeholder="Descripcion.." required>
+                </div>
+
+
+                <div class="modal-body">
+				<select class="form-control" name="Id_Proveedor" class="form-group">
+					  <option selected="true" disabled="disabled">Seleccione la persona</option>
+                            @foreach($pers as $persona)
+                                <option value="{{$persona->Id}}">
+                                {{$persona->Nombres}} {{$persona->Apellidos}}
+                                </option>
+				    		  
+				    	    @endforeach
+                </select>
+				</div>
+
+
+                <div class="modal-body">
+				<select class="form-control" name="Id_Estado" class="form-group">
+					  <option selected="true" disabled="disabled">Seleccione el estado</option>
+                            @foreach($estad as $estado)
+                                <option value="{{$estado->Id}}">
+                                {{$estado->Nombre}}
+                                </option>
+				    		  
+				    	    @endforeach
+                </select>
+				</div>
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<!-- fin modal -->
 
 @endsection

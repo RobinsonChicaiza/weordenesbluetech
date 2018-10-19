@@ -9,6 +9,7 @@ use App\Marca;
 use App\Estado;
 use App\Categoria;
 use App\TipoMarca;
+use App\Persona;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -27,6 +28,7 @@ class ProductosController extends Controller
         $estados = Estado::all();
         $categorias = Categoria::all();
         $tiposmarcas = TipoMarca::all();
+        $personas = Persona::all();
         $array1 = null;  
      
         for($i = 0 ; $i < sizeof($productos); $i++)
@@ -61,7 +63,12 @@ class ProductosController extends Controller
             }
           }
 
-          
+          for($j = 0 ; $j < sizeof($personas); $j++){
+            if( $categorias[$i]['Id_Proveedor'] ==  $personas[$j]['Id']){
+                $categorias[$i] ['Id_Proveedor'] = $personas [$j]['Apellidos'].' '.$personas [$j]['Nombres'];
+            } 
+          }
+
 
         }
 		return view('productos.index')->with(['productos' => $productos]);
@@ -74,9 +81,9 @@ class ProductosController extends Controller
         $estados = Estado::all();
         $categorias = Categoria::all();
         $tiposmarcas = TipoMarca::all();
+        $personas = Persona::all();
        
-
-        return view('productos.agregar')->with(['impuest' => $impuestos, 'marc' => $marcas, 'estad' => $estados, 'categ' => $categorias, 'tipmar' => $tiposmarcas]);
+        return view('productos.agregar')->with(['impuest' => $impuestos, 'marc' => $marcas, 'estad' => $estados, 'categ' => $categorias, 'tipmar' => $tiposmarcas, 'pers' => $personas]);
     }
 
 
