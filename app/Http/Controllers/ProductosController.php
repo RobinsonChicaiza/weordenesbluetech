@@ -8,6 +8,7 @@ use App\Impuesto;
 use App\Marca;
 use App\Estado;
 use App\Categoria;
+use App\TipoMarca;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -25,6 +26,7 @@ class ProductosController extends Controller
         $marcas = Marca::all();
         $estados = Estado::all();
         $categorias = Categoria::all();
+        $tiposmarcas = TipoMarca::all();
         $array1 = null;  
      
         for($i = 0 ; $i < sizeof($productos); $i++)
@@ -53,6 +55,14 @@ class ProductosController extends Controller
             }
           }
 
+          for($j = 0 ; $j < sizeof($tiposmarcas); $j++){
+            if( $marcas[$i]['Id_Tipo'] ==  $tiposmarcas[$j]['Id']){
+                $marcas[$i] ['Id_Tipo'] = $tiposmarcas [$j]['Nombre'];
+            }
+          }
+
+          
+
         }
 		return view('productos.index')->with(['productos' => $productos]);
         
@@ -63,8 +73,10 @@ class ProductosController extends Controller
         $marcas = Marca::all();
         $estados = Estado::all();
         $categorias = Categoria::all();
+        $tiposmarcas = TipoMarca::all();
+       
 
-        return view('productos.agregar')->with(['impuest' => $impuestos, 'marc' => $marcas, 'estad' => $estados, 'categ' => $categorias]);
+        return view('productos.agregar')->with(['impuest' => $impuestos, 'marc' => $marcas, 'estad' => $estados, 'categ' => $categorias, 'tipmar' => $tiposmarcas]);
     }
 
 
@@ -107,11 +119,13 @@ class ProductosController extends Controller
     	return redirect('/agregarProd')->with('info','El dato fue agregado correctamente!');
     } 
 
+   
     public function addMarcaProducto(Request $request){
     	$this->validate($request,[
             'Id_Tipo' => 'required',
             'Nombre' => 'required'
     	]);
+
         $articles = new Marca;
         $articles->Id_Tipo = $request->input('Id_Tipo');
         $articles->Nombre = $request->input('Nombre');
@@ -149,7 +163,7 @@ class ProductosController extends Controller
 
     public function update($id){
         $productos = Producto::find($id);
-        $Impuesto = Impuesto::where('Id' , $productos['Id_Impuestos'])->first();
+        $impuesto = Impuesto::where('Id' , $productos['Id_Impuestos'])->first();
         $impuestosAll = Impuesto::all();
         $marca = Marca::where('Id' , $productos['Id_Marca'])->first();
         $marcasAll = Marca::all();
@@ -157,7 +171,7 @@ class ProductosController extends Controller
         $estadosAll = Estado::all();
         $categoria = Categoria::where('Id' , $productos['Id_Categoria'])->first();
         $categoriasAll = Categoria::all();
-        return view('productos.actualizar')->with(['productos' => $productos , 'Impuesto' => $Impuesto , 'impuestosAll' => $impuestosAll, 'marca' => $marca , 'marcasAll' => $marcasAll]);   
+        return view('productos.actualizar')->with(['productos' => $productos , 'impuesto' => $impuesto , 'impuestosAll' => $impuestosAll, 'marca' => $marca , 'marcasAll' => $marcasAll, 'estado' => $estado , 'estadosAll' => $estadosAll, 'categoria' => $categoria , 'categoriasAll' => $categoriasAll]);   
         
     }
 

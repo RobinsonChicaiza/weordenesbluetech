@@ -42,7 +42,7 @@
 				      </div>
 					  <div class="right">
                              
-                             <a href="#" data-toggle="modal" data-target="#myModal" style="float:right;">
+                             <a href="#" data-toggle="modal" data-target="#myModal1" style="float:right;">
                              <img src="{{ asset('imagenes/add.png') }}">
                              </a>
 	      			</div>
@@ -69,7 +69,7 @@
 				      </div>
 					  <div class="right">
                              
-                             <a href="#" data-toggle="modal" data-target="#myModal" style="float:right;">
+                             <a href="#" data-toggle="modal" data-target="#myModal2" style="float:right;">
                              <img src="{{ asset('imagenes/add.png') }}">
                              </a>
 	      			</div>
@@ -94,7 +94,7 @@
 				      </div>
 					  <div class="right">
                              
-                             <a href="#" data-toggle="modal" data-target="#myModal" style="float:right;">
+                             <a href="#" data-toggle="modal" data-target="#myModal3" style="float:right;">
                              <img src="{{ asset('imagenes/add.png') }}">
                              </a>
 	      			</div>
@@ -180,5 +180,112 @@
 		</div>
 	</div>
 
+</div>
 
-    @endsection
+
+<!-- Modal -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal1Label">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">       
+        <h4 id="myModal1Label">Agregar iva</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+
+			
+		<form action="{{ url('/insertarProdImpuesto') }}" method="post">
+      		{{csrf_field()}}
+	      <div class="modal-body">
+				<input type="text" onkeypress="return Decimales(event)" name="IVA" class="form-control" id="IVA" value="{{ old('IVA') }}" placeholder="IVA.." required>
+				</div>
+				
+	      <div class="modal-footer">
+	        <button type="button"  class="btn btn-default" data-dismiss="modal">Cerrar</button>
+	        <button type="submit" class="btn btn-primary">Guardar</button>
+	      </div>
+      </form>
+				
+    </div>
+  </div>
+</div>
+<!-- fin modal -->
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModal2Label">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">       
+        <h4 id="myModal2Label">Agregar marca</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+
+			<form action="{{ url('/insertarProdMarca') }}" method="post">
+      		{{csrf_field()}}
+				<div class="modal-body">
+				
+				<select class="form-control" name="Id_Tipo" class="form-group">
+					  <option selected="true" disabled="disabled">Seleccione el tipo de marca</option>
+                            @foreach($tipmar as $tiposmarcas)
+                                <option value="{{$tiposmarcas->Id}}">
+                                    {{$tiposmarcas->Nombre}}
+                                </option>
+				    		  
+				    	    @endforeach
+        </select>
+
+
+				</div>
+
+	      <div class="modal-body">
+				<input type="text" onkeypress="return soloLetras(event)" name="Nombre" class="form-control" id="Nombre" value="{{ old('Nombre') }}" placeholder="Cooperativa.." required>
+				</div>
+				
+				
+				
+	      <div class="modal-footer">
+	        <button type="button"  class="btn btn-default" data-dismiss="modal">Cerrar</button>
+	        <button type="submit" class="btn btn-primary">Guardar</button>
+	      </div>
+      </form>
+
+				
+
+    </div>
+  </div>
+</div>
+<!-- fin modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModal3Label">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">       
+        <h4 id="myModal3Label">Agregar estado</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+
+			
+		<form action="{{ url('/insertarProdEstado') }}" method="post">
+      		{{csrf_field()}}
+	      <div class="modal-body">
+				<input type="text" onkeypress="return soloLetras(event)" name="Nombre" class="form-control" id="Nombre" value="{{ old('Nombre') }}" placeholder="Nombre.." required>
+				</div>
+				
+	      <div class="modal-footer">
+	        <button type="button"  class="btn btn-default" data-dismiss="modal">Cerrar</button>
+	        <button type="submit" class="btn btn-primary">Guardar</button>
+	      </div>
+      </form>
+				
+    </div>
+  </div>
+</div>
+<!-- fin modal -->
+
+
+
+ @endsection
+
