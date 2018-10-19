@@ -84,9 +84,17 @@ class RolesController extends Controller
     } 
 
     public function delete($id){
-		Rol::where('Id',$id)
-		->delete();
-		return redirect('/roles')->with('info','Registro borrado correctamente!');
+        try{
+
+			Rol::where('Id',$id)
+		    ->delete();
+			return redirect('/roles')->with('info','Registro eliminado correctamente!');
+	
+			}catch(\Illuminate\Database\QueryException $e){
+		  
+			return redirect('/roles')->with('info','Error: No se puede eliminar el registro!');
+				
+			}
     } 
 
 }

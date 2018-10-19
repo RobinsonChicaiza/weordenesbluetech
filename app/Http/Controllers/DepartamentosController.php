@@ -50,8 +50,16 @@ class DepartamentosController extends Controller
 
 
     public function delete($id){
-		Departamento::where('Id',$id)
-		->delete();
-		return redirect('/departamentos')->with('info','Registro borrado correctamente!');
+		try{
+
+			Departamento::where('Id',$id)
+			->delete();
+			return redirect('/departamentos')->with('info','Registro borrado correctamente!');
+	
+			}catch(\Illuminate\Database\QueryException $e){
+		  
+			return redirect('/departamentos')->with('info','Error: No se puede eliminar el registro!');
+				
+			}
     } 
 }

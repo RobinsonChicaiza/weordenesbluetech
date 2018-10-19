@@ -139,9 +139,17 @@ class BusesController extends Controller
 
 
     public function delete($id){
-		Bus::where('Id',$id)
-		->delete();
-		return redirect('/buses')->with('info','Registro borrado correctamente!');
+        try{
+
+			Bus::where('Id',$id)
+		    ->delete();
+			return redirect('/buses')->with('info','Registro borrado correctamente!');
+	
+			}catch(\Illuminate\Database\QueryException $e){
+		  
+			return redirect('/buses')->with('info','Error: No se puede eliminar el registro!');
+				
+			}
     } 
 
 }

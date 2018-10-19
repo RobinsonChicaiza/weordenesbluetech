@@ -76,9 +76,17 @@ class CantonesController extends Controller
 
 
     public function delete($id){
-		Canton::where('Id',$id)
-		->delete();
-		return redirect('/cantones')->with('info','Article Deleted Successfully!');
+        try{
+
+			Canton::where('Id',$id)
+		    ->delete();
+			return redirect('/cantones')->with('info','Registro borrado correctamente!');
+	
+			}catch(\Illuminate\Database\QueryException $e){
+		  
+			return redirect('/cantones')->with('info','Error: No se puede eliminar el registro!');
+				
+			}
     } 
 
 }

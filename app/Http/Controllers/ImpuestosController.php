@@ -51,8 +51,16 @@ class ImpuestosController extends Controller
 
 
     public function delete($id){
-		Impuesto::where('Id',$id)
-		->delete();
-		return redirect('/impuestos')->with('info','Registro borrado correctamente!');
+		try{
+
+			Impuesto::where('Id',$id)
+			->delete();
+			return redirect('/impuestos')->with('info','Registro borrado correctamente!');
+	
+			}catch(\Illuminate\Database\QueryException $e){
+		  
+			return redirect('/impuestos')->with('info','Error: No se puede eliminar el registro!');
+				
+			}
     } 
 }

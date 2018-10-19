@@ -74,9 +74,17 @@ class ProvinciasController extends Controller
 
 
     public function delete($id){
-		Provincia::where('Id',$id)
-		->delete();
-		return redirect('/provincias')->with('info','Registro borrado correctamente!');
+        try{
+
+			Provincia::where('Id',$id)
+			->delete();
+			return redirect('/provincias')->with('info','Registro borrado correctamente!');
+	
+			}catch(\Illuminate\Database\QueryException $e){
+		  
+			return redirect('/provincias')->with('info','Error: No se puede eliminar el registro!');
+				
+			}
     } 
 
 }

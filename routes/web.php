@@ -90,7 +90,7 @@ Route::post('/insertR','RolesController@add');
 Route::get('/actualizarR/{id}','RolesController@update');
 Route::post('/editR/{id}','RolesController@edit');
 Route::post('/insertarRolDepartamento','RolesController@addDepartamento');
-
+Route::get('/borrarR/{id}','RolesController@delete');
 
 
 //Rutas para el CRUD  de la tabla Buses

@@ -51,8 +51,16 @@ class EstadosController extends Controller
 
 
     public function delete($id){
-		Estado::where('Id',$id)
-		->delete();
-		return redirect('/estados')->with('info','Registro borrado correctamente!');
+		try{
+
+			Estado::where('Id',$id)
+			->delete();
+			return redirect('/estados')->with('info','Registro borrado correctamente!');
+	
+			}catch(\Illuminate\Database\QueryException $e){
+		  
+			return redirect('/estados')->with('info','Error: No se puede eliminar el registro!');
+				
+			}
     } 
 }

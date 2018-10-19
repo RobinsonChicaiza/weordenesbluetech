@@ -58,9 +58,16 @@ class CooperativasController extends Controller
 
 
     public function delete($id){
-		Cooperativa::where('Id',$id)
-		->delete();
-		return redirect('/cooperativas')->with('info','Registro borrado correctamente!');
-		
+		try{
+
+			Cooperativa::where('Id',$id)
+		   ->delete();
+			return redirect('/cooperativas')->with('info','Registro borrado correctamente!');
+	
+			}catch(\Illuminate\Database\QueryException $e){
+		  
+			return redirect('/cooperativas')->with('info','Error: No se puede eliminar el registro!');
+				
+			}
     } 
 }
