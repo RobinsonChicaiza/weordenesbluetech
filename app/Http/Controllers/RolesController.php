@@ -46,7 +46,7 @@ class RolesController extends Controller
         $articles->Nombre = $request->input('Nombre');
         $articles->Sueldo = $request->input('Sueldo');
     	$articles->save();
-    	return redirect('/roles')->with('info','Departamento agregado correctamente!');
+    	return redirect('/roles')->with('info','Registro agregado correctamente!');
     } 
 
     public function addDepartamento(Request $request){
@@ -57,7 +57,7 @@ class RolesController extends Controller
     	$articles = new Departamento;
     	$articles->Nombre = $request->input('Nombre');
     	$articles->save();
-    	return redirect('/agregarR')->with('info','Departamento agregado correctamente!');
+    	return redirect('/agregarR')->with('info','Registro agregado correctamente!');
     } 
 
     public function update($id){
@@ -80,13 +80,13 @@ class RolesController extends Controller
     		'Sueldo' => $request->input('Sueldo')
     	);
     	Rol::where('Id',$id)->update($data);
-    	return redirect('/roles')->with('info','El dato fue actualizado correctamente!');
+    	return redirect('/roles')->with('info','Registro actualizado correctamente!');
     } 
 
     public function delete($id){
 		Rol::where('Id',$id)
 		->delete();
-		return redirect('/roles')->with('info','Article Deleted Successfully!');
+		return redirect('/roles')->with('info','Registro borrado correctamente!');
     } 
 
 }

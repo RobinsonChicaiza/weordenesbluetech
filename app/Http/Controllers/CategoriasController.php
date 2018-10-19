@@ -65,7 +65,7 @@ class CategoriasController extends Controller
         $articles->Id_Proveedor = $request->input('Id_Proveedor');
         $articles->Id_Estado = $request->input('Id_Estado');
     	$articles->save();
-    	return redirect('/categorias')->with('info','Article Saved Successfully!');
+    	return redirect('/categorias')->with('info','Registro agregado correctamente!');
     } 
 
     public function update($id){
@@ -96,14 +96,14 @@ class CategoriasController extends Controller
             'Id_Estado' => $request->input('Id_Estado')
     	);
     	Categoria::where('Id',$id)->update($data);
-    	return redirect('/categorias')->with('info','El dato fue actualizado correctamente!');
+    	return redirect('/categorias')->with('info','Registro actualizado correctamente!');
     } 
 
 
     public function delete($id){
 		Categoria::where('Id',$id)
 		->delete();
-		return redirect('/categorias')->with('info','Article Deleted Successfully!');
+		return redirect('/categorias')->with('info','Registro borrado correctamente!');
     } 
 
 }

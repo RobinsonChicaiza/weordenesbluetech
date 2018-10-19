@@ -28,7 +28,7 @@ class DepartamentosController extends Controller
     	$articles = new Departamento;
     	$articles->Nombre = $request->input('Nombre');
     	$articles->save();
-    	return redirect('/departamentos')->with('info','Article Saved Successfully!');
+    	return redirect('/departamentos')->with('info','Registro agregado correctamente!');
     } 
 
     public function update($id){
@@ -45,13 +45,13 @@ class DepartamentosController extends Controller
     	);
     	Departamento::where('Id',$id)
     	->update($data);
-    	return redirect('/departamentos')->with('info','Article Updated Successfully!');
+    	return redirect('/departamentos')->with('info','Registro actualizado correctamente!');
     } 
 
 
     public function delete($id){
 		Departamento::where('Id',$id)
 		->delete();
-		return redirect('/departamentos')->with('info','Article Deleted Successfully!');
+		return redirect('/departamentos')->with('info','Registro borrado correctamente!');
     } 
 }

@@ -30,7 +30,7 @@ class CooperativasController extends Controller
     	$articles->Nombre = $request->input('Nombre');
     	$articles->Ruc = $request->input('Ruc');
     	$articles->save();
-    	return redirect('/cooperativas')->with('info','El dato fue agregado correctamente!');
+    	return redirect('/cooperativas')->with('info','Registro agregado correctamente!');
     } 
 
     public function update($id){
@@ -53,14 +53,14 @@ class CooperativasController extends Controller
     		'Ruc' => $request->input('Ruc')
     	);
     	Cooperativa::where('Id',$id)->update($data);
-    	return redirect('/cooperativas')->with('info','El dato fue actualizado correctamente!');
+    	return redirect('/cooperativas')->with('info','Registro actualizado correctamente!');
     } 
 
 
     public function delete($id){
 		Cooperativa::where('Id',$id)
 		->delete();
-		return redirect('/cooperativas')->with('info','El dato fue eliminado correctamente!');
+		return redirect('/cooperativas')->with('info','Registro borrado correctamente!');
 		
     } 
 }
