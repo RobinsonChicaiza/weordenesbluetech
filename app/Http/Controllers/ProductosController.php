@@ -104,7 +104,7 @@ class ProductosController extends Controller
         $articles->Descripcion = $request->input('Descripcion');
         $articles->Id_Categoria = $request->input('Id_Categoria');
     	$articles->save();
-    	return redirect('/productos')->with('info','Article Saved Successfully!');
+    	return redirect('/productos')->with('info','El registro fue agregado correctamente');
     }
     
     
@@ -116,7 +116,7 @@ class ProductosController extends Controller
         $articles = new Impuesto;
         $articles->IVA = $request->input('IVA');
     	$articles->save();
-    	return redirect('/agregarProd')->with('info','El dato fue agregado correctamente!');
+    	return redirect('/agregarProd')->with('info','El registro fue agregado correctamente!');
     } 
 
    
@@ -130,7 +130,7 @@ class ProductosController extends Controller
         $articles->Id_Tipo = $request->input('Id_Tipo');
         $articles->Nombre = $request->input('Nombre');
     	$articles->save();
-    	return redirect('/agregarProd')->with('info','Article Saved Successfully!');
+    	return redirect('/agregarProd')->with('info','El registro fue agregado correctamente');
     }
 
     public function addEstadoProducto(Request $request){
@@ -204,9 +204,18 @@ class ProductosController extends Controller
 
 
     public function delete($id){
-		Producto::where('Id',$id)
+        try{
+
+        Producto::where('Id',$id)
 		->delete();
-		return redirect('/productos')->with('info','Article Deleted Successfully!');
+		return redirect('/productos')->with('info','Registro agregado correctamente!');
+
+        }catch(\Illuminate\Database\QueryException $e){
+      
+		return redirect('/productos')->with('info','Error: No se puede eliminar el registro!');
+            
+        }
+		
     } 
 
 }

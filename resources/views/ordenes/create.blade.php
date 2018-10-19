@@ -62,6 +62,7 @@
                     <label>Producto</label>
 
                     <select class="form-control selectpicker" name="pidproducto" id="pidproducto" data-live-search="true">
+                    <option selected="true" disabled="disabled">Seleccione el estado</option>
                         @foreach($productos as $produc)
                         <option value="{{$produc->Id}}_{{$produc->Precio}}_{{$produc->IVA}}">
                             {{ $produc->Nombre }}

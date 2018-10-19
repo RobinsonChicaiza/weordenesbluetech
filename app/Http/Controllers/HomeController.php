@@ -28,6 +28,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        try{
         
         $correo = Cookie::get('Cookie1');
    
@@ -40,6 +41,11 @@ class HomeController extends Controller
         $image = $imagen['imagen'];
       
         return view('home')->with(['persona' => $persona, 'image'=>$image, 'referencia1' => $referencia1, 'referencia2' => $referencia2]);
+        }catch(\Illuminate\Database\QueryException $e){
+      
+            return redirect('/exepcion');
+                
+        }
         //return $correo;
     }
 }

@@ -36,7 +36,9 @@ Route::post('/buscarPersona/{id}','ReferenciaController@buscarCedula');
 //Route::get('/registroUsuarioSocial', 'LoginController@mostrarRegistro');
 //Route::get('/registroUsuarioSocial','LoginController@encripPass');
 Route::resource('/ordenes','OrdenController');
-
+Route::get('/exepcion', function(){
+	return view('error.index');
+});
 
 //Rutas para el CRUD  de la tabla Cooperativas
 Route::get('/cooperativas','CooperativasController@index');
