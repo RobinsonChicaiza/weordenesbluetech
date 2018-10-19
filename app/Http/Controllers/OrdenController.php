@@ -32,12 +32,13 @@ class OrdenController extends Controller
             // Consulta a la base de datos y uso de join para el detalle de la orden
 
             $ordenes=DB::table('ordenes as o')
-            ->join('personas as p','o.Id_Cliente','=','p.id')
+            ->join('personas as p','o.Id_Cliente','=','p.Id')
             ->join('detalleOrdenes as do','o.Id','=','do.Id_Orden')
             ->join('estados as e','o.Id_Estado','=','e.Id')
             ->select('o.Id','o.N_Orden','p.Nombres','o.Fecha_Inicio',
                     'o.Fecha_Finalizacion','e.Nombre','o.Precio_Total') 
             ->where('o.N_Orden','LIKE','%'.$query.'%')
+            ->Where('o.Id_Estado', '<>',2)
             ->orderby('o.Id','asc')
             ->groupBy('o.Id','o.N_Orden','p.Nombres','o.Fecha_Inicio',
                         'o.Fecha_Finalizacion','e.Nombre','o.Precio_Total')
@@ -49,9 +50,11 @@ class OrdenController extends Controller
     }
 
     public function create(){
-        $productos=DB::table('productos as pr')     
-            ->select(DB::raw('CONCAT(pr.Id," ",pr.Nombre) AS Nombre'),'pr.Id') 
-            ->where('pr.Id_Estado','=',1)            
+        $productos=DB::table('productos as pr')   
+            ->join('impuestos as i','pr.Id_Impuestos','=','i.Id')  
+            ->select(DB::raw('CONCAT(pr.Id," ",pr.Nombre) AS Nombre'),'pr.Id','pr.Precio','i.IVA') 
+            ->where('pr.Id_Estado','=',1)  
+            ->groupBy('Nombre','pr.Id','pr.Precio','i.IVA')          
             ->get();
             
             $id=Auth::user()->Id_Persona;  
@@ -87,11 +90,15 @@ class OrdenController extends Controller
                 'Fecha_Inicio' => $miFecha->toDateTimeString(),
                 'Fecha_Finalizacion' => $miFecha->toDateTimeString(),
                 'Fecha_Servidor' => $miFecha->toDateTimeString(),
+                'Precio_Total' => $request->input('totalEn'),
+                'IVA' => $request->input('ivaT'),
             ]);
    
             $idProucto=$request->input('idproducto');
             $cantidad=$request->input('cantidad');
             $precio=$request->input('precio');
+            $iva=$request->input('iva');           
+
 
             $cont = 0;
 
@@ -102,6 +109,7 @@ class OrdenController extends Controller
                 $detalle->Cantidad=$cantidad[$cont];
                 $detalle->PVP=$precio[$cont];
                 $detalle->SubTotal=$cantidad[$cont]*$precio[$cont];
+                $detalle->ValorIva=$iva[$cont];
                 $detalle->save();
                 $cont=$cont+1;
             }
@@ -113,8 +121,37 @@ class OrdenController extends Controller
         return redirect('ordenes');
     }
    
-    public function show(){
+    public function show($id){
+
+        $ordenes=DB::table('ordenes as o')
+        ->join('personas as p','o.Id_Cliente','=','p.Id')               
+        ->select('p.Nombres','p.Ci','p.Telefono','o.Precio_Total','o.IVA') 
+        ->where('o.Id','=',$id)        
+        // ->groupBy('p.Nombres','p.Ci','p.Telefono','o.Precio_Total','o.IVA')
+        ->first(); 
         
+        $detalle=DB::table('detalleordenes as de')
+        ->join('productos as p','de.Id_Producto','=','p.Id')               
+        ->select('p.Nombre','de.Cantidad','de.PVP','de.ValorIva','de.SubTotal') 
+        ->where('de.Id_Orden','=',$id)              
+        // ->groupBy('p.Nombre','de.Cantidad','de.Precio','de.ValorIva','de.SubTotal')
+        ->get(); 
+        $subT=null;       
+        foreach($detalle->all() as $dato){
+          $subT=$subT+$dato->SubTotal;
+        }
+        return view('ordenes.show',["ordenes"=>$ordenes, "detalle"=>$detalle, "subT"=>$subT]);
+
+    }
+
+    public function destroy($id){
+      
+        $data = array(
+			'Id_Estado' => 2    		
+    	);
+        Orden::where('Id',$id)->update($data);
+
+        return redirect('ordenes');
     }
 
     

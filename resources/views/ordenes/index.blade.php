@@ -44,12 +44,12 @@
                             <td>{{ $dato->Nombre }}</td>
 							<td>{{ $dato->Precio_Total }}</td>
                             <td class="text-center">
-								<a href='{{ url("#") }}'><img src="imagenes/actu.png"></a> |
-								<a href='{{ url("#") }}' onclick="return confirm('Esta seguro que desea eliminar el dato?');"><img src="imagenes/elim.png"></a> 
-							</td>
-                            
+								<a href="{{ url('ordenes',array($dato->Id)) }}"><img src="imagenes/actu.png"></a> |
+								<a href='{{ url("#") }}' data-target="#modal-delete-{{$dato->Id }}" data-toggle="modal"><img src="imagenes/elim.png"></a> 
+							</td>                            
 							
 						</tr>
+                        @include('ordenes.modal')
 						@endforeach
 					@endif
                     </table>

@@ -63,7 +63,7 @@
 
                     <select class="form-control selectpicker" name="pidproducto" id="pidproducto" data-live-search="true">
                         @foreach($productos as $produc)
-                        <option value="{{$produc->Id}}">
+                        <option value="{{$produc->Id}}_{{$produc->Precio}}_{{$produc->IVA}}">
                             {{ $produc->Nombre }}
                         </option>
 
@@ -74,9 +74,10 @@
 
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div class="form-group">
-                    <label>Precio Unitario:</label>
+                    <label>Precio:</label>
                     <input id="pprecio" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
-                        name="pprecio">
+                        name="pprecio" readonly>
+                    <input type="hidden" name="totalEn" id="totalEn">
 
                 </div>
             </div>
@@ -86,6 +87,8 @@
                     <label>Cantidad:</label>
                     <input id="pcantidad" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
                         name="pcantidad">
+                    <input type="hidden" name="ivaT" id="ivaT">
+
 
                 </div>
             </div>
@@ -111,44 +114,54 @@
                             <th>Producto</th>
                             <th>Cantidad</th>
                             <th>Precio</th>
+                            <th>Iva</th>
                             <th>Sub total</th>
 
 
                         </thead>
-                        <tbody></tbody>
+                        <tbody>
 
+                        </tbody>
                         <tfoot>
                             <th></th>
-                            <th></th>
-                            <th></th>
-                            <th>Sub Total</th>
-                            <th>
-                                <h4 id="subT">S/ . 0.00</h4>
-                            </th>
-
-                        </tfoot>
-                        <tfoot>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th>IVA</th>
-                            <th>
-                                <h4 id="iva">S/ . 0.00</h4>
-                            </th>
-
-                        </tfoot>
-                        <tfoot>
                             <th></th>
                             <th></th>
                             <th></th>
                             <th>Total</th>
                             <th>
-                                <h4 id="total">S/ . 0.00</h4>
+                                <h4 id="total">
+
+                                    $ . 0.00
+                                </h4>
+                            </th>
+
+                        </tfoot>
+                        <tfoot>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th>Sub Total</th>
+                            <th>
+                                <h4 id="subT">$ . 0.00</h4>
+                            </th>
+
+                        </tfoot>
+                        <tfoot>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th>IVA</th>
+                            <th>
+                                <h4 id="iva">$ . 0.00</h4>
                             </th>
 
                         </tfoot>
 
-                        
+
+
+
 
                     </table>
                 </div>
@@ -158,7 +171,7 @@
                 <div class="form-group">
                     <input name="_token" type="hidden" value="{{ csrf_token() }}">
                     <button type="submit" class="btn btn-primary" id="guardar">Guardar</button>
-                    <button type="button" class="btn btn-danger">Cancelar</button>
+                    <a href="{{ url('ordenes') }}" class="btn btn-danger">Cancelar</a>
 
                 </div>
             </div>
@@ -178,25 +191,41 @@
 
     var cont = 0;
     total = 0;
+    sumaSubT = 0;
     subtotal = [];
     idProductos = [];
     aux = 0;
+    iva = 0;
+    arrayIva = [];
+    sumaIva = 0;
+
 
     $("#guardar").hide();
+    $("#pidproducto").change(mostrarValores);
+
+    function mostrarValores() {
+        datosProducto = document.getElementById('pidproducto').value.split('_');
+        $("#pprecio").val(datosProducto[1]);
+        iva = datosProducto[2];
+        idProducto = datosProducto[0];
+    }
 
     function agregar() {
-        idProducto = $("#pidproducto").val();
+
+        datosProducto = document.getElementById('pidproducto').value.split('_');
+        idProducto = datosProducto[0];
+        // alert();
         producto = $("#pidproducto option:selected").text();
         cantidad = $("#pcantidad").val();
         precio = $("#pprecio").val();
 
-        idProductos[cont] = idProducto; 
+        idProductos[cont] = idProducto;
 
 
-   
+
         if (cont != 0) {
-            
-            for (var i = 0; i < idProductos.length-1; i++) {
+
+            for (var i = 0; i < idProductos.length - 1; i++) {
                 if (idProductos[i] != idProducto) {
                     aux = 1;
 
@@ -207,54 +236,79 @@
             }
 
             if (aux != 0) {
-            if (idProducto != "" && cantidad != "" && cantidad > 0 && precio != "") {
-            subtotal[cont] = (cantidad * precio);
-            total = total + subtotal[cont];
+                if (idProducto != "" && cantidad != "" && cantidad > 0 && precio != "") {
+                    subtotal[cont] = (cantidad * precio);
+                    sumaSubT = sumaSubT + subtotal[cont];
 
-            var fila = '<tr class="selected" id="fila' + cont +
-                '"><td><button type="button" class="btn btn-warning" onclick="eliminar(' + cont +
-                ');">X</button></td><td><input type="hidden" name="idproducto[]" value="' + idProducto + '">' +
-                producto +
-                '</td><td><input type="text" name="cantidad[]" class="form-control" maxlength="3" onkeypress="return soloNumeros(event)" value="' + cantidad +
-                '"></td><td><input type="text" name="precio[]" class="form-control" value="' + precio + '" readonly></td><td>' + subtotal[cont] +
-                '</td></tr>';
-            cont++;
-            limpiar();
-            $("#total").html("S/." + total);
-            evaluar();
-            $("#detalles").append(fila);
+                    arrayIva[cont] = ((cantidad * precio) * iva) / 100;
+                    sumaIva = sumaIva + arrayIva[cont];
 
-        } else {
-            alert('Por favor llene los campos');
-        }
-            }else{
+                    total = sumaSubT + sumaIva;
+
+                    var fila = '<tr class="selected" id="fila' + cont +
+                        '"><td><button type="button" class="btn btn-warning" onclick="eliminar(' + cont +
+                        ');">X</button></td><td><input type="hidden" name="idproducto[]" value="' + idProducto + '">' +
+                        producto +
+                        '</td><td><input type="text" name="cantidad[]" class="form-control" maxlength="3" onkeypress="return soloNumeros(event)" value="' +
+                        cantidad +
+                        '"></td><td><input type="text" name="precio[]" class="form-control" value="' + precio +
+                        '" readonly></td><td><input type="text" name="iva[]" class="form-control" value="' +
+                        arrayIva[cont] + '" readonly></td><td>' + subtotal[cont] + '</td></tr>';
+                    cont++;
+                    limpiar();
+                    $("#total").html("$." + total);
+                    $("#iva").html("$." + sumaIva);
+                    $("#subT").html("$." + sumaSubT);
+                    evaluar();
+                    $("#totalEn").val(total);
+                    $("#ivaT").val(sumaIva);
+
+                    $("#detalles").append(fila);
+
+                } else {
+                    alert('Por favor llene los campos');
+                }
+            } else {
                 alert('El producto ya se encuentra registrado.');
 
             }
 
-        } else{
-        
-
-        if (idProducto != "" && cantidad != "" && cantidad > 0 && precio != "") {
-            subtotal[cont] = (cantidad * precio);
-            total = total + subtotal[cont];
-
-            var fila = '<tr class="selected" id="fila' + cont +
-                '"><td><button type="button" class="btn btn-warning" onclick="eliminar(' + cont +
-                ');">X</button></td><td><input type="hidden" name="idproducto[]" value="' + idProducto + '">' +
-                producto +
-                '</td><td><input type="text" name="cantidad[]" class="form-control" maxlength="3" onkeypress="return soloNumeros(event)" value="' + cantidad +
-                '"></td><td><input type="text" name="precio[]" class="form-control" value="' + precio + '" readonly></td><td>' + subtotal[cont] +
-                '</td></tr>';
-            cont++;
-            limpiar();
-            $("#total").html("S/." + total);
-            evaluar();
-            $("#detalles").append(fila);
-
         } else {
-            alert('Por favor llene los campos');
-        }
+
+
+            if (idProducto != "" && cantidad != "" && cantidad > 0 && precio != "") {
+                subtotal[cont] = (cantidad * precio);
+                sumaSubT = sumaSubT + subtotal[cont];
+                arrayIva[cont] = ((cantidad * precio) * iva) / 100;
+                sumaIva = sumaIva + arrayIva[cont];
+
+                total = sumaSubT + sumaIva;
+
+                var fila = '<tr class="selected" id="fila' + cont +
+                    '"><td><button type="button" class="btn btn-warning" onclick="eliminar(' + cont +
+                    ');">X</button></td><td><input type="hidden" name="idproducto[]" value="' + idProducto + '">' +
+                    producto +
+                    '</td><td><input type="text" name="cantidad[]" class="form-control" maxlength="3" onkeypress="return soloNumeros(event)" value="' +
+                    cantidad +
+                    '"></td><td><input type="text" name="precio[]" class="form-control" value="' + precio +
+                    '" readonly></td></td><td><input type="text" name="iva[]" class="form-control" value="' +
+                    arrayIva[cont] + '" readonly></td><td>' + subtotal[cont] +
+                    '</td></tr>';
+                cont++;
+                limpiar();
+                $("#total").html("$." + total);
+                $("#iva").html("$." + sumaIva);
+                $("#subT").html("$." + sumaSubT);
+                evaluar();
+
+                $("#totalEn").val(total);
+                $("#ivaT").val(sumaIva);
+
+                $("#detalles").append(fila);
+
+            } else {
+                alert('Por favor llene los campos');
+            }
 
         }
     }
@@ -275,10 +329,17 @@
     }
 
     function eliminar(index) {
-        idProductos.splice(index, 1);
 
-        total = total - subtotal[index];
-        $("#total").html("S/." + total);
+        idProductos.splice(index, 1);
+        // 6 50
+        total = total - arrayIva[index] - subtotal[index];
+        sumaSubT = sumaSubT - subtotal[index];
+        sumaIva = sumaIva - arrayIva[index]
+        $("#total").html("$." + total);
+        $("#subT").html("$." + sumaSubT);
+        $("#iva").html("$." + sumaIva);
+        $("#totalEn").val(total);
+        $("#ivaT").val(sumaIva);
         $("#fila" + index).remove();
 
     }
