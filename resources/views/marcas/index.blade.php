@@ -16,7 +16,7 @@
 					@endif
 					<div class="table-responsive">
 					
-			<table class="table table-striped table-hover">
+					<table class="table table-striped table-bordered table-condensed table-hover">
 				<thead>
 					<tr>
 						<th>ID</th>
