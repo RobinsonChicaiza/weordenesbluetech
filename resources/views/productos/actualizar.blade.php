@@ -101,20 +101,21 @@
                     <div class="form-group row">
 				      <label for="exampleInputEmail1" class="col-md-4 col-form-label text-md-right">Nombre</label>
 				      <div class="col-md-6">
-				      	<input type="text" onkeypress="return soloNumeros(event)" name="Nombre" class="form-control" id="Nombre" placeholder="Nombre" value="<?php echo $productos->Nombre; ?>">
+				      	<input type="text" onkeypress="return soloLetras(event)" name="Nombre" class="form-control" id="Nombre" placeholder="Nombre" value="<?php echo $productos->Nombre; ?>">
 				      </div>
 				 	</div>
 
 				    <div class="form-group row">
 				      <label for="exampleInputEmail1" class="col-md-4 col-form-label text-md-right">Precio</label>
 				      <div class="col-md-6">
-				      	<input type="text" name="Precio" class="form-control" id="Precio" placeholder="Precio" value="<?php echo $productos->Precio; ?>">
+				      	<input type="text" name="Precio" class="form-control" id="Precio" placeholder="Precio" 
+						  onkeypress="return Decimales(event)" value="<?php echo $productos->Precio; ?>">
 				      </div>
 				 	</div>
 				 	<div class="form-group row">
 				      <label for="exampleInputEmail1" class="col-md-4 col-form-label text-md-right">PrecioCompra</label>
 				      <div class="col-md-6">
-					  <input type="text" onkeypress="return soloNumeros(event)" name="PrecioCompra" class="form-control" id="PrecioCompra" placeholder="PrecioCompra" value="<?php echo $productos->PrecioCompra; ?>">
+					  <input type="text" onkeypress="return Decimales(event)" name="PrecioCompra" class="form-control" id="PrecioCompra" placeholder="PrecioCompra" value="<?php echo $productos->PrecioCompra; ?>">
 	
 				      	</textarea>
 				      </div>
