@@ -8,15 +8,12 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use App\Orden;
 use App\DetalleOrden;
-use App\Producto;
 
 use DB;
 
 use Carbon\Carbon;
 use Response;
 use Illuminate\Support\Collection;
-use App\Persona;
-
 
 
 class OrdenController extends Controller
@@ -41,7 +38,7 @@ class OrdenController extends Controller
             ->select('o.Id','o.N_Orden','p.Nombres','o.Fecha_Inicio',
                     'o.Fecha_Finalizacion','e.Nombre','o.Precio_Total') 
             ->where('o.N_Orden','LIKE','%'.$query.'%')
-            ->orderby('o.Id','desc')
+            ->orderby('o.Id','asc')
             ->groupBy('o.Id','o.N_Orden','p.Nombres','o.Fecha_Inicio',
                         'o.Fecha_Finalizacion','e.Nombre','o.Precio_Total')
             ->paginate(7);           
@@ -70,7 +67,7 @@ class OrdenController extends Controller
     public function store(Request $request){
         
         $Norden=null;
-        $arrayOrden1 = Orden::select('Id')->orderby('created_at','DESC')->first();
+        $arrayOrden1 = Orden::select('Id')->orderby('Id','DESC')->first();
         $idOrden1=$arrayOrden1['Id'];
         if(empty($idOrden1)){            
             $Norden='000-1';
@@ -82,14 +79,7 @@ class OrdenController extends Controller
         try{     
             $miFecha=Carbon::now('America/Guayaquil');
             DB::beginTransaction();           
-            $orden=new Orden();
-            $orden->N_Orden=$Norden;
-            $orden->Id_Cliente=$id;
-            $orden->Id_Estado=5;
-            $orden->Fecha_Inicio=$miFecha->toDateTimeString();
-            $orden->Fecha_Finalizacion=$miFecha->toDateTimeString();           
-            $orden->Fecha_Servidor=$miFecha->toDateTimeString();
-            //$orden->Precio_Total=$request->input('Precio_Total');
+            
             $idOr = DB::table('ordenes')->insertGetId([
                 'N_Orden' => $Norden,
                 'Id_Cliente' => $id,
@@ -102,7 +92,6 @@ class OrdenController extends Controller
             $idProucto=$request->input('idproducto');
             $cantidad=$request->input('cantidad');
             $precio=$request->input('precio');
-            //$subTotal=$request->input('SubTotal');
 
             $cont = 0;
 
