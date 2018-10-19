@@ -29,7 +29,7 @@ class RegionesController extends Controller
     	$articles = new Region;
     	$articles->Nombre = $request->input('Nombre');
     	$articles->save();
-    	return redirect('/regiones')->with('info','Article Saved Successfully!');
+    	return redirect('/regiones')->with('info','Registro agregado correctamente!');
     } 
 
     public function update($id){
@@ -46,13 +46,13 @@ class RegionesController extends Controller
     	);
     	Region::where('Id',$id)
     	->update($data);
-    	return redirect('/regiones')->with('info','Article Updated Successfully!');
+    	return redirect('/regiones')->with('info','Registro actualizado correctamente!');
     } 
 
 
     public function delete($id){
 		Region::where('Id',$id)
 		->delete();
-		return redirect('/regiones')->with('info','Article Deleted Successfully!');
+		return redirect('/regiones')->with('info','Registro eliminado correctamente!');
     } 
 }

@@ -29,7 +29,7 @@ class ImpuestosController extends Controller
     	$articles = new Impuesto;
     	$articles->IVA = $request->input('IVA');
     	$articles->save();
-    	return redirect('/impuestos')->with('info','Article Saved Successfully!');
+    	return redirect('/impuestos')->with('info','Registro agregado correctamente!');
     } 
 
     public function update($id){
@@ -46,13 +46,13 @@ class ImpuestosController extends Controller
     	);
     	Impuesto::where('Id',$id)
     	->update($data);
-    	return redirect('/impuestos')->with('info','Article Updated Successfully!');
+    	return redirect('/impuestos')->with('info','Registro actualizado correctamente!');
     } 
 
 
     public function delete($id){
 		Impuesto::where('Id',$id)
 		->delete();
-		return redirect('/impuestos')->with('info','Article Deleted Successfully!');
+		return redirect('/impuestos')->with('info','Registro borrado correctamente!');
     } 
 }

@@ -48,7 +48,7 @@ class MarcasController extends Controller
         $articles->Id_Tipo = $request->input('Id_Tipo');
         $articles->Nombre = $request->input('Nombre');
     	$articles->save();
-    	return redirect('/marcas')->with('info','Article Saved Successfully!');
+    	return redirect('/marcas')->with('info','Registro agregado correctamente!');
     } 
 
     public function addTipoMarcas(Request $request){
@@ -59,7 +59,7 @@ class MarcasController extends Controller
     	$articles = new Tipomarca;
     	$articles->Nombre = $request->input('Nombre');
     	$articles->save();
-    	return redirect('/agregarMa')->with('info','Article Saved Successfully!');
+    	return redirect('/agregarMa')->with('info','Registro agregado correctamente!');
     } 
 
 
@@ -82,14 +82,14 @@ class MarcasController extends Controller
 			'Nombre' => $request->input('Nombre')
     	);
     	Marca::where('Id',$id)->update($data);
-    	return redirect('/marcas')->with('info','El dato fue actualizado correctamente!');
+    	return redirect('/marcas')->with('info','Registro actualizado correctamente!');
     } 
 
 
     public function delete($id){
 		Marca::where('Id',$id)
 		->delete();
-		return redirect('/marcas')->with('info','Article Deleted Successfully!');
+		return redirect('/marcas')->with('info','Registro borrado correctamente!');
     } 
 
 }

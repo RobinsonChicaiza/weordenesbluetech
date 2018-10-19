@@ -48,7 +48,7 @@ class ProvinciasController extends Controller
         $articles->Id_Region = $request->input('Id_Region');
         $articles->Nombre = $request->input('Nombre');
     	$articles->save();
-    	return redirect('/provincias')->with('info','Article Saved Successfully!');
+    	return redirect('/provincias')->with('info','Registro agregado correctamente!');
     } 
 
     public function update($id){
@@ -69,14 +69,14 @@ class ProvinciasController extends Controller
 			'Nombre' => $request->input('Nombre')
     	);
     	Provincia::where('Id',$id)->update($data);
-    	return redirect('/provincias')->with('info','El dato fue actualizado correctamente!');
+    	return redirect('/provincias')->with('info','Registro actualizado correctamente!');
     } 
 
 
     public function delete($id){
 		Provincia::where('Id',$id)
 		->delete();
-		return redirect('/provincias')->with('info','Article Deleted Successfully!');
+		return redirect('/provincias')->with('info','Registro borrado correctamente!');
     } 
 
 }

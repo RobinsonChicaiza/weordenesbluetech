@@ -29,7 +29,7 @@ class EstadosController extends Controller
     	$articles = new Estado;
     	$articles->Nombre = $request->input('Nombre');
     	$articles->save();
-    	return redirect('/estados')->with('info','Article Saved Successfully!');
+    	return redirect('/estados')->with('info','Registro agregado correctamente!');
     } 
 
     public function update($id){
@@ -46,13 +46,13 @@ class EstadosController extends Controller
     	);
     	Estado::where('Id',$id)
     	->update($data);
-    	return redirect('/estados')->with('info','Article Updated Successfully!');
+    	return redirect('/estados')->with('info','Registro actualizado correctamente!');
     } 
 
 
     public function delete($id){
 		Estado::where('Id',$id)
 		->delete();
-		return redirect('/estados')->with('info','Article Deleted Successfully!');
+		return redirect('/estados')->with('info','Registro borrado correctamente!');
     } 
 }

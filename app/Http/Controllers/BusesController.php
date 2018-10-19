@@ -76,7 +76,7 @@ class BusesController extends Controller
         $articles->N_Disco = $request->input('N_Disco');
         $articles->Id_Marca = $request->input('Id_Marca');
     	$articles->save();
-    	return redirect('/buses')->with('info','Article Saved Successfully!');
+    	return redirect('/buses')->with('info','Registro agregado correctamente!');
     }
     
     
@@ -90,7 +90,7 @@ class BusesController extends Controller
     	$articles->Nombre = $request->input('Nombre');
     	$articles->Ruc = $request->input('Ruc');
     	$articles->save();
-    	return redirect('/agregarB')->with('info','El dato fue agregado correctamente!');
+    	return redirect('/agregarB')->with('info','Registro agregado correctamente!');
     } 
 
     public function addMarcaBus(Request $request){
@@ -103,7 +103,7 @@ class BusesController extends Controller
         $articles->Id_Tipo = $request->input('Id_Tipo');
         $articles->Nombre = $request->input('Nombre');
     	$articles->save();
-    	return redirect('/agregarB')->with('info','Article Saved Successfully!');
+    	return redirect('/agregarB')->with('info','Registro agregado correctamente!');
     }
 
     public function update($id){
@@ -134,14 +134,14 @@ class BusesController extends Controller
             'Id_Marca' => $request->input('Id_Marca')
     	);
     	Bus::where('Id',$id)->update($data);
-    	return redirect('/buses')->with('info','El dato fue actualizado correctamente!');
+    	return redirect('/buses')->with('info','Registro actualizado correctamente!');
     } 
 
 
     public function delete($id){
 		Bus::where('Id',$id)
 		->delete();
-		return redirect('/buses')->with('info','Article Deleted Successfully!');
+		return redirect('/buses')->with('info','Registro borrado correctamente!');
     } 
 
 }

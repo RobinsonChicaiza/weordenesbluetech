@@ -28,7 +28,7 @@ class TiposmarcasController extends Controller
     	$articles = new Tipomarca;
     	$articles->Nombre = $request->input('Nombre');
     	$articles->save();
-    	return redirect('/tiposmarcas')->with('info','Article Saved Successfully!');
+    	return redirect('/tiposmarcas')->with('info','Registro agregado correctamente!');
     } 
 
     public function update($id){
@@ -45,13 +45,13 @@ class TiposmarcasController extends Controller
     	);
     	Tipomarca::where('Id',$id)
     	->update($data);
-    	return redirect('/tiposmarcas')->with('info','Article Updated Successfully!');
+    	return redirect('/tiposmarcas')->with('info','Registro actualizado correctamente!');
     } 
 
 
     public function delete($id){
 		Tipomarca::where('Id',$id)
 		->delete();
-		return redirect('/tiposmarcas')->with('info','Article Deleted Successfully!');
+		return redirect('/tiposmarcas')->with('info','Registro borrado correctamente!');
     } 
 }

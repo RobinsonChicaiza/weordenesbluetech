@@ -63,7 +63,7 @@ class RegistroBusesController extends Controller
         $articles->Id_Bus = $request->input('Id_Bus');
         $articles->Fecha_Servidor = $request->input('Fecha_Servidor');
     	$articles->save();
-    	return redirect('/registrobuses')->with('info','Article Saved Successfully!');
+    	return redirect('/registrobuses')->with('info','Registro agregado correctamente!');
     } 
 
     public function update($id){
@@ -88,13 +88,13 @@ class RegistroBusesController extends Controller
             'Fecha_Servidor' => $request->input('Fecha_Servidor')
     	);
     	RegistroBus::where('Id',$id)->update($data);
-    	return redirect('/registrobuses')->with('info','El dato fue actualizado correctamente!');
+    	return redirect('/registrobuses')->with('info','Registro actualizado correctamente!');
     } 
 
     public function delete($id){
 		RegistroBus::where('Id',$id)
 		->delete();
-		return redirect('/registrobuses')->with('info','Article Deleted Successfully!');
+		return redirect('/registrobuses')->with('info','Registro borrado correctamente!');
     } 
 
 }
