@@ -9,17 +9,12 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Bluetech') }}</title>
+    <title>{{ config('app.name', 'Bleptech') }}</title>
+    
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-select.min.css') }}">
 
-    <link rel="stylesheet" type="text/css" href="{{ url('css/bootstrap.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url('css/style.css')}}">
-
-    <script type="text/javascript" src="{{url('js/jquery-3.3.1.js')}}"></script>
-    <script type="text/javascript" src="{{url('js/bootstrap.js')}}"></script>
-
-    <script src="{{ asset('js/validaciones.js') }}"></script>
-    <script src="{{ asset('js/script.js') }}"></script>
-
 
 </head>
 
@@ -100,7 +95,7 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('factura') }}">Ordenes</a>
+                                    <a class="dropdown-item" href="{{ url('ordenes') }}">Ordenes</a>
                                     <a class="dropdown-item" href="{{ url('/')}}">Pedidos</a>
 
                                 </div>
@@ -161,8 +156,17 @@
             </footer>
         </div>
 
-
     </div>
+
+    <script type="text/javascript" src="{{ url('js/jquery-3.3.1.js') }}"></script>
+    @stack('scripts')
+    <script src="{{ asset('js/popper.js') }}"></script>
+    <script type="text/javascript" src="{{url('js/bootstrap.js')}}"></script>
+    <script src="{{ asset('js/validaciones.js') }}"></script>
+    <script src="{{ asset('js/script.js') }}"></script>    
+    <script src="{{ asset('js/bootstrap-select.min.js') }}"></script>
+
+
 
 </body>
 
