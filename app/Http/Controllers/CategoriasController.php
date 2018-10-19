@@ -101,9 +101,17 @@ class CategoriasController extends Controller
 
 
     public function delete($id){
-		Categoria::where('Id',$id)
-		->delete();
-		return redirect('/categorias')->with('info','Registro borrado correctamente!');
+        try{
+
+			Categoria::where('Id',$id)
+		    ->delete();
+			return redirect('/categorias')->with('info','Registro borrado correctamente!');
+	
+			}catch(\Illuminate\Database\QueryException $e){
+		  
+			return redirect('/categorias')->with('info','Error: No se puede eliminar el registro!');
+				
+			}
     } 
 
 }

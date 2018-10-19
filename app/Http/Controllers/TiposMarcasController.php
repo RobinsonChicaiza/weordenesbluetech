@@ -50,8 +50,16 @@ class TiposmarcasController extends Controller
 
 
     public function delete($id){
-		Tipomarca::where('Id',$id)
-		->delete();
-		return redirect('/tiposmarcas')->with('info','Registro borrado correctamente!');
+		try{
+
+			Tipomarca::where('Id',$id)
+		 	->delete();
+			return redirect('/tiposmarcas')->with('info','Registro borrado correctamente!');
+	
+			}catch(\Illuminate\Database\QueryException $e){
+		  
+			return redirect('/tiposmarcas')->with('info','Error: No se puede eliminar el registro!');
+				
+			}
     } 
 }

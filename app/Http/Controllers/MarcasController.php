@@ -87,9 +87,17 @@ class MarcasController extends Controller
 
 
     public function delete($id){
-		Marca::where('Id',$id)
-		->delete();
-		return redirect('/marcas')->with('info','Registro borrado correctamente!');
+        try{
+
+			Marca::where('Id',$id)
+		    ->delete();
+			return redirect('/marcas')->with('info','Registro borrado correctamente!');
+	
+			}catch(\Illuminate\Database\QueryException $e){
+		  
+			return redirect('/marcas')->with('info','Error: No se puede eliminar el registro!');
+				
+			}
     } 
 
 }

@@ -92,9 +92,17 @@ class RegistroBusesController extends Controller
     } 
 
     public function delete($id){
-		RegistroBus::where('Id',$id)
-		->delete();
-		return redirect('/registrobuses')->with('info','Registro borrado correctamente!');
+        try{
+
+			RegistroBus::where('Id',$id)
+		    ->delete();
+			return redirect('/registrobuses')->with('info','Registro borrado correctamente!');
+	
+			}catch(\Illuminate\Database\QueryException $e){
+		  
+			return redirect('/registrobuses')->with('info','Error: No se puede eliminar el registro!');
+				
+			}
     } 
 
 }

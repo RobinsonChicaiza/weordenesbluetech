@@ -51,8 +51,16 @@ class RegionesController extends Controller
 
 
     public function delete($id){
-		Region::where('Id',$id)
-		->delete();
-		return redirect('/regiones')->with('info','Registro eliminado correctamente!');
+		try{
+
+			Region::where('Id',$id)
+			->delete();
+			return redirect('/regiones')->with('info','Registro eliminado correctamente!');
+	
+			}catch(\Illuminate\Database\QueryException $e){
+		  
+			return redirect('/regiones')->with('info','Error: No se puede eliminar el registro!');
+				
+			}
     } 
 }
