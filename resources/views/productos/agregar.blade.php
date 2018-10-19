@@ -242,7 +242,7 @@
 
                 <div class="modal-body">
                     <input type="text" onkeypress="return soloLetras(event)" name="Nombre" class="form-control" id="Nombre"
-                        value="{{ old('Nombre') }}" placeholder="Cooperativa.." required>
+                        value="{{ old('Nombre') }}" placeholder="Nombre.." required>
                 </div>
 
 
