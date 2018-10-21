@@ -10,6 +10,8 @@ use App\Estado;
 use App\Categoria;
 use App\TipoMarca;
 use App\Persona;
+use DB;
+
 
 use Illuminate\Support\Facades\Auth;
 
@@ -81,7 +83,10 @@ class ProductosController extends Controller
         $estados = Estado::all();
         $categorias = Categoria::all();
         $tiposmarcas = TipoMarca::all();
-        $personas = Persona::all();
+        $personas = DB::table('personas as p')   
+        ->select('p.Nombres','p.Id') 
+        ->where('p.Id_Rol','=',4)  
+        ->get();
        
         return view('productos.agregar')->with(['impuest' => $impuestos, 'marc' => $marcas, 'estad' => $estados, 'categ' => $categorias, 'tipmar' => $tiposmarcas, 'pers' => $personas]);
     }

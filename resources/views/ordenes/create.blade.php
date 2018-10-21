@@ -222,8 +222,6 @@
 
         idProductos[cont] = idProducto;
 
-
-
         if (cont != 0) {
 
             for (var i = 0; i < idProductos.length - 1; i++) {

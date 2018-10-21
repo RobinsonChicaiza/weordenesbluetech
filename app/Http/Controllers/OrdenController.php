@@ -25,7 +25,7 @@ class OrdenController extends Controller
  
     public function index(Request $request){
         
-        if($request){
+        if($request){ 
             //Borar espacios tanto al inicio como al final
             $query=trim($request->get('searchText')); 
 

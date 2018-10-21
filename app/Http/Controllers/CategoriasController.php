@@ -7,6 +7,7 @@ use App\Categoria;
 use App\Persona;
 use App\Estado;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class CategoriasController extends Controller
 {
@@ -16,34 +17,35 @@ class CategoriasController extends Controller
         $this->middleware('auth');
 	}
 
-    public function index(){
-        $categorias = Categoria::paginate(5);
-        $personas = Persona::all();
-        $estados = Estado::all();
-        $array1 = null;  
-     
-        for($i = 0 ; $i < sizeof($categorias); $i++)
-        {
-          for($j = 0 ; $j < sizeof($personas); $j++){
-            if( $categorias[$i]['Id_Proveedor'] ==  $personas[$j]['Id']){
-                $categorias[$i] ['Id_Proveedor'] = $personas [$j]['Apellidos'].' '.$personas [$j]['Nombres'];
-            } 
-          }
-          
+    public function index(Request $request){
+        if($request){ 
+            //Borar espacios tanto al inicio como al final
+            $query=trim($request->get('searchText')); 
 
-          for($k = 0 ; $k < sizeof($estados); $k++){
-            if( $categorias[$i]['Id_Estado'] ==  $estados[$k]['Id']){
-                $categorias[$i] ['Id_Estado'] = $estados [$k]['Nombre'];
-            }
-          }
+            // Consulta a la base de datos y uso de join para el detalle de la orden
 
+            $categorias=DB::table('categorias as c')
+            ->join('personas as p','c.Id_Proveedor','=','p.Id')
+            ->join('estados as e','c.Id_Estado','=','e.Id')
+            ->select('c.Id','c.Nombre as Categoria','c.Descripcion','p.Nombres',
+                    'e.Nombre') 
+            ->where('c.Nombre','LIKE','%'.$query.'%')
+            ->Where('c.Id_Estado', '<>',2)
+            ->orderby('c.Id','asc')
+            ->groupBy('c.Id','c.Nombre','c.Descripcion','p.Nombres',
+                    'e.Nombre')
+            ->paginate(7);           
+            // return $categorias;
+            return view('categorias.index',["categorias"=>$categorias, "searchText"=>$query]);
         }
-		return view('categorias.index')->with(['categorias' => $categorias]);
-        
     }
 
     public function agregar(){
-        $personas = Persona::all();
+
+        $personas=DB::table('personas as p')   
+            ->select('p.Nombres','p.Id') 
+            ->where('p.Id_Rol','=',4)  
+            ->get();
         $estados = Estado::all();
 
         return view('categorias.agregar')->with(['person' => $personas, 'estad' => $estados]);
@@ -73,7 +75,10 @@ class CategoriasController extends Controller
 
         $categorias = Categoria::find($id);
         $persona = Persona::where('Id' , $categorias['Id_Proveedor'])->first();
-        $personasAll = Persona::all();
+        $personasAll=DB::table('personas as p')   
+        ->select('p.Nombres','p.Id') 
+        ->where('p.Id_Rol','=',4)  
+        ->get();
         $estado = Estado::where('Id' , $categorias['Id_Estado'])->first();
         $estadosAll = Estado::all();
         return view('categorias.actualizar')->with(['categorias' => $categorias , 'persona' => $persona , 'personasAll' => $personasAll, 'estado' => $estado , 'estadosAll' => $estadosAll]);   

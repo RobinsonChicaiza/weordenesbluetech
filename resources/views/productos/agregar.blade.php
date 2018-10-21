@@ -318,7 +318,7 @@
 					  <option selected="true" disabled="disabled">Seleccione la persona</option>
                             @foreach($pers as $persona)
                                 <option value="{{$persona->Id}}">
-                                {{$persona->Nombres}} {{$persona->Apellidos}}
+                                {{$persona->Nombres}} 
                                 </option>
 				    		  
 				    	    @endforeach

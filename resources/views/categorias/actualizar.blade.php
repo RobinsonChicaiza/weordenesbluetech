@@ -49,11 +49,11 @@
 
 					   @if( $personaAll -> Id == $categorias -> Id_Proveedor )
 					   <option selected="true" value="{{ $personaAll->Id }}">
-					   {{$personaAll->Apellidos}}{{$personaAll->Nombres}}
+					   {{$personaAll->Nombres}}
                                 </option>
 				    	@else
                                 <option value="{{ $personaAll->Id }}">
-								{{$personaAll->Apellidos}}{{$personaAll->Nombres}}
+								{{$personaAll->Nombres}}
                                 </option>
 								@endif		
 				    		  

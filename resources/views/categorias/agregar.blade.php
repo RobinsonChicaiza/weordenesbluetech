@@ -37,13 +37,13 @@
 				 	</div>
 
 					<div class="form-group row">
-				      <label for="exampleInputEmail1" class="col-md-4 col-form-label text-md-right">Persona</label>
+				      <label for="exampleInputEmail1" class="col-md-4 col-form-label text-md-right">Proveedor</label>
 				     <div class="col-md-6">
 				      	
 					  <select class="form-control" name="Id_Proveedor" class="form-group row">
                             @foreach($person as $persona)
                                 <option value="{{$persona->Id}}">
-                                    {{$persona->Nombres}} {{$persona->Apellidos}}
+                                    {{$persona->Nombres}}
                                 </option>
 				    		  
 				    	    @endforeach

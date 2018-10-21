@@ -174,6 +174,8 @@ Route::post('/insertCat','CategoriasController@add');
 Route::get('/actualizarCat/{id}','CategoriasController@update');
 Route::post('/editCat/{id}','CategoriasController@edit');
 Route::get('/borrarCat/{id}','CategoriasController@delete');
+//Route::resource('/categorias','CategoriasController');
+
 
 //Rutas para el CRUD  de la tabla Estados
 Route::get('/estados','EstadosController@index');
